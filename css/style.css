@@ -1,0 +1,31 @@
+
+* { margin: 0; padding: 0; }
+
+body {font: 14px Georgia, serif; color: #222; margin-left: auto; margin-right: auto; }
+
+#map {height: 400px; width:800px; margin-left: auto; margin-right: auto; border: 1px solid;}
+
+#tabs {
+	width: 800px;
+	margin-left: auto; margin-right: auto;
+	padding: 0px;
+	background: none;
+	border-width: 0px;
+}
+
+#tabs .ui-tabs-nav {
+	padding-left: 0px;
+	background: transparent;
+	border-width: 0px 0px 1px 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+}
+
+#tabs .ui-tabs-panel {
+	border-width: 0px 1px 1px 1px;
+}
+
+#tab1 {
+	list-style:none;
+}
