@@ -35,18 +35,9 @@
               <li class="nav-header">Sidebar</li>
               <li class="active"><a href="#">Link</a></li>
               <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
               <li class="nav-header">Sidebar</li>
               <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
               <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
               <li><a href="#">Link</a></li>
             </ul>
           </div><!--/.well -->
@@ -106,11 +97,7 @@
     </div><!--/.fluid-container-->
 
 <div id="tabs">
-	<ul>
-		<li><a href="#tab1">Додати маршрут</a></li>
-		<li><a href="#tab2">Пошук</a></li>
-		<li><a href="#tab3">Tab 2</a></li>
-	</ul>
+	
 	<div id="tab1">
 		
 		<div id="controls">
