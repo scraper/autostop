@@ -90,4 +90,6 @@
 
 <script src="js/get_route.js"></script>
 
+<script src="js/ui.js"></script>
+
 <?php include '_partials/footer.php'; ?>
