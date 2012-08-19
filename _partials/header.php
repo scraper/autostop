@@ -21,7 +21,15 @@
 	</script>
  	
 	<link rel="stylesheet" type="text/css" href="./bootstrap/assets/css/bootstrap.css">
-
+	<style type="text/css">
+      body {
+        padding-top: 41px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
 	<link rel="stylesheet" type="text/css" href="./bootstrap/assets/css/bootstrap-responsive.css">
 
 	<link rel="shortcut icon" href="./bootstrap/assets/ico/favicon.ico">
