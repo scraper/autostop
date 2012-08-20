@@ -7,8 +7,15 @@ var ui = {
 	},
 
 	styleIt: function() {
+		var today = new Date();
+		var day = today.getDate();
+		var month = today.getMonth()+1;
+		var year = today.getFullYear();
+		var date = (day + '-0' + month + '-' + year);
+		this.config.date_input.attr('Value', date);
 		this.config.date_input.datepicker({
-				format: 'mm-dd-yyyy'});
+				format: 'dd-mm-yyyy'});
+		
 		// this.config.text_inputs.uniform();
 		this.config.buttons_c.click(function(e){e.preventDefault();});
 	},

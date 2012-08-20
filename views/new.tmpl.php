@@ -12,28 +12,25 @@
 						<form class="well" action="index.php" method="post">
 							<div class="directions">
 								
-									<label id="a" for="start">З:</label>
+									<label id="a" for="start">Відправляюсь з міста:</label>
 									<input class="text_input" type="text" id="start" name="origin"/>
-									<label id="b" for="end">До:</label>
+									<label id="b" for="end">Їду в місто:</label>
 									<input class="text_input" type="text" id="end" name="destination"/>
 								
 								<li id="seats">
 									<label>Вільних місць: <input id="seats_i" class="text_input" type="text" name="seats"></label>
 								</li>
-									
-									
-                  <input type="text" class="span2" value="" id="dp1">
-
-                  <label>Дата: <input type="text" id="date" name="date"></label>
+                  <label>Відправлення</label><input type="text" class="text_input" value="20-08-2012" id="dp1">
 									<label>Ціна за місце: <input type="text" id="date" name="price"></label>
-								
-								
-									<label><input type="radio" id="driver" name="whoiam">Я - Водій</label>
-									<label><input type="radio" id="passenger" name="whoiam">Я - Пасажир</label>
-								
+
+								<div class="btn-group" data-toggle="buttons-radio">
+                  <button class="btn btn-info">Я-Водій</button>
+                  <button class="btn btn-success">Я-Пасажир</button>
+                </div>
+                <br>
 								<div class="btn-group">
-									<button class="btn btn-info" id="build_route">Прокласти маршрут</button>
-									<button class="btn btn-success" id="submit" type="submit">Додати маршрут</button>
+									<button class="btn btn-warning" id="build_route">Прокласти маршрут</button>
+									<button class="btn btn-primary" id="submit" type="submit">Додати маршрут</button>
 								</div>
 							</div>
 						</form>
