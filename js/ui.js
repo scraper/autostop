@@ -10,7 +10,6 @@ var ui = {
 		this.config.date_input.datepicker({dateFormat:"yy-mm-dd"});
 		this.config.date_input.datepicker("option","showAnim","slideDown");
 		this.config.buttons.button();
-		this.config.radio_inputs.uniform();
 		// this.config.text_inputs.uniform();
 		this.config.buttons_c.click(function(e){e.preventDefault();});
 	},
@@ -45,9 +44,6 @@ ui.init({
 	tab: $('#tabs'),
 	// ul: $('a'),
 	text_inputs: $('.text_input'),
-	radio_inputs: $('.radio_input'),
-	radio_driver: $('#driver'),
-	radio_passenger: $('#passenger'),
 	seats: $('#seats'),
 	date_input: $('#date'),
 	buttons: $('button'),

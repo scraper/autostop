@@ -43,3 +43,42 @@
 <!-- <script src="http://cloud.github.com/downloads/wycats/handlebars.js/handlebars-1.0.0.beta.6.js"></script> -->
 <!-- google maps initialization -->
 <body>
+
+	<div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="./">autostop</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="./">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+            <p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Для водія</li>
+              <!-- <li class="active"><a href="#">Link</a></li> -->
+              <li><a href="new.php">Новий</a></li>
+              <li><a href="route.php">Пошук</a></li>
+              <li class="nav-header">Для пасажира</li>
+              <li><a href="new.php">Новий</a></li>
+              <li><a href="route.php">Пошук</a></li>
+              <li class="nav-header">Sidebar</li>
+              <li><a href="view.php">View</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->

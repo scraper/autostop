@@ -1,44 +1,5 @@
 <?php include '_partials/header.php'; ?>
 
-	<div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="./">autostop</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li class="active"><a href="./">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-            <p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
-
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">Для водія</li>
-              <!-- <li class="active"><a href="#">Link</a></li> -->
-              <li><a href="new.php">Новий</a></li>
-              <li><a href="route.php">Пошук</a></li>
-              <li class="nav-header">Для пасажира</li>
-              <li><a href="new.php">Новий</a></li>
-              <li><a href="route.php">Пошук</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="view.php">View</a></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-
     	<div class="span9">
     		<div class="row-fluid">
     			<div class="span4">
@@ -64,8 +25,8 @@
 									<label>Ціна за місце: <input type="text" id="date" name="price"></label>
 								</li>
 								<li>
-									<label><input class="radio_input" type="radio" id="driver" name="whoiam">Я - Водій</label>
-									<label><input class="radio_input" type="radio" id="passenger" name="whoiam">Я - Пасажир</label>
+									<label><input type="radio" id="driver" name="whoiam">Я - Водій</label>
+									<label><input type="radio" id="passenger" name="whoiam">Я - Пасажир</label>
 								</li>
 								<div class="btn-group">
 									<button class="btn btn-info" id="build_route">Прокласти маршрут</button>
