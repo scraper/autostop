@@ -1,10 +1,7 @@
 <?php include '_partials/header.php'; ?>
-<div id="main">
 
 <!-- <a href="new.php">New route</a>
 <a href="view.php">View existing routes</a> -->
-
-<div id="map"></div>
 
         <div class="span9">
           <div class="hero-unit">
