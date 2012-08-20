@@ -10,8 +10,6 @@
     </script>
 	<!-- jquery min cdn -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<!-- uniform local script -->
-	<script src="uniform/jquery.uniform.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 		window.onload = function () {
        	initialize();
