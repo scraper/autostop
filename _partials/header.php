@@ -26,6 +26,7 @@
         padding: 9px 0;
       }
     </style>
+	<link rel="stylesheet" type="text/css" href="./bootstrap/assets/css/datepicker.css">
 	<link rel="stylesheet" type="text/css" href="./bootstrap/assets/css/bootstrap-responsive.css">
 
 	<link rel="shortcut icon" href="./bootstrap/assets/ico/favicon.ico">
@@ -33,6 +34,8 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="./bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
 
+    <!-- <link rel="stylesheet/less" href="./bootstrap/assets/less/datepicker.less">
+	<script src="./bootstrap/assets/js/less-1.3.0.min.js"></script> -->
 </head>
 
 <!-- handlebars cdn -->

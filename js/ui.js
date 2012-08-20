@@ -7,9 +7,8 @@ var ui = {
 	},
 
 	styleIt: function() {
-		this.config.date_input.datepicker({dateFormat:"yy-mm-dd"});
-		this.config.date_input.datepicker("option","showAnim","slideDown");
-		this.config.buttons.button();
+		this.config.date_input.datepicker({
+				format: 'mm-dd-yyyy'});
 		// this.config.text_inputs.uniform();
 		this.config.buttons_c.click(function(e){e.preventDefault();});
 	},
@@ -45,7 +44,7 @@ ui.init({
 	// ul: $('a'),
 	text_inputs: $('.text_input'),
 	seats: $('#seats'),
-	date_input: $('#date'),
+	date_input: $('#dp1'),
 	buttons: $('button'),
 	buttons_c: $('#build_route')
 });

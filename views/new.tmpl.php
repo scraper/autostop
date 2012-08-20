@@ -11,23 +11,26 @@
     				<div id="controls">
 						<form class="well" action="index.php" method="post">
 							<div class="directions">
-								<li>
+								
 									<label id="a" for="start">З:</label>
 									<input class="text_input" type="text" id="start" name="origin"/>
 									<label id="b" for="end">До:</label>
 									<input class="text_input" type="text" id="end" name="destination"/>
-								</li>
+								
 								<li id="seats">
 									<label>Вільних місць: <input id="seats_i" class="text_input" type="text" name="seats"></label>
 								</li>
-								<li>	
-									<label>Дата: <input type="text" id="date" name="date"></label>
+									
+									
+                  <input type="text" class="span2" value="" id="dp1">
+
+                  <label>Дата: <input type="text" id="date" name="date"></label>
 									<label>Ціна за місце: <input type="text" id="date" name="price"></label>
-								</li>
-								<li>
+								
+								
 									<label><input type="radio" id="driver" name="whoiam">Я - Водій</label>
 									<label><input type="radio" id="passenger" name="whoiam">Я - Пасажир</label>
-								</li>
+								
 								<div class="btn-group">
 									<button class="btn btn-info" id="build_route">Прокласти маршрут</button>
 									<button class="btn btn-success" id="submit" type="submit">Додати маршрут</button>
@@ -50,7 +53,5 @@
 </div><!--/.fluid-container-->
 
 <script src="js/get_route.js"></script>
-
-<script src="js/ui.js"></script>
 
 <?php include '_partials/footer.php'; ?>

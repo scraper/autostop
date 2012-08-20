@@ -14,6 +14,8 @@
     <script src="./bootstrap/assets/js/bootstrap-collapse.js"></script>
     <script src="./bootstrap/assets/js/bootstrap-carousel.js"></script>
     <script src="./bootstrap/assets/js/bootstrap-typeahead.js"></script>
+    <script src="./bootstrap/assets/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="./js/ui.js"></script>
 </body>
 </body>
 </html>
