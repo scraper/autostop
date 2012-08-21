@@ -4,11 +4,35 @@
 <a href="view.php">View existing routes</a> -->
 
         <div class="span9">
-          <div class="hero-unit">
-            <h1>Hello, world!</h1>
-            <p>This is a main page of autostop project. You can create a new route or find an existing one here.</p>
-            <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-          </div>
+          <div class="span9">
+              <div id="myCarousel" class="carousel slide">
+                <div class="carousel-inner">
+                  <div class="item active">
+                    <img src="./bootstrap/assets/img/bootstrap-mdo-sfmoma-01.jpg" alt="">
+                    <div class="carousel-caption">
+                      <h4>Hello hitchhikers!</h4>
+                      <p>Створюйте маршрути. Шукайте маршрути. Подорожуйте без проблем!</p>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <img src="./bootstrap/assets/img/bootstrap-mdo-sfmoma-02.jpg" alt="">
+                    <div class="carousel-caption">
+                      <h4>Діліться витратами на паливо і бережіть екологію</h4>
+                      <p>Ви можете знайти пасажирів, якщо ви подорожуєте і маєте вільні місця у вашому авто.</p>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <img src="./bootstrap/assets/img/bootstrap-mdo-sfmoma-03.jpg" alt="">
+                    <div class="carousel-caption">
+                      <h4>Не хвилюйтесь за квитки</h4>
+                      <p>Немає квитків на потяг? Без проблем! Шукайте тих хто подорожує на авто і має вільні місця.</p>
+                    </div>
+                  </div>
+                </div>
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+              </div>
+            </div>
           <div class="row-fluid">
             <div class="span4">
               <h2>Heading</h2>

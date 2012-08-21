@@ -34,13 +34,8 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="./bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
 
-    <!-- <link rel="stylesheet/less" href="./bootstrap/assets/less/datepicker.less">
-	<script src="./bootstrap/assets/js/less-1.3.0.min.js"></script> -->
 </head>
 
-<!-- handlebars cdn -->
-<!-- <script src="http://cloud.github.com/downloads/wycats/handlebars.js/handlebars-1.0.0.beta.6.js"></script> -->
-<!-- google maps initialization -->
 <body>
 
 	<div class="navbar navbar-fixed-top">

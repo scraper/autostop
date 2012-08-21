@@ -17,10 +17,10 @@
 								<label id="b" for="end">Їду в місто:</label>
 								<input class="text_input" type="text" id="end" name="destination"/>
 								<li id="seats" style="list-style-type:none;">
-                                    <label>Вільних місць: <input id="seats_i" class="text_input" type="text" name="seats"></label>
+                                    <label>Вільних місць: <input id="seats_i" class="input-large" placeholder="Введіть кількість місць..." type="text" name="seats"></label>
     							</li>
                                 <label>Відправлення</label><input type="text" class="text_input" value="20-08-2012" id="dp1">
-								<label>Ціна за місце: <input type="text" id="date" name="price"></label>
+								<label>Ціна за місце: <input type="text" id="date" class="input-large" placeholder="Введіть ціну..." name="price"></label>
 
 								<div class="btn-group" data-toggle="buttons-radio">
                                     <button class="btn btn-info" id="idriver">Я-Водій</button>
