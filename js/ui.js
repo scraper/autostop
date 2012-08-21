@@ -17,18 +17,20 @@ var ui = {
 				format: 'dd-mm-yyyy'});
 		
 		// this.config.text_inputs.uniform();
-		this.config.buttons_c.click(function(e){e.preventDefault();});
+		this.config.nopost_buttons_1.click(function(e){e.preventDefault();});
+		this.config.nopost_buttons_2.click(function(e){e.preventDefault();});
+		this.config.nopost_buttons_3.click(function(e){e.preventDefault();});
 	},
 
 	whoIam: function() {
 		var seats = this.config.seats;
 		
 		this.config.seats.hide();
-		this.config.radio_passenger.click(function() {
-			seats.hide('slow');
-		});
-		this.config.radio_driver.click(function() {
+		this.config.nopost_buttons_2.click(function(){
 			seats.show('slow');
+		});
+		this.config.nopost_buttons_3.click(function(){
+			seats.hide('slow');
 		});
 		$('#build_route').click(function(){if ('#seats_i'=='') {console.log("ERROR");}; });
 	},
@@ -53,5 +55,8 @@ ui.init({
 	seats: $('#seats'),
 	date_input: $('#dp1'),
 	buttons: $('button'),
-	buttons_c: $('#build_route')
+	nopost_buttons_1: $('#build_route'),
+	nopost_buttons_2:$('#idriver'),
+	nopost_buttons_3:$('#ipassngr'),
+	seats_lbl:$('#seats_l')
 });
