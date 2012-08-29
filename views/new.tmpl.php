@@ -2,12 +2,12 @@
 
     	<div class="span9">
     		<div class="row-fluid">
-    			<div class="span4">
-    				<h2>Карта</h2>
+    			<div class="span7">
+    				<h3>Карта</h3>
     				<div id="map" style="width:100%;height:400px;"></div>
     			</div><!--/span-->
     			<div class="span4">
-    				<h2>Маршрут</h2>
+    				<h3>Маршрут</h3>
     				<div id="controls">
 						<form class="well" action="index.php" method="post">
 							<div class="directions">

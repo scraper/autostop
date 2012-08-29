@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Autostop UA</title>
 	
 	<!-- google maps api cdn -->
@@ -61,7 +62,7 @@
 
 <div class="container-fluid">
     <div class="row-fluid">
-        <div class="span3">
+        <div class="span2">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Для водія</li>
