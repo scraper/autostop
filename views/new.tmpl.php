@@ -102,7 +102,7 @@ function validation() {
 								<input class="text-input" type="text" id="start" name="origin"/>
 								<label id="b" for="end">Їду в місто:</label>
 								<input class="text-input" type="text" id="end" name="destination"/>
-							    <label>Відправлення</label><input type="text" class="text-input" id="dp1">
+							    <label>Відправлення</label><input type="text" class="text-input" id="dp1" name="date">
 								<label>Ціна за місце: <input type="text" id="prices" class="text-input" placeholder="Введіть ціну..." name="price"></label>
                                 <li id="seats" style="list-style-type:none;">
                                     <label>Вільних місць: <input id="seats_i" class="text-input" placeholder="Введіть кількість місць..." type="text" name="seats"></label>

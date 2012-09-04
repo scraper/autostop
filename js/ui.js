@@ -8,13 +8,13 @@ var ui = {
 
 	styleIt: function() {
 		var today = new Date();
-		var day = today.getDate();
-		var month = today.getMonth()+1;
+		var day = ('0' + today.getDate()).slice(-2);
+		var month = (('0' + (today.getMonth()+1)).slice(-2));
 		var year = today.getFullYear();
-		var date = (day + '-0' + month + '-' + year);
+		var date = (year + '-' + month + '-' + day);
 		this.config.date_input.attr('Value', date);
 		this.config.date_input.datepicker({
-				format: 'dd-mm-yyyy'});
+				format: 'yyyy-mm-dd'});
 
 		this.config.nopost_buttons_1.click(function(e){e.preventDefault();});
 		this.config.nopost_buttons_2.click(function(e){e.preventDefault();});
@@ -32,19 +32,6 @@ var ui = {
 			seats.hide('slow');
 		});
 		$('#build_route').click(function(){if ('#seats_i'=='') {console.log("ERROR");}; });
-	},
-
-	validations: function() {
-		var start = this.config.starts;
-		var end = this.config.end;
-		var date = this.config.date_input;
-		var seats = this.config.seats;
-		var prices = this.config.prices;
-
-		var submit_btn = this.config.submit;
-		this.config.submit.click(function(e){
-			if (start==null || end==null || prices==null) {e.preventDefault();}
-		});
 	},
 
 	// writeConsole: function() {
