@@ -51,8 +51,8 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li class="active"><a href="./">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="#about">Про проект</a></li>
+              <li><a href="#contact">Контакти</a></li>
             </ul>
             <p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>
           </div><!--/.nav-collapse -->
@@ -65,15 +65,11 @@
         <div class="span2">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header">Для водія</li>
+              <li class="nav-header">Маршрути</li>
               <!-- <li class="active"><a href="#">Link</a></li> -->
               <li><a href="new.php">Новий</a></li>
               <li><a href="route.php">Пошук</a></li>
-              <li class="nav-header">Для пасажира</li>
-              <li><a href="new.php">Новий</a></li>
-              <li><a href="route.php">Пошук</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="view.php">View</a></li>
+              <li><a href="view.php">TOP</a></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->

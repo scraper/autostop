@@ -15,8 +15,7 @@ var ui = {
 		this.config.date_input.attr('Value', date);
 		this.config.date_input.datepicker({
 				format: 'dd-mm-yyyy'});
-		
-		// this.config.text_inputs.uniform();
+
 		this.config.nopost_buttons_1.click(function(e){e.preventDefault();});
 		this.config.nopost_buttons_2.click(function(e){e.preventDefault();});
 		this.config.nopost_buttons_3.click(function(e){e.preventDefault();});
@@ -35,8 +34,17 @@ var ui = {
 		$('#build_route').click(function(){if ('#seats_i'=='') {console.log("ERROR");}; });
 	},
 
-	ifDriver: function() {
+	validations: function() {
+		var start = this.config.starts;
+		var end = this.config.end;
+		var date = this.config.date_input;
+		var seats = this.config.seats;
+		var prices = this.config.prices;
 
+		var submit_btn = this.config.submit;
+		this.config.submit.click(function(e){
+			if (start==null || end==null || prices==null) {e.preventDefault();}
+		});
 	},
 
 	// writeConsole: function() {
@@ -50,8 +58,10 @@ var ui = {
 
 ui.init({
 	tab: $('#tabs'),
-	// ul: $('a'),
-	text_inputs: $('.text_input'),
+	submit: $('#submit'),
+	starts: $('#start'),
+	end: $('#end'),
+	prices: $('#prices'),
 	seats: $('#seats'),
 	date_input: $('#dp1'),
 	buttons: $('button'),

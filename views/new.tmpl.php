@@ -1,5 +1,56 @@
 <?php include '_partials/header.php'; ?>
+<script type="text/javascript">
+function validation() {
+        var start = $('#start').val();
+        var end = $('#end').val();
+        var date = $('#dp1').val();
+        var seats = $('#seats_i').val();
+        var price = $('#prices').val();
 
+        // validation of the new route form
+        if (start==null || start=="" || end==null || end=="" || date==null || date=="" || price==null || price=="")
+        {
+            $('#submit').popover('show');
+            $('.popover-inner').css({'width':'auto'});
+            if (start==null || start=="") {
+                $('#start').css({'border':'1px solid red'});
+                $('#end').css({'border':'1px solid red'});             
+                $('#prices').css({'border':'1px solid red'});
+                return false;
+            }
+            else {
+                if (end==null || end=="") {
+                    $('#start').css({'border':'1px solid #CCC'});
+                    $('#end').css({'border':'1px solid red'});
+                    return false;
+                }
+                else {
+                    if (date==null || date=="") {
+                        $('#start').css({'border':'1px solid #CCC'});
+                        $('#end').css({'border':'1px solid #CCC'});
+                        $('dp1').css({'border':'1px solid red'});
+                        return false;
+                    }
+                    else {
+                        if (price==null || price=="") {
+                            $('#start').css({'border':'1px solid #CCC'});
+                            $('#end').css({'border':'1px solid #CCC'});
+                            $('dp1').css({'border':'1px solid #CCC'});
+                            $('#prices').css({'border':'1px solid red'});
+                        }
+                        else {
+                            $('#start').css({'border':'1px solid #CCC'});
+                            $('#end').css({'border':'1px solid #CCC'});
+                            $('dp1').css({'border':'1px solid #CCC'});
+                            $('#prices').css({'border':'1px solid #CCC'});
+                        };
+                    };
+                };
+            };
+            return false;
+        };
+};
+</script>
     	<div class="span9">
     		<div class="row-fluid">
     			<div class="span7">
@@ -9,18 +60,18 @@
     			<div class="span4">
     				<h3>Маршрут</h3>
     				<div id="controls">
-						<form class="well" action="index.php" method="post">
+						<form class="well" action="index.php" method="post" onsubmit="return validation();">
 							<div class="directions">
 								
 								<label id="a" for="start">Відправляюсь з міста:</label>
-								<input class="text_input" type="text" id="start" name="origin"/>
+								<input class="text-input" type="text" id="start" name="origin"/>
 								<label id="b" for="end">Їду в місто:</label>
-								<input class="text_input" type="text" id="end" name="destination"/>
+								<input class="text-input" type="text" id="end" name="destination"/>
 								<li id="seats" style="list-style-type:none;">
-                                    <label>Вільних місць: <input id="seats_i" class="input-large" placeholder="Введіть кількість місць..." type="text" name="seats"></label>
+                                    <label>Вільних місць: <input id="seats_i" class="text-input" placeholder="Введіть кількість місць..." type="text" name="seats"></label>
     							</li>
-                                <label>Відправлення</label><input type="text" class="text_input" value="20-08-2012" id="dp1">
-								<label>Ціна за місце: <input type="text" id="date" class="input-large" placeholder="Введіть ціну..." name="price"></label>
+                                <label>Відправлення</label><input type="text" class="text-input" id="dp1">
+								<label>Ціна за місце: <input type="text" id="prices" class="text-input" placeholder="Введіть ціну..." name="price"></label>
 
 								<div class="btn-group" data-toggle="buttons-radio">
                                     <button class="btn btn-info" id="idriver">Я-Водій</button>
@@ -29,7 +80,7 @@
                                 <br>
 								<div class="btn-group">
 									<button class="btn btn-warning" id="build_route">Прокласти маршрут</button>
-									<button class="btn btn-primary" id="submit" type="submit">Додати маршрут</button>
+									<button class="btn btn-primary" id="submit" type="submit"  rel="popover" data-content="Ведіть обов'язкові поля">Додати маршрут</button>
 								</div>
 							</div>
 						</form>
