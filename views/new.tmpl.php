@@ -14,39 +14,74 @@ function validation() {
             $('.popover-inner').css({'width':'auto'});
             if (start==null || start=="") {
                 $('#start').css({'border':'1px solid red'});
-                $('#end').css({'border':'1px solid red'});             
-                $('#prices').css({'border':'1px solid red'});
-                return false;
-            }
-            else {
                 if (end==null || end=="") {
-                    $('#start').css({'border':'1px solid #CCC'});
-                    $('#end').css({'border':'1px solid red'});
-                    return false;
+                    $('#end').css({'border':'1px solid red'})
                 }
                 else {
-                    if (date==null || date=="") {
-                        $('#start').css({'border':'1px solid #CCC'});
-                        $('#end').css({'border':'1px solid #CCC'});
-                        $('dp1').css({'border':'1px solid red'});
-                        return false;
-                    }
-                    else {
-                        if (price==null || price=="") {
-                            $('#start').css({'border':'1px solid #CCC'});
-                            $('#end').css({'border':'1px solid #CCC'});
-                            $('dp1').css({'border':'1px solid #CCC'});
-                            $('#prices').css({'border':'1px solid red'});
-                        }
-                        else {
-                            $('#start').css({'border':'1px solid #CCC'});
-                            $('#end').css({'border':'1px solid #CCC'});
-                            $('dp1').css({'border':'1px solid #CCC'});
-                            $('#prices').css({'border':'1px solid #CCC'});
-                        };
-                    };
+                    $('#end').css({'border':'1px solid #CCC'})
                 };
+                if (date==null || date=="") {
+                    $('#dp1').css({'border':'1px solid red'});
+                }
+                else {
+                    $('#dp1').css({'border':'1px solid #CCC'});   
+                };
+                if (price==null || price=="") {
+                    $('#prices').css({'border':'1px solid red'});
+                }
+                else {
+                    $('#prices').css({'border':'1px solid #CCC'});   
+                };
+                if ($('#idriver').attr('class','btn btn-info active') && (seats=='null' || seats=="")) {
+                    $('#seats_i').css({'border':'1px solid red'});
+                }
+                else {
+                    $('#seats_i').css({'border':'1px solid #CCC'});
+                };
+                return false;
+            }
+            else if (end==null || end=="") {
+                $('#start').css({'border':'1px solid #CCC'});
+                $('#end').css({'border':'1px solid red'});
+                if (date==null || date=="") {
+                    $('#dp1').css({'border':'1px solid red'});
+                }
+                else {
+                    $('#dp1').css({'border':'1px solid #CCC'});   
+                };
+                if (price==null || price=="") {
+                    $('#prices').css({'border':'1px solid red'});
+                }
+                else {
+                    $('#prices').css({'border':'1px solid #CCC'});   
+                };
+                return false;
+            }
+            else if (date==null || date=="") {
+                $('#start').css({'border':'1px solid #CCC'});
+                $('#end').css({'border':'1px solid #CCC'});
+                $('dp1').css({'border':'1px solid red'});
+                if (price==null || price=="") {
+                    $('#prices').css({'border':'1px solid red'});
+                }
+                else {
+                    $('#prices').css({'border':'1px solid #CCC'});   
+                };
+                return false;
+            }
+            else if (price==null || price=="") {
+                $('#start').css({'border':'1px solid #CCC'});
+                $('#end').css({'border':'1px solid #CCC'});
+                $('dp1').css({'border':'1px solid #CCC'});
+                $('#prices').css({'border':'1px solid red'});
+            }
+            else {
+                $('#start').css({'border':'1px solid #CCC'});
+                $('#end').css({'border':'1px solid #CCC'});
+                $('dp1').css({'border':'1px solid #CCC'});
+                $('#prices').css({'border':'1px solid #CCC'});
             };
+                
             return false;
         };
 };
@@ -67,12 +102,11 @@ function validation() {
 								<input class="text-input" type="text" id="start" name="origin"/>
 								<label id="b" for="end">Їду в місто:</label>
 								<input class="text-input" type="text" id="end" name="destination"/>
-								<li id="seats" style="list-style-type:none;">
-                                    <label>Вільних місць: <input id="seats_i" class="text-input" placeholder="Введіть кількість місць..." type="text" name="seats"></label>
-    							</li>
-                                <label>Відправлення</label><input type="text" class="text-input" id="dp1">
+							    <label>Відправлення</label><input type="text" class="text-input" id="dp1">
 								<label>Ціна за місце: <input type="text" id="prices" class="text-input" placeholder="Введіть ціну..." name="price"></label>
-
+                                <li id="seats" style="list-style-type:none;">
+                                    <label>Вільних місць: <input id="seats_i" class="text-input" placeholder="Введіть кількість місць..." type="text" name="seats"></label>
+                                </li>
 								<div class="btn-group" data-toggle="buttons-radio">
                                     <button class="btn btn-info" id="idriver">Я-Водій</button>
                                     <button class="btn btn-success" id="ipassngr">Я-Пасажир</button>

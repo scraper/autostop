@@ -40,19 +40,19 @@ function new_route() {
 	
 	if($result[0] != '' and $result[1] != '' and $result[2]=='') {
 		$stmt = $pdo->prepare('
-			INSERT INTO routes (start, end, seats, price, date) 
-			VALUES (:start, :end, :seats, :price, :date);
+			INSERT INTO routes (start, end, seats, price, type, date) 
+			VALUES (:start, :end, :seats, :price, :type, :date);
 			');
-		$stmt->execute(array(':start'=>$result[0],':end'=>$result[1], ':seats'=>null, ':price'=>$result[3], ':date'=>$result[4]) );
+		$stmt->execute(array(':start'=>$result[0],':end'=>$result[1], ':seats'=>null, ':price'=>$result[3], ':type'=>'passenger', ':date'=>$result[4]) );
 		return $stmt->fetchAll(PDO::FETCH_OBJ);
 		print_r($stmt);
 	}
 	elseif ($result[0] != '' and $result[1] != '' and $result[2]!='') {
 		$stmt = $pdo->prepare('
-			INSERT INTO routes (start, end, seats, price, date) 
-			VALUES (:start, :end, :seats, :price, :date);
+			INSERT INTO routes (start, end, seats, price, type, date) 
+			VALUES (:start, :end, :seats, :price, :type, :date);
 			');
-		$stmt->execute(array(':start'=>$result[0],':end'=>$result[1], ':seats'=>$result[2], ':price'=>$result[3], ':date'=>$result[4]) );
+		$stmt->execute(array(':start'=>$result[0],':end'=>$result[1], ':seats'=>$result[2], ':price'=>$result[3], ':type'=>'driver', ':date'=>$result[4]) );
 		return $stmt->fetchAll(PDO::FETCH_OBJ);
 		print_r($stmt);
 	};
