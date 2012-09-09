@@ -1,12 +1,12 @@
 var ui = {
 	init: function(config){
 		this.config = config;
-		// this.writeConsole();
 		this.styleIt();
 		this.whoIam();
 	},
 
 	styleIt: function() {
+		//initializing current date, datepicker and it's default value
 		var today = new Date();
 		var day = ('0' + today.getDate()).slice(-2);
 		var month = (('0' + (today.getMonth()+1)).slice(-2));
@@ -15,7 +15,7 @@ var ui = {
 		this.config.date_input.attr('Value', date);
 		this.config.date_input.datepicker({
 				format: 'yyyy-mm-dd'});
-
+		//prevent buttons from submit
 		this.config.nopost_buttons_1.click(function(e){e.preventDefault();});
 		this.config.nopost_buttons_2.click(function(e){e.preventDefault();});
 		this.config.nopost_buttons_3.click(function(e){e.preventDefault();});
@@ -42,7 +42,7 @@ var ui = {
 	// 	});	
 	// }
 };
-
+//html elements initialization
 ui.init({
 	tab: $('#tabs'),
 	submit: $('#submit'),

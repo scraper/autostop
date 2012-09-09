@@ -11,7 +11,8 @@
 			<h3>Пошук</h3>
 			<form class="well">
 				
-					<input id="search" class="input-large" type="text" placeholder="Введіть місто для пошуку...">
+					<input id="search" class="input-large" type="text" data-provide="typeahead" placeholder="Введіть місто для пошуку...">
+					<input id="autocomplete" data-provide="typeahead" data-source='["YouTube, is the best video web-site", "Google"]' class="input-large" type="text" placeholder="Введіть місто для пошуку...">
 					<div class="btn-group">
 						<button class="btn btn-success" type="submit">Go!</button>
 						<button class="btn btn-info">Розширений</button>
@@ -21,6 +22,40 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	$(function() {
+
+			// $('#search').typeahead({
+   //  			source: function (query, process) {
+   //      			return $.post('search.php', { query: query }, function (data) {
+   //          			return process(data);
+   //      			});
+   //  			}
+			// });
+
+			$('#search').typeahead({
+				source: function(query, process) {
+					return $.ajax({
+						url: 'search.php',
+						type: 'post',
+						data: {query: $('#search').val()},
+						dataType: "JSON",
+						success: function(data) {
+							//bootstrap typeahead does not know how to read JSON, so we push JSON items to JavaScript array
+							var arr = [];
+							$.each(data, function(column, value){
+								arr.push(value['start'], value['end']);
+								
+							});
+							console.log(arr);
+							return process(arr);
+						}
+					});
+				}
+			});
+	});
+</script>
+
 <script type="text/javascript">
 
 var directionsDisplay;

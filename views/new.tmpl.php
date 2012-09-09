@@ -32,7 +32,7 @@ function validation() {
                 else {
                     $('#prices').css({'border':'1px solid #CCC'});   
                 };
-                if ($('#idriver').attr('class','btn btn-info active') && (seats=='null' || seats=="")) {
+                if (($('#idriver').attr('class')=='btn btn-info active') && (seats=='null' || seats=="")) {
                     $('#seats_i').css({'border':'1px solid red'});
                 }
                 else {
@@ -113,7 +113,7 @@ function validation() {
                                 </div>
                                 <br>
 								<div class="btn-group">
-									<button class="btn btn-warning" id="build_route">Прокласти маршрут</button>
+									<button class="btn btn-warning" id="build_route">Показати маршрут</button>
 									<button class="btn btn-primary" id="submit" type="submit"  rel="popover" data-content="Ведіть обов'язкові поля">Додати маршрут</button>
 								</div>
 							</div>

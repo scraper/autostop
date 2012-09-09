@@ -58,6 +58,19 @@ function new_route() {
 	};
 }
 
+function search($query) {
+	global $pdo;
+
+	
+		$stmt = $pdo->prepare("
+			SELECT DISTINCT start, end FROM routes WHERE (start LIKE :query OR end LIKE :query);
+			");
+		$stmt->execute(array(':query'=>$query. '%'));
+		$result = $stmt->fetchAll(PDO::FETCH_OBJ);
+		return $result;
+
+}
+
 function show_routes() {
 	global $pdo;
 
@@ -78,7 +91,7 @@ function render_route($id) {
 	return $stmt->fetch(PDO::FETCH_OBJ);
 }
 
-function search($search) {
+/*function search($search) {
 	global $pdo;
 	if(empty($search)) {
 		return $stmt = null;
@@ -91,4 +104,4 @@ function search($search) {
 		$stmt-> execute(array(':search'=>$search . '%'));
 		return $stmt->fetchAll(PDO::FETCH_OBJ);
 	}
-}
+}*/
