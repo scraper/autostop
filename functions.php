@@ -61,14 +61,12 @@ function new_route() {
 function search($query) {
 	global $pdo;
 
-	
-		$stmt = $pdo->prepare("
-			SELECT DISTINCT start, end FROM routes WHERE (start LIKE :query OR end LIKE :query);
-			");
-		$stmt->execute(array(':query'=>$query. '%'));
-		$result = $stmt->fetchAll(PDO::FETCH_OBJ);
-		return $result;
-
+	$stmt = $pdo->prepare("
+		SELECT DISTINCT start, end FROM routes WHERE (start LIKE :query OR end LIKE :query);
+		");
+	$stmt->execute(array(':query'=>$query. '%'));
+	$result = $stmt->fetchAll(PDO::FETCH_OBJ);
+	return $result;
 }
 
 function show_routes() {
