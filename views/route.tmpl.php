@@ -21,11 +21,6 @@
 
 		<div class="span5">
 			<h3>Results</h3>
-			<?php
-						foreach ($res as $a) {
-							echo "<li><a href='route.php?id={$a->id}'>Starting from: {$a->start} - Going to: {$a->end}</a></li>";
-						};
-					?>
 		</div>
 	</div>
 </div>
