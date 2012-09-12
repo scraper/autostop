@@ -60,11 +60,9 @@ function new_route() {
 			');
 			$stmt_route->execute(array(':start'=>$result[0],':end'=>$result[1],':seats'=>null, ':price'=>$result[3], ':type'=>'passenger', ':date'=>$result[4]) );
 		};
-		
-		// return $stmt->fetchAll(PDO::FETCH_OBJ);
-		// print_r($stmt);
-	}
-	elseif ($result[0] != '' and $result[1] != '' and $result[2]!='') {
+
+	};
+	/*elseif ($result[0] != '' and $result[1] != '' and $result[2]!='') {
 		$stmt_city = $pdo->prepare('
 			insert into cities (city_id) values (:start),(:end);
 		');
@@ -76,7 +74,7 @@ function new_route() {
 				((select city_pk from cities where city_id = :start), 
 				(select city_pk from cities where city_id = :end), :seats, :price, :type, :date);
 			');
-			$stmt_route->execute(array(':start'=>$result[0],':end'=>$result[1],':seats'=>null, ':price'=>$result[3], ':type'=>'driver', ':date'=>$result[4]) );
+			$stmt_route->execute(array(':start'=>$result[0],':end'=>$result[1],':seats'=>$result[2], ':price'=>$result[3], ':type'=>'driver', ':date'=>$result[4]) );
 		}
 		else {
 			$stmt_route = $pdo->prepare('	
@@ -85,10 +83,10 @@ function new_route() {
 				((select city_pk from cities where city_id = :start), 
 				(select city_pk from cities where city_id = :end), :seats, :price, :type, :date);
 			');
-			$stmt_route->execute(array(':start'=>$result[0],':end'=>$result[1],':seats'=>null, ':price'=>$result[3], ':type'=>'driver', ':date'=>$result[4]) );
+			$stmt_route->execute(array(':start'=>$result[0],':end'=>$result[1],':seats'=>$result[2], ':price'=>$result[3], ':type'=>'driver', ':date'=>$result[4]) );
 		};
 
-	};
+	};*/
 }
 
 function search($query) {

@@ -93,7 +93,7 @@ function validation() {
                     $('#seats_i').css({'border':'1px solid #CCC'});
                 };
             }
-            else {
+            else if (seats==null || seats=="") {
                 $('#start').css({'border':'1px solid #CCC'});
                 $('#end').css({'border':'1px solid #CCC'});
                 $('dp1').css({'border':'1px solid #CCC'});
@@ -104,10 +104,34 @@ function validation() {
                 else {
                     $('#seats_i').css({'border':'1px solid #CCC'});
                 };
+            }
+            else {
+                $('#start').css({'border':'1px solid #CCC'});
+                $('#end').css({'border':'1px solid #CCC'});
+                $('dp1').css({'border':'1px solid #CCC'});
+                $('#prices').css({'border':'1px solid #CCC'});
+                $('#seats').css({'border':'1px solid #CCC'});
             };
                 
             return false;
-        };
+        }
+        else if (seats==null || seats=="") {
+            $('#start').css({'border':'1px solid #CCC'});
+            $('#end').css({'border':'1px solid #CCC'});
+            $('dp1').css({'border':'1px solid #CCC'});
+            $('#prices').css({'border':'1px solid #CCC'});
+            if (($('#idriver').attr('class')=='btn btn-info active') && (seats=='null' || seats=="")) {
+                    $('#seats_i').css({'border':'1px solid red'});
+                    return false;
+                }
+                else {
+                    $('#start').css({'border':'1px solid #CCC'});
+                    $('#end').css({'border':'1px solid #CCC'});
+                    $('dp1').css({'border':'1px solid #CCC'});
+                    $('#prices').css({'border':'1px solid #CCC'});
+                    $('#seats_i').css({'border':'1px solid #CCC'});
+                };
+        }
 };
 </script>
     	<div class="span9">
