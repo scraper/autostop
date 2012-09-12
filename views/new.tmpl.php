@@ -55,6 +55,12 @@ function validation() {
                 else {
                     $('#prices').css({'border':'1px solid #CCC'});   
                 };
+                if (($('#idriver').attr('class')=='btn btn-info active') && (seats=='null' || seats=="")) {
+                    $('#seats_i').css({'border':'1px solid red'});
+                }
+                else {
+                    $('#seats_i').css({'border':'1px solid #CCC'});
+                };
                 return false;
             }
             else if (date==null || date=="") {
@@ -67,6 +73,12 @@ function validation() {
                 else {
                     $('#prices').css({'border':'1px solid #CCC'});   
                 };
+                if (($('#idriver').attr('class')=='btn btn-info active') && (seats=='null' || seats=="")) {
+                    $('#seats_i').css({'border':'1px solid red'});
+                }
+                else {
+                    $('#seats_i').css({'border':'1px solid #CCC'});
+                };
                 return false;
             }
             else if (price==null || price=="") {
@@ -74,12 +86,24 @@ function validation() {
                 $('#end').css({'border':'1px solid #CCC'});
                 $('dp1').css({'border':'1px solid #CCC'});
                 $('#prices').css({'border':'1px solid red'});
+                if (($('#idriver').attr('class')=='btn btn-info active') && (seats=='null' || seats=="")) {
+                    $('#seats_i').css({'border':'1px solid red'});
+                }
+                else {
+                    $('#seats_i').css({'border':'1px solid #CCC'});
+                };
             }
             else {
                 $('#start').css({'border':'1px solid #CCC'});
                 $('#end').css({'border':'1px solid #CCC'});
                 $('dp1').css({'border':'1px solid #CCC'});
                 $('#prices').css({'border':'1px solid #CCC'});
+                if (($('#idriver').attr('class')=='btn btn-info active') && (seats=='null' || seats=="")) {
+                    $('#seats_i').css({'border':'1px solid red'});
+                }
+                else {
+                    $('#seats_i').css({'border':'1px solid #CCC'});
+                };
             };
                 
             return false;
