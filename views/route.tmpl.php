@@ -6,11 +6,11 @@
 		
 		<div class="span4">
 			<h3>Пошук</h3>
-			<form class="well">
+			<form class="well" action="route.php" method="post" onsubmit="show_results()">
 				
 					<input id="search" class="input-large" type="text" data-provide="typeahead" placeholder="Введіть місто для пошуку...">
 					<div class="btn-group">
-						<button class="btn btn-success" type="submit">Go!</button>
+						<button id="submit" class="btn btn-success" type="submit">Go!</button>
 						<button class="btn btn-info">Розширений</button>
 					</div>
 				
@@ -24,47 +24,55 @@
 		</div>
 	</div>
 </div>
-<script type="text/javascript">
-	$(function() {
 
-			$('#search').typeahead({
-				source: function(query, process) {
-					var arr = [];
-					return $.ajax({
-						url: 'search.php',
-						type: 'post',
-						data: {query: $('#search').val()},
-						dataType: "JSON",
-						success: function(data) {
-							//bootstrap typeahead does not know how to read JSON, so we push JSON items to JavaScript array
+<script type="text/javascript">
+
+	$(function() {
+		$('#submit').click(function(e) {
+			e.preventDefault();
+			if ($('#search').val() != "") {
+				console.log("not null");
+				$.ajax({
+					url: 'search.php',
+					type: 'post',
+					data: {query: $('#search').val()},
+					dataType: "JSON",
+					success: function(data) {
+						$.each(data, function(column, value) {
+							$('.span5').append(value['city_id']);
+							console.log(value['city_id']);
+						});
+						console.log(data);
+					}
+				});
+			};
+		});
+
+		$('#search').typeahead({
+			source: function(query, process) {
+				var arr = [];
+				return $.ajax({
+					url: 'search.php',
+					type: 'post',
+					data: {query: $('#search').val()},
+					dataType: "JSON",
+					success: function(data) {
+						//bootstrap typeahead does not know how to read JSON, so we push JSON items to JavaScript array
 							
-							$.each(data, function(column, value){
-								arr.push(value['start'] + ' - ' + value['end']);
+						$.each(data, function(column, value){
+							arr.push(value['city_id']);
 								
-							});
-							console.log(arr);
-							return process(arr);
-						}
-					});
-				}
-			});
-			// $('#search').data('typeahead').select = function() {
-			// 	$.ajax({
-			// 			url: 'search.php',
-			// 			type: 'post',
-			// 			data: {query: $('#search').val()},
-			// 			dataType: "JSON",
-			// 			success: function(data) {
-			// 				$.each(data, function(column, value) {
-			// 					$('.span5').append('A:' + value['start'] + ' - B:' + value['end']);
-			// 					console.log(value['start']);
-			// 				});
-			// 				console.log(data);
-			// 			}
-			// 		});
-			// };
+						});
+						console.log(arr);
+						return process(arr);
+					}
+				});
+			}
+		});
 	});
 </script>
+
+
 
 <script type="text/javascript">
 
@@ -100,5 +108,5 @@ var directionsDisplay;
 		}
 		calcRoute();
 </script>
-<script src="js/ui.js"></script>
+
 <?php include '_partials/footer.php'; ?>

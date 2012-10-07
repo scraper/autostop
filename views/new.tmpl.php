@@ -143,7 +143,7 @@ function validation() {
     			<div class="span4">
     				<h3>Маршрут</h3>
     				<div id="controls">
-						<form class="well" action="index.php" method="post" onsubmit="return validation();">
+						<form class="well" action="new.php" method="post" onsubmit="return validation();">
 							<div class="directions">
 								
 								<label id="a" for="start">Відправляюсь з міста:</label>

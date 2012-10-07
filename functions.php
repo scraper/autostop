@@ -31,13 +31,13 @@ function get_json($origin, $destination, $seats, $price, $date) {
 	global $result;
 	$result = array($start, $end, $seats, $price, $date);
 	/*return $result;*/
-	print_r($result);
+	/*print_r($result);*/
 }
 
 function new_route() {
 	global $pdo;
 	global $result;
-	if($result[0] != '' and $result[1] != '' and $result[2]=='') {
+	if($result[0] != '' and $result[1] != '' and ($result[2]==null or $result[2]=='')) {
 		$stmt_city = $pdo->prepare('
 			insert into cities (city_id) values (:start),(:end);
 		');
@@ -46,54 +46,54 @@ function new_route() {
 			$stmt_route = $pdo->prepare('	
 			insert into routes (start_id, end_id, seats, price, type, date) 
 			values 
-				((select city_pk from cities where city_id = :start), 
-				(select city_pk from cities where city_id = :end), :seats, :price, :type, :date);
+				((select city_pk from cities where city_id LIKE :start), 
+				(select city_pk from cities where city_id LIKE :end), :seats, :price, :type, :date);
 			');
-			$stmt_route->execute(array(':start'=>$result[0],':end'=>$result[1],':seats'=>null, ':price'=>$result[3], ':type'=>'passenger', ':date'=>$result[4]) );
+			$stmt_route->execute(array(':start'=>$result[0]. '%',':end'=>$result[1]. '%',':seats'=>null, ':price'=>$result[3], ':type'=>'passenger', ':date'=>$result[4]) );
 		}
 		else {
 			$stmt_route = $pdo->prepare('	
 			insert into routes (start_id, end_id, seats, price, type, date) 
 			values 
-				((select city_pk from cities where city_id = :start), 
-				(select city_pk from cities where city_id = :end), :seats, :price, :type, :date);
+				((select city_pk from cities where city_id LIKE :start), 
+				(select city_pk from cities where city_id LIKE :end), :seats, :price, :type, :date);
 			');
-			$stmt_route->execute(array(':start'=>$result[0],':end'=>$result[1],':seats'=>null, ':price'=>$result[3], ':type'=>'passenger', ':date'=>$result[4]) );
+			$stmt_route->execute(array(':start'=>$result[0]. '%',':end'=>$result[1]. '%',':seats'=>null, ':price'=>$result[3], ':type'=>'passenger', ':date'=>$result[4]) );
+		};
+
+	}
+	elseif ($result[0] != '' and $result[1] != '' and $result[2]!='') {
+		$stmt_city = $pdo->prepare('
+			insert into cities (city_id) values (:start),(:end);
+		');
+		$stmt_city->execute(array(':start'=>$result[0],':end'=>$result[1]));
+		if ($stmt_city->errorCode() == 0) {
+			$stmt_route = $pdo->prepare('	
+			insert into routes (start_id, end_id, seats, price, type, date) 
+			values 
+				((select city_pk from cities where city_id LIKE :start), 
+				(select city_pk from cities where city_id LIKE :end), :seats, :price, :type, :date);
+			');
+			$stmt_route->execute(array(':start'=>$result[0]. '%',':end'=>$result[1]. '%',':seats'=>$result[2], ':price'=>$result[3], ':type'=>'driver', ':date'=>$result[4]) );
+		}
+		else {
+			$stmt_route = $pdo->prepare('	
+			insert into routes (start_id, end_id, seats, price, type, date) 
+			values 
+				((select city_pk from cities where city_id LIKE :start), 
+				(select city_pk from cities where city_id LIKE :end), :seats, :price, :type, :date);
+			');
+			$stmt_route->execute(array(':start'=>$result[0]. '%',':end'=>$result[1]. '%',':seats'=>$result[2], ':price'=>$result[3], ':type'=>'driver', ':date'=>$result[4]) );
 		};
 
 	};
-	/*elseif ($result[0] != '' and $result[1] != '' and $result[2]!='') {
-		$stmt_city = $pdo->prepare('
-			insert into cities (city_id) values (:start),(:end);
-		');
-		$stmt_city->execute(array(':start'=>$result[0],':end'=>$result[1]));
-		if ($stmt_city->errorCode() == 0) {
-			$stmt_route = $pdo->prepare('	
-			insert into routes (start_id, end_id, seats, price, type, date) 
-			values 
-				((select city_pk from cities where city_id = :start), 
-				(select city_pk from cities where city_id = :end), :seats, :price, :type, :date);
-			');
-			$stmt_route->execute(array(':start'=>$result[0],':end'=>$result[1],':seats'=>$result[2], ':price'=>$result[3], ':type'=>'driver', ':date'=>$result[4]) );
-		}
-		else {
-			$stmt_route = $pdo->prepare('	
-			insert into routes (start_id, end_id, seats, price, type, date) 
-			values 
-				((select city_pk from cities where city_id = :start), 
-				(select city_pk from cities where city_id = :end), :seats, :price, :type, :date);
-			');
-			$stmt_route->execute(array(':start'=>$result[0],':end'=>$result[1],':seats'=>$result[2], ':price'=>$result[3], ':type'=>'driver', ':date'=>$result[4]) );
-		};
-
-	};*/
 }
 
 function search($query) {
 	global $pdo;
 
 	$stmt = $pdo->prepare("
-		SELECT DISTINCT start, end FROM routes WHERE (start LIKE :query OR end LIKE :query);
+		SELECT DISTINCT city_id FROM cities WHERE (city_id LIKE :query);
 		");
 	$stmt->execute(array(':query'=>$query. '%'));
 	$result = $stmt->fetchAll(PDO::FETCH_OBJ);
