@@ -2,7 +2,7 @@
 
 function connect() {
 	global $pdo;
-	$pdo = new PDO("mysql:host=localhost;dbname=autostop;","root","bruselee");
+	$pdo = new PDO("mysql:host=localhost;dbname=test;","root","bruselee");
 }
 
 function create_table() {
@@ -37,67 +37,105 @@ function get_json($origin, $destination, $seats, $price, $date) {
 function new_route() {
 	global $pdo;
 	global $result;
+	//if  the type of user was passenger
 	if($result[0] != '' and $result[1] != '' and ($result[2]==null or $result[2]=='')) {
-		$stmt_city = $pdo->prepare('
-			insert into cities (city_id) values (:start),(:end);
-		');
-		$stmt_city->execute(array(':start'=>$result[0],':end'=>$result[1]));
-		if ($stmt_city->errorCode() == 0) {
-			$stmt_route = $pdo->prepare('	
-			insert into routes (start_id, end_id, seats, price, type, date) 
-			values 
-				((select city_pk from cities where city_id LIKE :start), 
-				(select city_pk from cities where city_id LIKE :end), :seats, :price, :type, :date);
+		//insert new start city
+		$stmt_s_city = $pdo->prepare('
+			insert into s_city (s_city_id) values (:start);
+			');
+		$stmt_s_city->execute(array(':start'=>$result[0]));
+		
+		//insert new end city
+		$stmt_e_city = $pdo->prepare('
+			insert into e_city (e_city_id) values (:end);
+			');
+		$stmt_e_city->execute(array(':end'=>$result[1]));
+		
+		//if there were no error during cities insert, then insert route details
+		if ($stmt_s_city->errorCode() == 0 and $stmt_e_city->errorCode() == 0) {
+			$stmt_route = $pdo->prepare('
+			insert into routes (s_city, e_city, seats, price, type, date)
+			values ( 	(select s_city_pk from s_city where s_city_id like :start),
+						(select e_city_pk from e_city where e_city_id like :end),
+        				:seats, :price, :type, :date);
 			');
 			$stmt_route->execute(array(':start'=>$result[0]. '%',':end'=>$result[1]. '%',':seats'=>null, ':price'=>$result[3], ':type'=>'passenger', ':date'=>$result[4]) );
 		}
+		//if there were any errors during cities insert, then ignore them and insert route details with existing cities
 		else {
 			$stmt_route = $pdo->prepare('	
-			insert into routes (start_id, end_id, seats, price, type, date) 
-			values 
-				((select city_pk from cities where city_id LIKE :start), 
-				(select city_pk from cities where city_id LIKE :end), :seats, :price, :type, :date);
+			insert into routes (s_city, e_city, seats, price, type, date)
+			values ( 	(select s_city_pk from s_city where s_city_id like :start),
+						(select e_city_pk from e_city where e_city_id like :end),
+        				:seats, :price, :type, :date);
 			');
 			$stmt_route->execute(array(':start'=>$result[0]. '%',':end'=>$result[1]. '%',':seats'=>null, ':price'=>$result[3], ':type'=>'passenger', ':date'=>$result[4]) );
 		};
 
 	}
+	//if the type of user was driver
 	elseif ($result[0] != '' and $result[1] != '' and $result[2]!='') {
-		$stmt_city = $pdo->prepare('
-			insert into cities (city_id) values (:start),(:end);
-		');
-		$stmt_city->execute(array(':start'=>$result[0],':end'=>$result[1]));
-		if ($stmt_city->errorCode() == 0) {
-			$stmt_route = $pdo->prepare('	
-			insert into routes (start_id, end_id, seats, price, type, date) 
-			values 
-				((select city_pk from cities where city_id LIKE :start), 
-				(select city_pk from cities where city_id LIKE :end), :seats, :price, :type, :date);
+		//insert new start city
+		$stmt_s_city = $pdo->prepare('
+			insert into s_city (s_city_id) values (:start);
 			');
-			$stmt_route->execute(array(':start'=>$result[0]. '%',':end'=>$result[1]. '%',':seats'=>$result[2], ':price'=>$result[3], ':type'=>'driver', ':date'=>$result[4]) );
+		$stmt_s_city->execute(array(':start'=>$result[0]));
+		
+		//insert new end city
+		$stmt_e_city = $pdo->prepare('
+			insert into e_city (e_city_id) values (:end);
+			');
+		$stmt_e_city->execute(array(':end'=>$result[1]));
+		
+		//if there were no error during cities insert, then insert route details
+		if ($stmt_s_city->errorCode() == 0 and $stmt_e_city->errorCode() == 0) {
+			$stmt_route = $pdo->prepare('
+			insert into routes (s_city, e_city, seats, price, type, date)
+			values ( 	(select s_city_pk from s_city where s_city_id like :start),
+						(select e_city_pk from e_city where e_city_id like :end),
+        				:seats, :price, :type, :date);
+			');
+			$stmt_route->execute(array(':start'=>$result[0]. '%',':end'=>$result[1]. '%',':seats'=>null, ':price'=>$result[3], ':type'=>'driver', ':date'=>$result[4]) );
 		}
+		//if there were any errors during cities insert, then ignore them and insert route details with existing cities
 		else {
 			$stmt_route = $pdo->prepare('	
-			insert into routes (start_id, end_id, seats, price, type, date) 
-			values 
-				((select city_pk from cities where city_id LIKE :start), 
-				(select city_pk from cities where city_id LIKE :end), :seats, :price, :type, :date);
+			insert into routes (s_city, e_city, seats, price, type, date)
+			values ( 	(select s_city_pk from s_city where s_city_id like :start),
+						(select e_city_pk from e_city where e_city_id like :end),
+        				:seats, :price, :type, :date);
 			');
-			$stmt_route->execute(array(':start'=>$result[0]. '%',':end'=>$result[1]. '%',':seats'=>$result[2], ':price'=>$result[3], ':type'=>'driver', ':date'=>$result[4]) );
+			$stmt_route->execute(array(':start'=>$result[0]. '%',':end'=>$result[1]. '%',':seats'=>null, ':price'=>$result[3], ':type'=>'driver', ':date'=>$result[4]) );
 		};
-
 	};
+}
+
+function typeahead_search($query) {
+	global $pdo;
+
+	$stmt = $pdo->prepare("
+		SELECT s_city_id FROM s_city WHERE s_city_id LIKE :query
+		UNION
+		SELECT e_city_id FROM e_city WHERE e_city_id LIKE :query;
+		");
+	$stmt->execute(array(':query'=>$query. '%'));
+	$result = $stmt->fetchAll(PDO::FETCH_OBJ);
+	return $result;
 }
 
 function search($query) {
 	global $pdo;
 
 	$stmt = $pdo->prepare("
-		SELECT DISTINCT city_id FROM cities WHERE (city_id LIKE :query);
+		select s_city.s_city_id, e_city.e_city_id, routes.seats, routes.price, routes.type, routes.date
+		from routes
+		join s_city on routes.s_city = s_city.s_city_pk
+		join e_city on routes.e_city = e_city.e_city_pk
+		where s_city.s_city_id like :query or e_city.e_city_id like :query;
 		");
 	$stmt->execute(array(':query'=>$query. '%'));
-	$result = $stmt->fetchAll(PDO::FETCH_OBJ);
-	return $result;
+	$search = $stmt->fetchALL(PDO::FETCH_OBJ);
+	return $search;
 }
 
 function show_routes() {

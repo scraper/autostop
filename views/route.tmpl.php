@@ -21,6 +21,7 @@
 
 		<div class="span5">
 			<h3>Results</h3>
+			<p class="result"></p>
 		</div>
 	</div>
 </div>
@@ -38,9 +39,10 @@
 					data: {query: $('#search').val()},
 					dataType: "JSON",
 					success: function(data) {
-						$.each(data, function(column, value) {
-							$('.span5').append(value['city_id']);
-							console.log(value['city_id']);
+						console.log(data);
+						$.each(data.objB, function(column, value) {
+							$('.result').append(value['s_city_id'], ' - ', value['e_city_id']);
+							console.log(value['s_city_id']);
 						});
 						console.log(data);
 					}
@@ -59,8 +61,8 @@
 					success: function(data) {
 						//bootstrap typeahead does not know how to read JSON, so we push JSON items to JavaScript array
 							
-						$.each(data, function(column, value){
-							arr.push(value['city_id']);
+						$.each(data.objA, function(column, value){
+							arr.push(value['s_city_id']);
 								
 						});
 						console.log(arr);
