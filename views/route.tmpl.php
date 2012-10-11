@@ -21,7 +21,7 @@
 
 		<div class="span5">
 			<h3>Results</h3>
-			<p class="result"></p>
+			<div class="result"></div>
 		</div>
 	</div>
 </div>
@@ -40,8 +40,9 @@
 					dataType: "JSON",
 					success: function(data) {
 						console.log(data);
+						$('.result').html('');
 						$.each(data.objB, function(column, value) {
-							$('.result').append(value['s_city_id'], ' - ', value['e_city_id']);
+							$('.result').append('<p><a href="./routes.php?q='+ value['route_id'] + '">' + value['s_city_id'] + ' - ' + value['e_city_id'] + '</a>');
 							console.log(value['s_city_id']);
 						});
 						console.log(data);
