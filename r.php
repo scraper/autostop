@@ -1,10 +1,9 @@
-<?php
+<?php header('content-type: application/json; charset=utf-8');
 
 require 'functions.php';
 
 if (isset($_GET['q'])) {
 	connect();
 	$id = render_route($_GET['q']);
-	json_encode($id);
+	echo json_encode($id);
 }
-include 'views/route.tmpl.php';

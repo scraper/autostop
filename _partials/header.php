@@ -68,8 +68,8 @@
               <li class="nav-header">Маршрути</li>
               <!-- <li class="active"><a href="#">Link</a></li> -->
               <li><a href="new.php">Новий</a></li>
-              <li><a href="route.php">Пошук</a></li>
-              <li><a href="view.php">TOP</a></li>
+              <li><a href="search.php">Пошук</a></li>
+              <li><a href="route.php">TOP</a></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->

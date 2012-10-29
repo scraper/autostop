@@ -152,9 +152,13 @@ function render_route($id) {
 	global $pdo;
 
 	$stmt = $pdo->prepare('
-		SELECT * FROM routes WHERE route_id = :route_id;
+		select routes.route_id, s_city.s_city_id, e_city.e_city_id, routes.seats, routes.price, routes.type, routes.date
+		from routes
+		join s_city on routes.s_city = s_city.s_city_pk
+		join e_city on routes.e_city = e_city.e_city_pk
+		where routes.route_id = :q;
 		');
-	$stmt->execute(array(':route_id'=>$id));
+	$stmt->execute(array(':q'=>$id));
 	return $stmt->fetch(PDO::FETCH_OBJ);
 }
 
