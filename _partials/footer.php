@@ -16,6 +16,7 @@
     <script src="./bootstrap/assets/js/bootstrap-typeahead.js"></script>
     <script src="./bootstrap/assets/js/bootstrap-datepicker.js"></script>
     <script type="text/javascript" src="./js/ui.js"></script>
+</div>
 </body>
 </body>
 </html>

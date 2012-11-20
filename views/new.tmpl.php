@@ -1,4 +1,13 @@
 <?php include '_partials/header.php'; ?>
+
+<style type="text/css">
+.span7 {
+    -webkit-box-shadow: 0 8px 6px -6px black;
+       -moz-box-shadow: 0 8px 6px -6px black;
+            box-shadow: 0 8px 6px -6px black;
+}
+</style>
+
 <script type="text/javascript">
 function validation() {
         var start = $('#start').val();
@@ -134,14 +143,14 @@ function validation() {
         }
 };
 </script>
-    	<div class="span9">
+    	<div class="span12">
     		<div class="row-fluid">
     			<div class="span7">
-    				<h3>Карта</h3>
+    				<legend>Карта</legend>
     				<div id="map" style="width:100%;height:400px;"></div>
     			</div><!--/span-->
     			<div class="span4">
-    				<h3>Маршрут</h3>
+    				<legend>Маршрут</legend>
     				<div id="controls">
 						<form class="well" action="new.php" method="post" onsubmit="return validation();">
 							<div class="directions">
@@ -151,18 +160,20 @@ function validation() {
 								<label id="b" for="end">Їду в місто:</label>
 								<input class="text-input" type="text" id="end" name="destination"/>
 							    <label>Відправлення</label><input type="text" class="text-input" id="dp1" name="date">
-								<label>Ціна за місце: <input type="text" id="prices" class="text-input" placeholder="Введіть ціну..." name="price"></label>
+								<label for="prices">Ціна за місце:</label>
+                                <input type="text" id="prices" class="text-input" placeholder="Введіть ціну..." name="price">
                                 <li id="seats" style="list-style-type:none;">
-                                    <label>Вільних місць: <input id="seats_i" class="text-input" placeholder="Введіть кількість місць..." type="text" name="seats"></label>
+                                <label for="seats_i">Вільних місць:</label>
+                                <input id="seats_i" class="text-input" placeholder="Введіть кількість місць..." type="text" name="seats">
                                 </li>
 								<div class="btn-group" data-toggle="buttons-radio">
                                     <button class="btn btn-info" id="idriver">Я-Водій</button>
                                     <button class="btn btn-success" id="ipassngr">Я-Пасажир</button>
                                 </div>
-                                <br>
+                                <p></p>
 								<div class="btn-group">
 									<button class="btn btn-warning" id="build_route">Показати маршрут</button>
-									<button class="btn btn-primary" id="submit" type="submit"  rel="popover" data-content="Ведіть обов'язкові поля">Додати маршрут</button>
+									<button class="btn btn-primary" id="submit" type="submit"  rel="popover" data-placement="bottom" data-content="Ведіть обов'язкові поля">Додати маршрут</button>
 								</div>
 							</div>
 						</form>

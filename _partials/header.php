@@ -10,17 +10,18 @@
       src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDN8CZL6PryCYP8ZnXUnPu3CzgR1lOjMho&sensor=false&libraries=places">
     </script>
 	<!-- jquery min cdn -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script type="text/javascript">
 		window.onload = function () {
        	initialize();
     	}
 	</script>
+    
  	
 	<link rel="stylesheet" type="text/css" href="./bootstrap/assets/css/bootstrap.css">
 	<style type="text/css">
       body {
-        padding-top: 41px;
+        padding-top: 15px;
         padding-bottom: 40px;
       }
       .sidebar-nav {
@@ -38,38 +39,43 @@
 </head>
 
 <body>
+<div class="container">
+	<div class="navbar">
+        <div class="navbar-inner">
+            <div class="container-fluid">
 
-	<div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="./">autostop</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li class="active"><a href="./">Home</a></li>
-              <li><a href="#about">Про проект</a></li>
-              <li><a href="#contact">Контакти</a></li>
-            </ul>
-            <p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>
-          </div><!--/.nav-collapse -->
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+
+                <a class="brand" href="./">gogo!</a>
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li class="divider-vertical"></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Маршрути
+                            <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="new.php">Новий</a></li>
+                                <li><a href="search.php">Пошук</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Контакти</a></li>
+                        <li class="divider-vertical"></li>
+                        
+                    </ul>
+                    <ul class="nav pull-right">
+                        <form class="navbar-search" action="route.php">
+                            <input id="search_h" type="text" class="search-query" placeholder="Пошук" autocomplete="off">
+                            <a href="#"><i class="icon-search"></i></a>
+                        </form>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div class="span2">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">Маршрути</li>
-              <!-- <li class="active"><a href="#">Link</a></li> -->
-              <li><a href="new.php">Новий</a></li>
-              <li><a href="search.php">Пошук</a></li>
-              <li><a href="route.php">TOP</a></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
+<div class="container">
+    <div class="container">

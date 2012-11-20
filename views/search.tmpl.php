@@ -1,29 +1,51 @@
 <?php include '_partials/header.php'; ?>
 
-<div class="span9">
+<style type="text/css">
+.span7 {
+	-webkit-box-shadow: 0 8px 6px -6px black;
+	   -moz-box-shadow: 0 8px 6px -6px black;
+	        box-shadow: 0 8px 6px -6px black;
+}
+</style>
+
+<div class="span12">
 	<div class="row-fluid">
 		
-		
+		<div class="span7">
+			<legend>Карта</legend>
+			<div id="map" style="width:100%;height:400px;"></div>
+		</div>
 		<div class="span4">
-			<h3>Пошук</h3>
+			<legend>Пошук</legend>
 			<form class="well" action="route.php" method="post" onsubmit="show_results()">
 				
-					<input id="search" class="input-large" type="text" data-provide="typeahead" placeholder="Введіть місто для пошуку...">
+					<input id="search" class="input-large" type="text" data-provide="typeahead" placeholder="Введіть місто для пошуку..." autocomplete="off">
 					<div class="btn-group">
 						<button id="submit" class="btn btn-success" type="submit">Go!</button>
 						<button class="btn btn-info">Розширений</button>
 					</div>
 				
 			</form>
-			<h3>Карта</h3>
-			<div id="map" style="width:100%;height:400px;"></div>
+			
 		</div>
 
 		<div class="span5">
-			<h3>Results</h3>
+			<legend>Results</legend>
 			<div class="result"></div>
 		</div>
 	</div>
+</div>
+
+    </div><!--/row-->
+
+    <hr>
+
+    <footer>
+    	<p>&copy; Company 2012</p>
+    </footer>
+
+    </div><!--/.fluid-container-->
+
 </div>
 
 <script type="text/javascript" src="./js/search.js"></script>

@@ -1,3 +1,4 @@
+//Pushing results to the page
 $(function() {
 		$('#submit').click(function(e) {
 			e.preventDefault();
@@ -20,7 +21,7 @@ $(function() {
 				});
 			};
 		});
-
+//Pushing results to typeahead (search input)
 		$('#search').typeahead({
 			source: function(query, process) {
 				var arr = [];
@@ -42,4 +43,28 @@ $(function() {
 				});
 			}
 		});
+
+//Push results to search_h (search input in header)
+		$('#search_h').typeahead({
+			source: function(query, process) {
+				var arr = [];
+				return $.ajax({
+					url: './search/index.php',
+					type: 'post',
+					data: {query: $('#search_h').val()},
+					dataType: "JSON",
+					success: function(data) {
+						//bootstrap typeahead does not know how to read JSON, so we push JSON items to JavaScript array
+							
+						$.each(data.objA, function(column, value){
+							arr.push(value['s_city_id']);
+								
+						});
+						console.log(arr);
+						return process(arr);
+					}
+				});
+			}
+		});
 	});
+
