@@ -69,7 +69,7 @@
                     <ul class="nav pull-right">
                         <form class="navbar-search" action="route.php">
                             <input id="search_h" type="text" class="search-query" placeholder="Пошук" autocomplete="off">
-                            <a href="#"><i class="icon-search"></i></a>
+                            <a href="./search.php"><i class="icon-search"></i></a>
                         </form>
                     </ul>
                 </div>
