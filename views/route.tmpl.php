@@ -16,7 +16,7 @@
 		</div>
 		<div class="span4">
 			<legend>Маршрут:</legend>
-			<table class="table">
+			<table class="table table-hover">
 				<thead>
 					<tr>
 						<th>Деталі</th>
@@ -75,6 +75,8 @@
 
     </div><!--/.fluid-container-->
 
+<button class="btn btn-warning" id="build_route">Показати маршрут</button>
+
 </div>
 
 <script type="text/javascript">
@@ -96,8 +98,8 @@
 		}
 
 		function calcRoute() {
-		  var start = '<?php echo ($id->s_city_id);?>';
-		  var end = '<?php echo ($id->e_city_id);?>';
+		  var start = "<?php echo ($id->s_city_id);?>";
+		  var end = "<?php echo ($id->e_city_id);?>";
 		  var request = {
 		    origin:start,
 		    destination:end,
@@ -109,7 +111,10 @@
 		    }
 		  });
 		}
-		calcRoute();
+		setTimeout(
+			function(){
+				calcRoute();
+			}, 200)
 
 		// console.log(document.getElementById("start").innerText);
 </script>

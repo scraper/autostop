@@ -19,7 +19,7 @@
 			<legend>Пошук</legend>
 			<form class="well" action="route.php" method="post" onsubmit="show_results()">
 				
-					<input id="search" class="input-large" type="text" data-provide="typeahead" placeholder="Введіть місто для пошуку..." autocomplete="off">
+					<input id="search" class="span12" type="text" data-provide="typeahead" placeholder="Введіть місто для пошуку..." autocomplete="off">
 					<div class="btn-group">
 						<button id="submit" class="btn btn-success" type="submit">Go!</button>
 						<button class="btn btn-info">Розширений</button>

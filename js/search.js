@@ -13,7 +13,7 @@ $(function() {
 						console.log(data);
 						$('.result').html('');
 						$.each(data.objB, function(column, value) {
-							$('.result').append('<p><a href="./route.php?q='+ value['route_id'] + '">' + value['s_city_id'] + ' - ' + value['e_city_id'] + '</a>');
+							$('.result').append('<p><a href="./route.php?q='+ value['route_id'] + '">' + value['s_city_id'] + ' - ' + value['e_city_id'] + ', ' + value['date'] + '</a>');
 							console.log(value['s_city_id']);
 						});
 						console.log(data);
