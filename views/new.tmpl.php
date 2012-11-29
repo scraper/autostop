@@ -156,15 +156,16 @@ function validation() {
 							<div class="directions">
 								
 								<label id="a" for="start">Відправляюсь з міста:</label>
-								<input class="text-input" type="text" id="start" name="origin"/>
+								<input class="span12" type="text" id="start" name="origin" onblur="calcRoute();"/>
 								<label id="b" for="end">Їду в місто:</label>
-								<input class="text-input" type="text" id="end" name="destination"/>
-							    <label>Відправлення</label><input type="text" class="text-input" id="dp1" name="date">
+								<input class="span12" type="text" id="end" name="destination" onblur="calcRoute();"/>
+							    <label for="date">Відправлення</label>
+                                <input class="span12" type="text" id="dp1" name="date">
 								<label for="prices">Ціна за місце:</label>
-                                <input type="text" id="prices" class="text-input" placeholder="Введіть ціну..." name="price">
+                                <input class="span12" type="text" id="prices" placeholder="Введіть ціну..." name="price">
                                 <li id="seats" style="list-style-type:none;">
                                 <label for="seats_i">Вільних місць:</label>
-                                <input id="seats_i" class="text-input" placeholder="Введіть кількість місць..." type="text" name="seats">
+                                <input class="span12" id="seats_i" placeholder="Введіть кількість місць..." type="text" name="seats">
                                 </li>
 								<div class="btn-group" data-toggle="buttons-radio">
                                     <button class="btn btn-info" id="idriver">Я-Водій</button>
@@ -172,7 +173,7 @@ function validation() {
                                 </div>
                                 <p></p>
 								<div class="btn-group">
-									<button class="btn btn-warning" id="build_route">Показати маршрут</button>
+									<!-- <button class="btn btn-warning" id="build_route">Показати маршрут</button> -->
 									<button class="btn btn-primary" id="submit" type="submit"  rel="popover" data-placement="bottom" data-content="Ведіть обов'язкові поля">Додати маршрут</button>
 								</div>
 							</div>

@@ -51,6 +51,6 @@ var directionsDisplay;
 			autocomplete = new google.maps.places.Autocomplete(input, options);
 
 		
-build_route.onclick = calcRoute;
+// build_route.onclick = calcRoute;
 // $('#start').on('change', calcRoute);
 // $('#end').on('change', calcRoute);

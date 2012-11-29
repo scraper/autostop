@@ -79,7 +79,7 @@
 
 <script type="text/javascript">
 
-var directionsDisplay;
+		var directionsDisplay;
 		var directionsService = new google.maps.DirectionsService();
 		var map;
 
@@ -91,13 +91,13 @@ var directionsDisplay;
 		    mapTypeId: google.maps.MapTypeId.ROADMAP,
 		    center: kyiv
 		  }
-		  map = new google.maps.Map($("#map")[0], myOptions);
+		  map = new google.maps.Map(document.getElementById("map"), myOptions);
 		  directionsDisplay.setMap(map);
 		}
 
 		function calcRoute() {
-		  var start = "<?php echo ($id->s_city_id);?>";
-		  var end = "<?php echo ($id->e_city_id);?>";
+		  var start = '<?php echo ($id->s_city_id);?>';
+		  var end = '<?php echo ($id->e_city_id);?>';
 		  var request = {
 		    origin:start,
 		    destination:end,
@@ -110,6 +110,8 @@ var directionsDisplay;
 		  });
 		}
 		calcRoute();
+
+		// console.log(document.getElementById("start").innerText);
 </script>
 
 <?php include '_partials/footer.php'; ?>
