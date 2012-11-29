@@ -31,7 +31,7 @@ function get_json($origin, $destination, $seats, $price, $date) {
 	global $result;
 	$result = array($start, $end, $seats, $price, $date);
 	/*return $result;*/
-	print_r($result);
+	/*print_r($result);*/
 }
 
 function new_route() {
