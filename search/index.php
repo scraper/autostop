@@ -3,6 +3,7 @@
 require '../functions.php';
 connect();
 if (isset($_POST['query'])) {
-	$res = array('objA'=>typeahead_search($_POST['query']), 'objB'=>search($_POST['query']));
+	$q = $_POST['query'];
+	$res = array('objA'=>typeahead_search($q), 'objB'=>search($q));
 	echo json_encode($res);
 };

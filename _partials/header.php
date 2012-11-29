@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
 	<title>Autostop UA</title>
 	
 	<!-- google maps api cdn -->
@@ -67,7 +66,7 @@
                         
                     </ul>
                     <ul class="nav pull-right">
-                        <form class="navbar-search" action="route.php">
+                        <form class="navbar-search" action="search.php" method="post">
                             <input id="search_h" type="text" class="search-query" placeholder="Пошук" autocomplete="off">
                             <a href="./search.php"><i class="icon-search"></i></a>
                         </form>

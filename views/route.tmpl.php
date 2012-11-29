@@ -91,7 +91,7 @@ var directionsDisplay;
 		    mapTypeId: google.maps.MapTypeId.ROADMAP,
 		    center: kyiv
 		  }
-		  map = new google.maps.Map(document.getElementById("map"), myOptions);
+		  map = new google.maps.Map($("#map")[0], myOptions);
 		  directionsDisplay.setMap(map);
 		}
 
