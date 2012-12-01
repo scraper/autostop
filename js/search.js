@@ -71,7 +71,7 @@ $(function() {
 //Pushing results to the page from search_h (search input in header)
 $(function() {
 				var q = $('#q').val();
-				if (q != null) { 
+				if (q != "") { 
 					$.ajax({
 						url: './search/index.php',
 						type: 'post',
@@ -87,5 +87,6 @@ $(function() {
 							console.log(data);
 						}
 					});
-				}	
+				};
+				return false;	
 			});
