@@ -67,7 +67,7 @@
                     </ul>
                     <ul class="nav pull-right">
                         <form class="navbar-search" action="search.php" method="post">
-                            <input id="search_h" type="text" class="search-query" placeholder="Пошук" autocomplete="off">
+                            <input id="search_h" name="q" type="text" class="search-query" placeholder="Пошук" autocomplete="off">
                             <a href="./search.php"><i class="icon-search"></i></a>
                         </form>
                     </ul>

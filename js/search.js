@@ -68,3 +68,24 @@ $(function() {
 		});
 	});
 
+//Pushing results to the page from search_h (search input in header)
+$(function() {
+				var q = $('#q').val();
+				if (q != null) { 
+					$.ajax({
+						url: './search/index.php',
+						type: 'post',
+						data: {query: q},
+						dataType: "JSON",
+						success: function(data) {
+							console.log(data);
+							$('.result').html('');
+							$.each(data.objB, function(column, value) {
+								$('.result').append('<p><a href="./route.php?q='+ value['route_id'] + '">' + value['s_city_id'] + ' - ' + value['e_city_id'] + ', ' + value['date'] + '</a>');
+								console.log(value['s_city_id']);
+							});
+							console.log(data);
+						}
+					});
+				}	
+			});

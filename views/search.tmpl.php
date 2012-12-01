@@ -59,7 +59,7 @@
     </div><!--/.fluid-container-->
 
 </div>
-
+<input id="q" type="hidden" value="<?php echo ($q=$_POST['q']);?>">
 <script type="text/javascript" src="./js/search.js"></script>
 
 <script type="text/javascript">
