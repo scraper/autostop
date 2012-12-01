@@ -75,8 +75,6 @@
 
     </div><!--/.fluid-container-->
 
-<button class="btn btn-warning" id="build_route">Показати маршрут</button>
-
 </div>
 
 <script type="text/javascript">

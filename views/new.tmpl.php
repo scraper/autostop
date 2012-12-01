@@ -1,5 +1,6 @@
 <?php include '_partials/header.php'; ?>
 
+<script type="text/javascript" src="./js/search.js"></script>
 <style type="text/css">
 .span7 {
     -webkit-box-shadow: 0 8px 6px -6px black;
