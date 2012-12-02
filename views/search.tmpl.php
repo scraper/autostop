@@ -25,11 +25,28 @@
 			
 		</div>
 
-		<div class="span5">
+	</div>
+
+	<div class="row-fluid">
+		<div class="span12">
 			<legend>Results</legend>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>A</th>
+						<th>B</th>
+						<th>Дата</th>
+					</tr>
+				</thead>
+				<tbody class="tbody">
+
+				</tbody>
+			</table>
+
 			<div class="result"></div>
 		</div>
 	</div>
+
 	<br>
 	<!-- AddThis Button BEGIN -->
 	<div class="addthis_toolbox addthis_default_style addthis_32x32_style">

@@ -81,8 +81,11 @@ $(function() {
 							console.log(data);
 							$('.result').html('');
 							$.each(data.objB, function(column, value) {
-								$('.result').append('<p><a href="./route.php?q='+ value['route_id'] + '">' + value['s_city_id'] + ' - ' + value['e_city_id'] + ', ' + value['date'] + '</a>');
-								console.log(value['s_city_id']);
+								$('.tbody').append('<tr class="tr">' + '<td>' + value['s_city_id'] + '</td>' + '<td>' + value['e_city_id'] + '</td>' + '<td>' + value['date'] + '</td>' + '</tr>');
+								//click function on the table row
+								$('.tr').click(function() {
+									window.location = './route.php?q='+ value['route_id'];
+								});
 							});
 							console.log(data);
 						}
