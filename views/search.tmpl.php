@@ -1,11 +1,7 @@
 <?php include '_partials/header.php'; ?>
 
 <style type="text/css">
-.span7 {
-	-webkit-box-shadow: 0 8px 6px -6px black;
-	   -moz-box-shadow: 0 8px 6px -6px black;
-	        box-shadow: 0 8px 6px -6px black;
-}
+.tr {cursor: pointer;}
 </style>
 
 <div class="span12">
@@ -27,7 +23,7 @@
 
 	</div>
 
-	<div class="row-fluid">
+	<div id="results" class="row-fluid">
 		<div class="span12">
 			<legend>Results</legend>
 			<table class="table table-hover">
