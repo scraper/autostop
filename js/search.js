@@ -84,8 +84,8 @@ $(function() {
 						data: {query: q},
 						dataType: "JSON",
 						success: function(data) {
-							console.log(data);
-							$('.result').html('');
+							$('#results').slideDown();
+							$('.tbody').html('');
 							$.each(data.objB, function(column, value) {
 								$('.tbody').append('<tr class="tr">' + '<td>' + value['s_city_id'] + '</td>' + '<td>' + value['e_city_id'] + '</td>' + '<td>' + value['date'] + '</td>' + '</tr>');
 								//click function on the table row
