@@ -52,7 +52,6 @@ $(function() {
 		});
 
 //Pushing results to the page from search_h (search input in header)
-//function results_show() {
 				var q = $('#q').val();
 				if (q != "") { 
 					$.ajax({
@@ -74,16 +73,10 @@ $(function() {
 						}
 					});
 				};
-//				return false;	
-//};
-
 });
 
 //Pushing results to the page
 function search_results_show() {
-		//$('#results').hide();
-		// $('#submit').click(function(e) {
-		// 	e.preventDefault();
 			if ($('#search').val() != "") {
 				console.log("not null");
 				$.ajax({
@@ -106,5 +99,4 @@ function search_results_show() {
 					}
 				});
 			};
-		//});
 };
