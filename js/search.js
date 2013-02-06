@@ -1,32 +1,10 @@
-//Pushing results to the page
 $(function() {
-		$('#results').hide();
-		$('#submit').click(function(e) {
-			e.preventDefault();
-			if ($('#search').val() != "") {
-				console.log("not null");
-				$.ajax({
-					url: './search/index.php',
-					type: 'post',
-					data: {query: $('#search').val()},
-					dataType: "JSON",
-					success: function(data) {
-						console.log(data);
-						$('#results').slideDown();
-						$('.tbody').html('');
-						$.each(data.objB, function(column, value) {
-							$('.tbody').append('<tr class="tr">' + '<td>' + value['s_city_id'] + '</td>' + '<td>' + value['e_city_id'] + '</td>' + '<td>' + value['date'] + '</td>' + '</tr>');
-								//click function on the table row
-								$('.tr').click(function() {
-									window.location = './route.php?q='+ value['route_id'];
-								});
-							console.log(value['s_city_id']);
-						});
-						console.log(data);
-					}
-				});
-			};
-		});
+	$('#results').hide();
+	$('#submit').click(function(e) {
+		e.preventDefault();
+		search_results_show();
+	});
+
 //Pushing results to typeahead (search input)
 		$('#search').typeahead({
 			source: function(query, process) {
@@ -72,10 +50,9 @@ $(function() {
 				});
 			}
 		});
-	});
 
 //Pushing results to the page from search_h (search input in header)
-$(function() {
+//function results_show() {
 				var q = $('#q').val();
 				if (q != "") { 
 					$.ajax({
@@ -97,5 +74,37 @@ $(function() {
 						}
 					});
 				};
-				return false;	
-			});
+//				return false;	
+//};
+
+});
+
+//Pushing results to the page
+function search_results_show() {
+		//$('#results').hide();
+		// $('#submit').click(function(e) {
+		// 	e.preventDefault();
+			if ($('#search').val() != "") {
+				console.log("not null");
+				$.ajax({
+					url: './search/index.php',
+					type: 'post',
+					data: {query: $('#search').val()},
+					dataType: "JSON",
+					success: function(data) {
+						$('#results').slideDown();
+						$('.tbody').html('');
+						$.each(data.objB, function(column, value) {
+							$('.tbody').append('<tr class="tr">' + '<td>' + value['s_city_id'] + '</td>' + '<td>' + value['e_city_id'] + '</td>' + '<td>' + value['date'] + '</td>' + '</tr>');
+								//click function on the table row
+								$('.tr').click(function() {
+									window.location = './route.php?q='+ value['route_id'];
+								});
+							console.log(value['s_city_id']);
+						});
+						console.log(data);
+					}
+				});
+			};
+		//});
+};

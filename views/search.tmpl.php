@@ -9,7 +9,7 @@
 		
 		<div class="span4">
 			<legend>Пошук</legend>
-			<form class="well" action="route.php" method="post" onsubmit="show_results()">
+			<form class="well" method="post" onsubmit="return search_results_show()">
 				
 					<input id="search" class="span12" type="text" data-provide="typeahead" placeholder="Введіть місто для пошуку..." autocomplete="off">
 					<div class="btn-group">

@@ -117,4 +117,5 @@
 		// console.log(document.getElementById("start").innerText);
 </script>
 
+<script type="text/javascript" src="./js/search.js"></script>
 <?php include '_partials/footer.php'; ?>
