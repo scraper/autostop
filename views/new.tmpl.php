@@ -72,5 +72,6 @@
 
 <script src="js/get_route.js"></script>
 <script type="text/javascript" src="js/validation.js"></script>
+<script type="text/javascript" src="./js/search.js"></script>
 
 <?php include '_partials/footer.php'; ?>
