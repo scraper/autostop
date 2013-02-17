@@ -138,15 +138,6 @@ function search($query) {
 	return $search;
 }
 
-function show_routes() {
-	global $pdo;
-
-	$stmt = $pdo->prepare('
-		SELECT route_id, start, end FROM routes;
-		');
-	$stmt->execute();
-	return $stmt->fetchAll(PDO::FETCH_OBJ);
-}
 //return route info by route_id
 function render_route($id) {
 	global $pdo;
@@ -175,4 +166,15 @@ function render_route($id) {
 		$stmt-> execute(array(':search'=>$search . '%'));
 		return $stmt->fetchAll(PDO::FETCH_OBJ);
 	}
-}*/
+}
+
+function show_routes() {
+	global $pdo;
+
+	$stmt = $pdo->prepare('
+		SELECT route_id, start, end FROM routes;
+		');
+	$stmt->execute();
+	return $stmt->fetchAll(PDO::FETCH_OBJ);
+}
+*/
