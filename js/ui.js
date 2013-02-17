@@ -32,15 +32,7 @@ var ui = {
 			seats.hide('slow');
 		});
 		$('#build_route').click(function(){if ('#seats_i'=='') {console.log("ERROR");}; });
-	},
-
-	// writeConsole: function() {
-	// 	this.config.ul.on('click', function(e){
-	// 		// e.preventDefault();
-	// 		console.log("OK");
-	// 		calcRouteFromDB();
-	// 	});	
-	// }
+	}
 };
 //html elements initialization
 ui.init({

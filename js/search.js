@@ -5,7 +5,7 @@ $(function() {
 		search_results_show();
 	});
 	
-//Pushing results to typeahead (search input)
+//Pushing results to typeahead (search input), search.php
 		$('#search').typeahead({
 			source: function(query, process) {
 				var arr = [];
@@ -28,7 +28,7 @@ $(function() {
 			}
 		});
 
-//Push results to search_h (search input in header)
+//Push results to search_h (search input in header), any page
 		$('#search_h').typeahead({
 			source: function(query, process) {
 				var arr = [];
@@ -74,7 +74,9 @@ $(function() {
 					});
 				};
 }); //end of anonymous function
-
+$('#search_ico').click(function() {
+	$('#top_menu_search').submit();
+});
 //Pushing results to the page by selecting typeahead.item
 $('.active').click(item_clicked());
 function item_clicked() {
