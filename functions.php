@@ -13,7 +13,7 @@ function create_table() {
 		');
 	$stmt->execute();
 }
-
+//getting json result from google maps and pushing to array route info, new.php
 function get_json($origin, $destination, $seats, $price, $date) {
 	if(isset($origin,$destination)) {
 		$or_city_name = explode(' ',trim($origin));
@@ -33,7 +33,7 @@ function get_json($origin, $destination, $seats, $price, $date) {
 	/*return $result;*/
 	/*print_r($result);*/
 }
-
+//adding a new route, new.php
 function new_route() {
 	global $pdo;
 	global $result;
@@ -109,7 +109,7 @@ function new_route() {
 		};
 	};
 }
-
+//push results to typeahead prediction, search.js uses
 function typeahead_search($query) {
 	global $pdo;
 
@@ -122,7 +122,7 @@ function typeahead_search($query) {
 	$result = $stmt->fetchAll(PDO::FETCH_OBJ);
 	return $result;
 }
-
+//return the results of search query, search.php page shows, /search/index.php processes
 function search($query) {
 	global $pdo;
 
@@ -147,7 +147,7 @@ function show_routes() {
 	$stmt->execute();
 	return $stmt->fetchAll(PDO::FETCH_OBJ);
 }
-
+//return route info by route_id
 function render_route($id) {
 	global $pdo;
 
