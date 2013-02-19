@@ -4,29 +4,16 @@ $(function() {
 		e.preventDefault();
 		search_results_show();
 	});
-	
-//Pushing results to typeahead (search input), search.php
-		$('#search').typeahead({
-			source: function(query, process) {
-				var arr = [];
-				
-				return $.ajax({
-					url: './search/index.php',
-					type: 'post',
-					data: {query: $('#search').val()},
-					dataType: "JSON",
-					success: function(data) {
-						//bootstrap typeahead does not know how to read JSON, so we push JSON items to JavaScript array
-							
-						$.each(data.objA, function(column, value){
-							arr.push(value['s_city_id']);
-						});
-						console.log(arr);
-						return process(arr);
-					}
-				});
-			}
+	//search_h submit on item selected, all pages
+	$(document).ready(function() {
+		$('ul.typeahead').first().attr('id','top');	
+	});
+	$('#search_h').change(function() {
+		$('#top li.active').click(function() {
+			$('#search_h').val($('#top li.active').attr('data-value'));
+			$('#top_menu_search').submit();
 		});
+	});
 
 //Push results to search_h (search input in header), any page
 		$('#search_h').typeahead({
@@ -73,11 +60,37 @@ $(function() {
 						}
 					});
 				};
+
+//Pushing results to typeahead (search input), search.php
+		$('#search').typeahead({
+			source: function(query, process) {
+				var arr = [];
+				
+				return $.ajax({
+					url: './search/index.php',
+					type: 'post',
+					data: {query: $('#search').val()},
+					dataType: "JSON",
+					success: function(data) {
+						//bootstrap typeahead does not know how to read JSON, so we push JSON items to JavaScript array
+							
+						$.each(data.objA, function(column, value){
+							arr.push(value['s_city_id']);
+						});
+						console.log(arr);
+						return process(arr);
+					}
+				});
+			}
+		});
 }); //end of anonymous function
+
+//search icon submit function, every page
 $('#search_ico').click(function() {
 	$('#top_menu_search').submit();
 });
-//Pushing results to the page by selecting typeahead.item
+
+//Pushing results to the page by selecting search.typeahead item, search.php
 $('.active').click(item_clicked());
 function item_clicked() {
 	$('#search').change(function(){
@@ -91,6 +104,7 @@ function item_clicked() {
 $('#submit').click(search_results_show());
 function search_results_show() {
 			if ($('#search').val() != "") {
+				$('#q').val("");
 				console.log("not null");
 				$.ajax({
 					url: './search/index.php',
