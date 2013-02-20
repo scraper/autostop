@@ -13,7 +13,7 @@
 				
 					<input id="search" class="span12" type="text" data-provide="typeahead" placeholder="Введіть місто для пошуку..." autocomplete="off">
 					<div class="btn-group">
-						<button id="submit" class="btn btn-success">Go!</button>
+						<button id="search_btn" class="btn btn-success">Go!</button>
 						<button class="btn btn-info">Розширений</button>
 					</div>
 				

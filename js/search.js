@@ -1,6 +1,6 @@
 $(function() {
 	$('#results').hide();
-	$('#submit').click(function(e) {
+	$('#search_btn').click(function(e) {
 		e.preventDefault();
 		search_results_show();
 	});
@@ -101,7 +101,7 @@ function item_clicked() {
 	});
 };
 //Pushing results to the page
-$('#submit').click(search_results_show());
+$('#search_btn').click(search_results_show());
 function search_results_show() {
 			if ($('#search').val() != "") {
 				$('#q').val("");
