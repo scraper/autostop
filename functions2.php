@@ -2,7 +2,8 @@
 
 function connect() {
 	global $pdo;
-	$pdo = new PDO("mysql:host=localhost;dbname=test;","root","bruselee");
+	$pdo = new PDO("mysql:host=localhost;dbname=test;","root","bruselee", array(
+  					PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 }
 
 function create_table() {
@@ -37,77 +38,92 @@ function get_json($origin, $destination, $seats, $price, $date) {
 function new_route() {
 	global $pdo;
 	global $result;
-	//if  the type of user was passenger
-	if($result[0] != '' and $result[1] != '' and ($result[2]==null or $result[2]=='')) {
-		//insert new start city
-		$stmt_s_city = $pdo->prepare('
-			insert into s_city (s_city_id) values (:start);
-			');
-		$stmt_s_city->execute(array(':start'=>$result[0]));
-		
-		//insert new end city
-		$stmt_e_city = $pdo->prepare('
-			insert into e_city (e_city_id) values (:end);
-			');
-		$stmt_e_city->execute(array(':end'=>$result[1]));
-		
-		//if there were no error during cities insert, then insert route details
-		if ($stmt_s_city->errorCode() == 0 and $stmt_e_city->errorCode() == 0) {
-			$stmt_route = $pdo->prepare('
+	$pdo->beginTransaction();
+	
+	try {
+
+
+		$stmt = $pdo->prepare("
+			insert into s_city (s_city_id) values (:start_c);
+		");
+		$stmt->bindParam(':start_c', $result[0], PDO::PARAM_STR);
+		$stmt->execute();
+
+		$stmt = $pdo->prepare("
+			insert into e_city (e_city_id) values (:end_c);
+			");
+		$stmt->bindParam(':end_c',$result[1], PDO::PARAM_STR);
+		$stmt->execute();
+
+		$stmt = $pdo->prepare("
 			insert into routes (s_city, e_city, seats, price, type, date)
 			values ( 	(select s_city_pk from s_city where s_city_id like :start),
 						(select e_city_pk from e_city where e_city_id like :end),
         				:seats, :price, :type, :date);
-			');
-			$stmt_route->execute(array(':start'=>$result[0]. '%',':end'=>$result[1]. '%',':seats'=>null, ':price'=>$result[3], ':type'=>'passenger', ':date'=>$result[4]) );
-		}
-		//if there were any errors during cities insert, then ignore them and insert route details with existing cities
-		else {
-			$stmt_route = $pdo->prepare('	
-			insert into routes (s_city, e_city, seats, price, type, date)
-			values ( 	(select s_city_pk from s_city where s_city_id like :start),
-						(select e_city_pk from e_city where e_city_id like :end),
-        				:seats, :price, :type, :date);
-			');
-			$stmt_route->execute(array(':start'=>$result[0]. '%',':end'=>$result[1]. '%',':seats'=>null, ':price'=>$result[3], ':type'=>'passenger', ':date'=>$result[4]) );
-		};
+			");
+		$p = 'driver';
+		$s = $result[0]. "%";
+		$e = $result[1]. "%";
+
+		$stmt->bindParam(':start',$s, PDO::PARAM_STR);
+		$stmt->bindParam(':end',$e, PDO::PARAM_STR);
+		$stmt->bindParam(':seats',$result[2], PDO::PARAM_INT);
+		$stmt->bindParam(':price',$result[3], PDO::PARAM_INT);
+		$stmt->bindParam(':type',$p, PDO::PARAM_STR);
+		$stmt->bindParam(':date',$result[4], PDO::PARAM_STR);
+		$stmt->execute();
+		$route_pk = $pdo->lastInsertId();
+		$file = 'new_route.log';
+		$route_log_msg = "\r\nRoute was added:";
+		file_put_contents($file, $route_log_msg, FILE_APPEND | LOCK_EX);
+		$route_log_id = $route_pk;
+		file_put_contents($file, $route_log_id, FILE_APPEND | LOCK_EX);
+
+		$pdo->commit();
 
 	}
-	//if the type of user was driver
-	elseif ($result[0] != '' and $result[1] != '' and $result[2]!='') {
-		//insert new start city
-		$stmt_s_city = $pdo->prepare('
-			insert into s_city (s_city_id) values (:start);
-			');
-		$stmt_s_city->execute(array(':start'=>$result[0]));
-		
-		//insert new end city
-		$stmt_e_city = $pdo->prepare('
-			insert into e_city (e_city_id) values (:end);
-			');
-		$stmt_e_city->execute(array(':end'=>$result[1]));
-		
-		//if there were no error during cities insert, then insert route details
-		if ($stmt_s_city->errorCode() == 0 and $stmt_e_city->errorCode() == 0) {
-			$stmt_route = $pdo->prepare('
+	catch (PDOException $e) {
+		//write log
+		// echo $e->getMessage();
+		// $file = 'new_route.log';
+		// $msg = "\r\nNew route with existing city was added\r\n";
+		// file_put_contents($file, $msg, FILE_APPEND | LOCK_EX);
+		// file_put_contents($file, $e, FILE_APPEND | LOCK_EX);
+		try {
+			$stmt = $pdo->prepare("
 			insert into routes (s_city, e_city, seats, price, type, date)
 			values ( 	(select s_city_pk from s_city where s_city_id like :start),
 						(select e_city_pk from e_city where e_city_id like :end),
         				:seats, :price, :type, :date);
-			');
-			$stmt_route->execute(array(':start'=>$result[0]. '%',':end'=>$result[1]. '%',':seats'=>$result[2], ':price'=>$result[3], ':type'=>'driver', ':date'=>$result[4]) );
+			");
+			$p = 'driver';
+			$s = $result[0]. "%";
+			$e = $result[1]. "%";
+
+			$stmt->bindParam(':start',$s, PDO::PARAM_STR);
+			$stmt->bindParam(':end',$e, PDO::PARAM_STR);
+			$stmt->bindParam(':seats',$result[2], PDO::PARAM_INT);
+			$stmt->bindParam(':price',$result[3], PDO::PARAM_INT);
+			$stmt->bindParam(':type',$p, PDO::PARAM_STR);
+			$stmt->bindParam(':date',$result[4], PDO::PARAM_STR);
+			$stmt->execute();
+			$route_pk = $pdo->lastInsertId();
+			$file = 'new_route.log';
+			$route_log_msg = "\r\nRoute was added:";
+			file_put_contents($file, $route_log_msg, FILE_APPEND | LOCK_EX);
+			$route_log_id = $route_pk;
+			file_put_contents($file, $route_log_id, FILE_APPEND | LOCK_EX);
+
+			$pdo->commit();
 		}
-		//if there were any errors during cities insert, then ignore them and insert route details with existing cities
-		else {
-			$stmt_route = $pdo->prepare('	
-			insert into routes (s_city, e_city, seats, price, type, date)
-			values ( 	(select s_city_pk from s_city where s_city_id like :start),
-						(select e_city_pk from e_city where e_city_id like :end),
-        				:seats, :price, :type, :date);
-			');
-			$stmt_route->execute(array(':start'=>$result[0]. '%',':end'=>$result[1]. '%',':seats'=>$result[2], ':price'=>$result[3], ':type'=>'driver', ':date'=>$result[4]) );
-		};
-	};
+		catch (PDOException $e) {
+			$file = 'new_route.log';
+			$error = $e + "\nUnexpected error\n";
+			file_put_contents($file, $error, FILE_APPEND | LOCK_EX);
+		}
+	}
+
+
 }
 //push results to typeahead prediction, search.js uses
 function typeahead_search($query) {
