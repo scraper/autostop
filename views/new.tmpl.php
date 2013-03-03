@@ -33,8 +33,8 @@
                                 <input class="span12" id="seats_i" placeholder="Введіть кількість місць..." type="text" name="seats">
                                 </li>
 								<div class="btn-group" data-toggle="buttons-radio">
-                                    <button class="btn btn-info" id="idriver">Я-Водій</button>
-                                    <button class="btn btn-success" id="ipassngr">Я-Пасажир</button>
+                                    <button name="type" value="Водій" class="btn btn-info" id="idriver">Я-Водій</button>
+                                    <button name="type" value="Пасажир" class="btn btn-success" id="ipassngr">Я-Пасажир</button>
                                 </div>
                                 <p></p>
 								<div class="btn-group">
