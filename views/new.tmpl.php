@@ -33,12 +33,12 @@
                                 <input class="span12" id="seats_i" placeholder="Введіть кількість місць..." type="text" name="seats">
                                 </li>
 								<div class="btn-group" data-toggle="buttons-radio">
-                                    <button name="type" value="Водій" class="btn btn-info" id="idriver">Я-Водій</button>
-                                    <button name="type" value="Пасажир" class="btn btn-success" id="ipassngr">Я-Пасажир</button>
+                                    <button class="btn btn-info" id="idriver">Я-Водій</button>
+                                    <button class="btn btn-success" id="ipassngr">Я-Пасажир</button>
                                 </div>
+                                <input type="hidden" id="type" name="type" value="">
                                 <p></p>
 								<div class="btn-group">
-									<!-- <button class="btn btn-warning" id="build_route">Показати маршрут</button> -->
 									<button class="btn btn-primary" id="submit" type="submit"  rel="popover" data-placement="bottom" data-content="Ведіть обов'язкові поля">Додати маршрут</button>
 								</div>
 							</div>

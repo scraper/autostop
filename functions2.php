@@ -15,7 +15,7 @@ function create_table() {
 	$stmt->execute();
 }
 //getting json result from google maps and pushing to array route info, new.php
-function get_json($origin, $destination, $seats, $price, $date) {
+function get_json($origin, $destination, $seats, $price, $type, $date) {
 	if(isset($origin,$destination)) {
 		$or_city_name = explode(' ',trim($origin));
 		$origin_city_name = $or_city_name[0];
@@ -27,10 +27,13 @@ function get_json($origin, $destination, $seats, $price, $date) {
 		$get = file_get_contents($json_url);
 		$output = json_decode($get, true);
 	}
+	if (empty($seats)) {
+		$seats = 0;
+	}
 	$start = $output["routes"][0]["legs"][0]["start_address"];
 	$end = $output["routes"][0]["legs"][0]["end_address"];
 	global $result;
-	$result = array($start, $end, $seats, $price, $date);
+	$result = array($start, $end, $seats, $price, $type, $date);
 	/*return $result;*/
 	/*print_r($result);*/
 }
@@ -69,8 +72,8 @@ function new_route() {
 		$stmt->bindParam(':end',$e, PDO::PARAM_STR);
 		$stmt->bindParam(':seats',$result[2], PDO::PARAM_INT);
 		$stmt->bindParam(':price',$result[3], PDO::PARAM_INT);
-		$stmt->bindParam(':type',$p, PDO::PARAM_STR);
-		$stmt->bindParam(':date',$result[4], PDO::PARAM_STR);
+		$stmt->bindParam(':type',$result[4], PDO::PARAM_STR);
+		$stmt->bindParam(':date',$result[5], PDO::PARAM_STR);
 		$stmt->execute();
 		$route_pk = $pdo->lastInsertId();
 		$file = 'new_route.log';
@@ -105,8 +108,8 @@ function new_route() {
 			$stmt->bindParam(':end',$e, PDO::PARAM_STR);
 			$stmt->bindParam(':seats',$result[2], PDO::PARAM_INT);
 			$stmt->bindParam(':price',$result[3], PDO::PARAM_INT);
-			$stmt->bindParam(':type',$p, PDO::PARAM_STR);
-			$stmt->bindParam(':date',$result[4], PDO::PARAM_STR);
+			$stmt->bindParam(':type',$result[4], PDO::PARAM_STR);
+			$stmt->bindParam(':date',$result[5], PDO::PARAM_STR);
 			$stmt->execute();
 			$route_pk = $pdo->lastInsertId();
 			$file = 'new_route.log';
@@ -120,8 +123,9 @@ function new_route() {
 		}
 		catch (PDOException $e) {
 			$file = 'new_route.log';
-			$error = $e + "\nUnexpected error\n";
-			file_put_contents($file, $error, FILE_APPEND | LOCK_EX);
+			$new_line = "\r\n";
+			file_put_contents($file, $new_line, FILE_APPEND | LOCK_EX);
+			file_put_contents($file, $e, FILE_APPEND | LOCK_EX);
 		}
 	}
 

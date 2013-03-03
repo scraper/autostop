@@ -16,36 +16,33 @@ var ui = {
 		this.config.date_input.datepicker({
 				format: 'yyyy-mm-dd'});
 		//prevent buttons from submit
-		this.config.nopost_buttons_1.click(function(e){e.preventDefault();});
-		this.config.nopost_buttons_2.click(function(e){e.preventDefault();});
-		this.config.nopost_buttons_3.click(function(e){e.preventDefault();});
+		
+		// this.config.nopost_buttons_2.click(function(e){e.preventDefault();});
+		// this.config.nopost_buttons_3.click(function(e){e.preventDefault();});
 	},
 
 	whoIam: function() {
 		var seats = this.config.seats;
+		var type = this.config.type;
 		
 		this.config.seats.hide();
-		this.config.nopost_buttons_2.click(function(){
+		this.config.nopost_buttons_2.click(function(e){
+			e.preventDefault();
 			seats.show('slow');
+			type.val("Водій");
 		});
-		this.config.nopost_buttons_3.click(function(){
+		this.config.nopost_buttons_3.click(function(e){
+			e.preventDefault();
 			seats.hide('slow');
+			type.val("Пасажир");
 		});
-		$('#build_route').click(function(){if ('#seats_i'=='') {console.log("ERROR");}; });
 	}
 };
 //html elements initialization
 ui.init({
-	tab: $('#tabs'),
-	submit: $('#submit'),
-	starts: $('#start'),
-	end: $('#end'),
-	prices: $('#prices'),
 	seats: $('#seats'),
 	date_input: $('#dp1'),
-	buttons: $('button'),
-	nopost_buttons_1: $('#build_route'),
 	nopost_buttons_2:$('#idriver'),
 	nopost_buttons_3:$('#ipassngr'),
-	seats_lbl:$('#seats_l')
+	type: $('#type')
 });
