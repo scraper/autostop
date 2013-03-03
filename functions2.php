@@ -80,6 +80,7 @@ function new_route() {
 		file_put_contents($file, $route_log_id, FILE_APPEND | LOCK_EX);
 
 		$pdo->commit();
+		header("Location: ./route.php?q=$route_pk");
 
 	}
 	catch (PDOException $e) {
@@ -115,6 +116,7 @@ function new_route() {
 			file_put_contents($file, $route_log_id, FILE_APPEND | LOCK_EX);
 
 			$pdo->commit();
+			header("Location: ./route.php?q=$route_pk");
 		}
 		catch (PDOException $e) {
 			$file = 'new_route.log';
