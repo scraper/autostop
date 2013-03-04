@@ -1,6 +1,6 @@
 <?php header('content-type: application/json; charset=utf-8');
 
-require '../functions.php';
+require '../functions2.php';
 connect();
 if (isset($_POST['query'])) {
 	$q = $_POST['query'];

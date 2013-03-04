@@ -153,7 +153,7 @@ function search($query) {
 		from routes
 		join s_city on routes.s_city = s_city.s_city_pk
 		join e_city on routes.e_city = e_city.e_city_pk
-		where s_city.s_city_id like :query or e_city.e_city_id like :query;
+		where routes.date >= curdate() and (s_city.s_city_id like :query or e_city.e_city_id like :query);
 		");
 	$stmt->execute(array(':query'=>$query. '%'));
 	$search = $stmt->fetchALL(PDO::FETCH_OBJ);

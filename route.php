@@ -1,6 +1,6 @@
 <?php
 
-require 'functions.php';
+require 'functions2.php';
 
 if (isset($_GET['q'])) {
 	connect();
