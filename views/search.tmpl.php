@@ -22,7 +22,10 @@
 		</div>
 
 	</div>
-
+	
+	<div id="notfound">
+		<p>За вашим запитом нічого не знайдено...</p>
+	</div>
 	<div id="results" class="row-fluid">
 		<div class="span12">
 			<legend>Results</legend>
