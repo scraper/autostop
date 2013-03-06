@@ -10,13 +10,26 @@
 		<div class="span4">
 			<legend>Пошук</legend>
 			<form id="form" class="well" method="post" onsubmit="return search_results_show()">
-				
+				<fieldset>
 					<input id="search" class="span12" type="text" data-provide="typeahead" placeholder="Введіть місто для пошуку..." autocomplete="off">
 					<div class="btn-group">
 						<button id="search_btn" class="btn btn-success">Go!</button>
 						<button class="btn btn-info">Розширений</button>
 					</div>
-				
+					<p></p>
+					<div id="advanced" class="span12">
+						<input class="span12" type="text" id="dp1" name="from_date">
+						<br>
+						<input class="span12" type="text" id="dp2" name="to_date">
+						<br>
+						<label class="radio">
+							<input type="radio" name="type" value="Водій">Водій
+						</label>
+						<label class="radio">
+							<input type="radio" name="type" value="Пасажир">Пасажир
+						</label>
+					</div>
+				</fieldset>	
 			</form>
 			
 		</div>

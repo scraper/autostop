@@ -15,10 +15,10 @@ var ui = {
 		this.config.date_input.attr('Value', date);
 		this.config.date_input.datepicker({
 				format: 'yyyy-mm-dd'});
-		//prevent buttons from submit
-		
-		// this.config.nopost_buttons_2.click(function(e){e.preventDefault();});
-		// this.config.nopost_buttons_3.click(function(e){e.preventDefault();});
+		//works for advanced search dp2
+		this.config.date_input2.attr('Value', date);
+		this.config.date_input2.datepicker({
+				format: 'yyyy-mm-dd'});
 	},
 
 	whoIam: function() {
@@ -42,6 +42,7 @@ var ui = {
 ui.init({
 	seats: $('#seats'),
 	date_input: $('#dp1'),
+	date_input2: $('#dp2'),
 	nopost_buttons_2:$('#idriver'),
 	nopost_buttons_3:$('#ipassngr'),
 	type: $('#type')
