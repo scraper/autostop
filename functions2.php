@@ -64,7 +64,6 @@ function new_route() {
 						(select e_city_pk from e_city where e_city_id like :end),
         				:seats, :price, :type, :date);
 			");
-		$p = 'driver';
 		$s = $result[0]. "%";
 		$e = $result[1]. "%";
 
@@ -100,7 +99,6 @@ function new_route() {
 						(select e_city_pk from e_city where e_city_id like :end),
         				:seats, :price, :type, :date);
 			");
-			$p = 'driver';
 			$s = $result[0]. "%";
 			$e = $result[1]. "%";
 
