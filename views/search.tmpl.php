@@ -14,7 +14,7 @@
 					<input id="search" class="span12" type="text" data-provide="typeahead" placeholder="Введіть місто для пошуку..." autocomplete="off">
 					<div class="btn-group">
 						<button id="search_btn" class="btn btn-success">Go!</button>
-						<button class="btn btn-info">Розширений</button>
+						<button id="advanced_btn" class="btn btn-info" data-toggle="button">Розширений</button>
 					</div>
 					<p></p>
 					<div id="advanced" class="span12">

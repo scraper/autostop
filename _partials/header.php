@@ -16,8 +16,9 @@
        	initialize();
     	}
 	</script>
+    <!-- Google Fonts -->
+ 	<link href='http://fonts.googleapis.com/css?family=Lobster|Raleway|Audiowide' rel='stylesheet' type='text/css'>
     
- 	
 	<link rel="stylesheet" type="text/css" href="./bootstrap/assets/css/bootstrap.css">
 	<style type="text/css">
       body {
@@ -50,7 +51,7 @@
                     <span class="icon-bar"></span>
                 </a>
 
-                <a class="brand" href="./">gogo!</a>
+                <a class="brand" style="font-family:'Lobster', cursive; color: green;" href="./">driveful</a>
                 <div class="nav-collapse">
                     <ul class="nav">
                         <li class="divider-vertical"></li>

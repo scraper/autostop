@@ -158,6 +158,11 @@ function search($query) {
 	return $search;
 }
 
+function advanced_search($query,$s_date,$e_date,$type,$expired) {
+	global $pdo;
+
+}
+
 //return route info by route_id
 function render_route($id) {
 	global $pdo;

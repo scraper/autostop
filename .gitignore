@@ -161,3 +161,9 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+
+#ignore bootstrap folder
+bootstrap/
+
+#ignore jquery ui folder
+jquery ui/

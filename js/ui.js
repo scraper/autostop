@@ -24,6 +24,7 @@ var ui = {
 	whoIam: function() {
 		var seats = this.config.seats;
 		var type = this.config.type;
+		var advanced = this.config.advanced_div;
 		
 		this.config.seats.hide();
 		this.config.nopost_buttons_2.click(function(e){
@@ -36,6 +37,19 @@ var ui = {
 			seats.hide('slow');
 			type.val("Пасажир");
 		});
+		//hide advanced search options on page load search.tmpl.php
+		this.config.advanced_div.hide();
+		//show or hide advanced search options search.tmpl.php
+		this.config.nopost_buttons_4.click(function(e){
+			e.preventDefault();
+			if(advanced.attr('style') == 'display: none;') {
+				advanced.show('slow');
+			}
+			else {
+				advanced.hide('slow');
+			}
+			
+		});
 	}
 };
 //html elements initialization
@@ -45,5 +59,7 @@ ui.init({
 	date_input2: $('#dp2'),
 	nopost_buttons_2:$('#idriver'),
 	nopost_buttons_3:$('#ipassngr'),
-	type: $('#type')
+	nopost_buttons_4:$('#advanced_btn'),
+	type: $('#type'),
+	advanced_div: $('#advanced')
 });
