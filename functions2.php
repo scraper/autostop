@@ -161,6 +161,18 @@ function search($query) {
 function advanced_search($query,$s_date,$e_date,$type,$expired) {
 	global $pdo;
 
+	$stmt = $pdo->prepare("
+		select routes.route_id, s_city.s_city_id, e_city.e_city_id, routes.seats, routes.price, routes.type, routes.date
+		from routes
+		join s_city on routes.s_city = s_city.s_city_pk
+		join e_city on routes.e_city = e_city.e_city_pk
+		where (routes.date >= :s_date and routes.date <= :e_date) 
+			and routes.type = :type
+			and (s_city.s_city_id like :query or e_city.e_city_id like :query);
+		");
+	$stmt->execute(array(':s_date'=>$s_date,':e_date'=>$e_date,':type'=>$type,':query'=>$query. '%'));
+	return $advanced_search_result;
+
 }
 
 //return route info by route_id
