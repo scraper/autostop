@@ -16,6 +16,8 @@
        	initialize();
     	}
 	</script>
+    <!-- script for serch from top menu -->
+    <script type="text/javascript" src="./js/search_header.js"></script>
     <!-- Google Fonts -->
  	<link href='http://fonts.googleapis.com/css?family=Lobster|Raleway|Audiowide' rel='stylesheet' type='text/css'>
     
