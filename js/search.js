@@ -5,16 +5,6 @@ $(function() {
 		e.preventDefault();
 		search_results_show();
 	});
-	//search_h submit on item selected, all pages
-	// $(document).ready(function() {
-	// 	$('ul.typeahead').first().attr('id','top');	
-	// });
-	// $('#search_h').change(function() {
-	// 	$('#top li.active').click(function() {
-	// 		$('#search_h').val($('#top li.active').attr('data-value'));
-	// 		$('#top_menu_search').submit();
-	// 	});
-	// });
 
 //Pushing results to typeahead (search input), search.php
 		$('#search').typeahead({
@@ -44,6 +34,7 @@ $(function() {
 $('.active').click(item_clicked());
 function item_clicked() {
 	$('#search').change(function(){
+		$('#notfound').hide();
 		$('.active').click(function() {
 			$('#search').val($('ul.typeahead.dropdown-menu li.active').attr('data-value'));
 			search_results_show();
