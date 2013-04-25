@@ -2,7 +2,7 @@
 
 require '../functions2.php';
 connect();
-if (isset($_POST['query'])) {
+if (isset($_POST['query']) && empty($_POST['isAdvanced'])) {
 	$q = $_POST['query'];
 	$res = array('objA'=>typeahead_search($q), 'objB'=>search($q), 'objB'=>search($q));
 	echo json_encode($res);

@@ -2,8 +2,17 @@ $(function() {
 	$('#results').hide();
 	$('#notfound').hide();
 	$('#search_btn').click(function(e) {
-		e.preventDefault();
-		search_results_show();
+		if ($('#advanced_btn').attr('class') == 'btn btn-info active') {
+			e.preventDefault();
+			isAdvanced();
+			advanced_results_show();
+			console.log("advanced_results_show");
+		}
+		else{
+			e.preventDefault();
+			search_results_show();
+			console.log("search_results_show");
+		}
 	});
 
 //Pushing results to typeahead (search input), search.php
@@ -42,8 +51,8 @@ function item_clicked() {
 		});
 	});
 };
-//Pushing results to the page
 
+//Pushing results to the page
 function search_results_show() {
 			if ($('#search').val() != "") {
 				$('#q').val("");
@@ -76,4 +85,16 @@ function search_results_show() {
 				});
 			};
 			
+};
+
+//isAdvanced parameter
+function isAdvanced() {
+	if ($('#advanced_btn').attr('class') == 'btn btn-info active') {
+		$.post("./search/index.php", {isAdvanced: "true"});
+	}
+};
+
+//Pushing advanced search results to the page
+function advanced_results_show() {
+
 };
