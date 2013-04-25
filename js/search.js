@@ -45,9 +45,9 @@ $('.active').click(item_clicked());
 function item_clicked() {
 	$('#search').change(function(){
 		$('.active').click(function() {
-			$('#search').val($('.active').attr('data-value'));
+			$('#search').val($('ul.typeahead.dropdown-menu li.active').attr('data-value'));
 			search_results_show();
-				console.log("click");
+			console.log("click");
 		});
 	});
 };
