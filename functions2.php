@@ -158,7 +158,7 @@ function search($query) {
 	return $search;
 }
 
-function advanced_search($query,$s_date,$e_date,$type,$expired) {
+function advanced_search($query,$s_date,$e_date,$type) {
 	global $pdo;
 
 	$stmt = $pdo->prepare("
@@ -170,7 +170,8 @@ function advanced_search($query,$s_date,$e_date,$type,$expired) {
 			and routes.type = :type
 			and (s_city.s_city_id like :query or e_city.e_city_id like :query);
 		");
-	$stmt->execute(array(':s_date'=>$s_date,':e_date'=>$e_date,':type'=>$type,':query'=>$query. '%'));
+	$stmt->execute(array(':query'=>$query. '%', ':s_date'=>$s_date,':e_date'=>$e_date,':type'=>$type));
+	$advanced_search_result = $stmt->fetchAll(PDO::FETCH_OBJ);
 	return $advanced_search_result;
 
 }

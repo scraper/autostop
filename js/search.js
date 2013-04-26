@@ -4,7 +4,6 @@ $(function() {
 	$('#search_btn').click(function(e) {
 		if ($('#advanced_btn').attr('class') == 'btn btn-info active') {
 			e.preventDefault();
-			isAdvanced();
 			advanced_results_show();
 			console.log("advanced_results_show");
 		}
@@ -87,14 +86,38 @@ function search_results_show() {
 			
 };
 
-//isAdvanced parameter
-function isAdvanced() {
-	if ($('#advanced_btn').attr('class') == 'btn btn-info active') {
-		$.post("./search/index.php", {isAdvanced: "true"});
-	}
-};
-
 //Pushing advanced search results to the page
 function advanced_results_show() {
-
+	$('#q').val("");
+	console.log("not null");
+	var query = $('#search').val();
+	var s_date = $('#dp1').val();
+	var e_date = $('#dp2').val();
+	var type = $('input[name=type]:checked', '#form').val();
+	$.ajax({
+		url: './search/index.php',
+		type: 'post',
+		data: {query: query, s_date: s_date, e_date: e_date, type: type},
+		dataType: "JSON",
+		success: function(data) {
+					
+			$('.tbody').html('');
+			if (data.objB.length > 0) {
+				$('#notfound').hide();
+				$.each(data.objB, function(column, value) {
+					$('.tbody').append('<tr class="tr" id="' + value['route_id'] + '"><td>' + value['s_city_id'] + '</td><td>' + value['e_city_id'] + '</td><td>' + value['date'] + '</td></tr>');
+					//click function on the table row
+					$('#'+value['route_id']+'.tr').click(function() {
+						window.location = './route.php?q=' + $('#'+value['route_id']+'.tr').attr('id'); 
+					});
+					$('#results').slideDown();
+				});
+			}
+			else {
+				$('#results').hide();
+				$('#notfound').slideDown();
+			};
+			console.log(data, query, s_date, e_date, type);
+		}
+	});
 };
