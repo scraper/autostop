@@ -12,7 +12,7 @@ elseif ($_GET['q'] != null) {
 	$res = array('objA'=>typeahead_search($q), 'objB'=>search($q), 'objB'=>search($q));
 	echo json_encode($res);
 }
-elseif (isset($_POST['query']) && isset($_POST['s_date'])) {
+elseif (isset($_POST['query'], $_POST['s_date'])) {
 	$q = $_POST['query'];
 	$s_date = $_POST['s_date'];
 	$e_date = $_POST['e_date'];

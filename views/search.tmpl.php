@@ -23,10 +23,10 @@
 						<input class="span12" type="text" id="dp2" name="to_date">
 						<br>
 						<label class="radio">
-							<input type="radio" name="type" value="driver">Водій
+							<input type="radio" name="type" value="Водій">Водій
 						</label>
 						<label class="radio">
-							<input type="radio" name="type" value="passenger">Пасажир
+							<input type="radio" name="type" value="Пасажир">Пасажир
 						</label>
 					</div>
 				</fieldset>	
