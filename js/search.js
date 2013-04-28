@@ -90,14 +90,15 @@ function search_results_show() {
 function advanced_results_show() {
 	$('#q').val("");
 	console.log("not null");
-	var query = $('#search').val();
+	var s_city = $('#s_city').val();
+	var e_city = $('#e_city').val();
 	var s_date = $('#dp1').val();
 	var e_date = $('#dp2').val();
 	var type = $('input[name=type]:checked', '#form').val();
 	$.ajax({
 		url: './search/index.php',
 		type: 'post',
-		data: {query: query, s_date: s_date, e_date: e_date, type: type},
+		data: {s_city: s_city, e_city: e_city, s_date: s_date, e_date: e_date, type: type},
 		dataType: "JSON",
 		success: function(data) {
 					
@@ -117,7 +118,7 @@ function advanced_results_show() {
 				$('#results').hide();
 				$('#notfound').slideDown();
 			};
-			console.log(data, query, s_date, e_date, type);
+			console.log(data, s_city, e_city, s_date, e_date, type);
 		}
 	});
 };

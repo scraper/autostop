@@ -8,13 +8,13 @@
 }
 </style>
 
-    	<div class="span12">
+    	<div class="container-fluid">
     		<div class="row-fluid">
     			<div class="span7">
     				<legend>Карта</legend>
     				<div id="map" style="width:100%;height:400px;"></div>
     			</div><!--/span-->
-    			<div class="span4">
+    			<div class="span5">
     				<legend>Маршрут</legend>
     				<div id="controls">
 						<form class="well" action="new.php" method="post" onsubmit="return validation();">

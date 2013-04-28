@@ -4,32 +4,36 @@
 .tr {cursor: pointer;}
 </style>
 
-<div class="span12">
+<div class="container-fluid">
 	<div class="row-fluid">
-		
-		<div class="span4">
+		<div class="span7">
+    				<legend>Карта</legend>
+    				<div id="map" style="width:100%;height:400px;"></div>
+    			</div><!--/span-->
+		<div class="span5">
 			<legend>Пошук</legend>
 			<form id="form" class="well" method="post" onsubmit="return search_results_show()">
-				<fieldset>
-					<input id="search" class="span12" type="text" data-provide="typeahead" placeholder="Введіть місто для пошуку..." autocomplete="off">
-					<div class="btn-group">
-						<button id="search_btn" class="btn btn-success">Go!</button>
-						<button id="advanced_btn" class="btn btn-info" data-toggle="button">Розширений</button>
-					</div>
-					<p></p>
-					<div id="advanced" class="span12">
-						<input class="span12" type="text" id="dp1" name="from_date">
-						<br>
-						<input class="span12" type="text" id="dp2" name="to_date">
-						<br>
-						<label class="radio">
-							<input type="radio" name="type" value="Водій">Водій
-						</label>
-						<label class="radio">
-							<input type="radio" name="type" value="Пасажир">Пасажир
-						</label>
-					</div>
-				</fieldset>	
+				<input id="search" class="span12" type="text" data-provide="typeahead" placeholder="Введіть місто для пошуку..." autocomplete="off">
+				<div class="btn-group">
+					<button id="search_btn" class="btn btn-success">Go!</button>
+					<button id="advanced_btn" class="btn btn-info" data-toggle="button">Розширений</button>
+				</div>
+				<p></p>
+				<div id="advanced" class="container-fluid">
+					<input class="span12" type="text" id="s_city" placeholder="Введіть місце відправлення" autocomplete="off">
+					<input class="span12" type="text" id="e_city" placeholder="Введіть місце призначення" autocomplete="off">
+					<input class="span12" type="text" id="dp1" name="from_date" autocomplete="off">
+					<br>
+					<input class="span12" type="text" id="dp2" name="to_date" autocomplete="off">
+					<br>
+					<label class="radio inline">
+						<input type="radio" name="type" value="Водій">Водій
+					</label>
+					<label class="radio inline">
+						<input type="radio" name="type" value="Пасажир">Пасажир
+					</label>
+				</div>
+					
 			</form>
 			
 		</div>
@@ -86,5 +90,6 @@
 </div>
 <input id="q" type="hidden" value="<?php echo ($q=$_POST['q']);?>">
 <script type="text/javascript" src="./js/search.js"></script>
+<script src="js/get_route.js"></script>
 
 <?php include '_partials/footer.php'; ?>

@@ -158,7 +158,7 @@ function search($query) {
 	return $search;
 }
 
-function advanced_search($query,$s_date,$e_date,$type) {
+function advanced_search($s_city,$e_city,$s_date,$e_date,$type) {
 	global $pdo;
 
 	$stmt = $pdo->prepare("
@@ -168,9 +168,9 @@ function advanced_search($query,$s_date,$e_date,$type) {
 		join e_city on routes.e_city = e_city.e_city_pk
 		where (routes.date >= :s_date and routes.date <= :e_date) 
 			and routes.type = :type
-			and (s_city.s_city_id like :query or e_city.e_city_id like :query);
+			and (s_city.s_city_id like :s_city and e_city.e_city_id like :e_city);
 		");
-	$stmt->execute(array(':query'=>$query. '%', ':s_date'=>$s_date,':e_date'=>$e_date,':type'=>$type));
+	$stmt->execute(array(':s_city'=>$s_city. '%', ':e_city'=>$e_city. '%', ':s_date'=>$s_date,':e_date'=>$e_date,':type'=>$type));
 	$advanced_search_result = $stmt->fetchAll(PDO::FETCH_OBJ);
 	return $advanced_search_result;
 

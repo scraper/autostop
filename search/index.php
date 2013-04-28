@@ -7,16 +7,17 @@ if (isset($_POST['query']) && empty($_POST['s_date'])) {
 	$res = array('objA'=>typeahead_search($q), 'objB'=>search($q), 'objB'=>search($q));
 	echo json_encode($res);
 }
-elseif ($_GET['q'] != null) {
+elseif (isset($_GET['q'])) {
 	$q = $_GET['q'];
 	$res = array('objA'=>typeahead_search($q), 'objB'=>search($q), 'objB'=>search($q));
 	echo json_encode($res);
 }
-elseif (isset($_POST['query'], $_POST['s_date'])) {
-	$q = $_POST['query'];
+elseif (isset($_POST['s_city'], $_POST['s_date'])) {
+	$s_city = $_POST['s_city'];
+	$e_city = $_POST['e_city'];
 	$s_date = $_POST['s_date'];
 	$e_date = $_POST['e_date'];
 	$type = $_POST['type'];
-	$res = array('objB'=>advanced_search($q, $s_date, $e_date, $type));
+	$res = array('objB'=>advanced_search($s_city, $e_city, $s_date, $e_date, $type));
 	echo json_encode($res);
 };
