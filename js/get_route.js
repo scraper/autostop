@@ -1,9 +1,11 @@
 var directionsDisplay;
 		var directionsService = new google.maps.DirectionsService();
 		var map;
+		var geocoder;
 
 		function initialize() {
 		  directionsDisplay = new google.maps.DirectionsRenderer();
+		  geocoder = new google.maps.Geocoder();
 		  var kyiv = new google.maps.LatLng(50.450099,30.52341);
 		  var myOptions = {
 		    zoom:5,
@@ -34,6 +36,23 @@ var directionsDisplay;
 		      directionsDisplay.setDirections(result);
 		    }
 		  });
+		}
+
+		function codeAddress() {
+			var m = new google.maps.Marker();
+			m.setMap(null);
+    		var address = document.getElementById("search").value;
+    		geocoder.geocode( { 'address': address}, function(results, status) {
+	     		if (status == google.maps.GeocoderStatus.OK) {
+	        		map.setCenter(results[0].geometry.location);
+	        		var marker = new google.maps.Marker({
+	            	map: map,
+	            	position: results[0].geometry.location
+	        	});
+	      		} else {
+	        		alert("Geocode was not successful for the following reason: " + status);
+	      		}
+    		});
 		}
 		
 		var input = document.getElementById("start");

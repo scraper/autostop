@@ -13,7 +13,7 @@
 		<div class="span5">
 			<legend>Пошук</legend>
 			<form id="form" class="well" method="post" onsubmit="return search_results_show()">
-				<input id="search" class="span12" type="text" data-provide="typeahead" placeholder="Введіть місто для пошуку..." autocomplete="off">
+				<input id="search" class="span12" type="text" data-provide="typeahead" placeholder="Введіть місто для пошуку..." autocomplete="off" onchange="codeAddress();">
 				<div class="btn-group">
 					<button id="search_btn" class="btn btn-success">Go!</button>
 					<button id="advanced_btn" class="btn btn-info" data-toggle="button">Розширений</button>
