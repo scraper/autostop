@@ -21,9 +21,9 @@
 							<div class="directions">
 								
 								<label id="a" for="start">Відправляюсь з міста:</label>
-								<input class="span12" type="text" id="start" name="origin" onblur="calcRoute();"/>
+								<input class="span12" type="text" id="start" name="origin" onchange="calcRoute();"/>
 								<label id="b" for="end">Їду в місто:</label>
-								<input class="span12" type="text" id="end" name="destination" onblur="calcRoute();"/>
+								<input class="span12" type="text" id="end" name="destination" onchange="calcRoute();"/>
 							    <label for="date">Відправлення</label>
                                 <input class="span12" type="text" id="dp1" name="date">
 								<label for="prices">Ціна за місце:</label>

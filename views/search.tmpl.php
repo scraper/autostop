@@ -2,6 +2,11 @@
 
 <style type="text/css">
 .tr {cursor: pointer;}
+.span7 {
+    -webkit-box-shadow: 0 8px 6px -6px black;
+       -moz-box-shadow: 0 8px 6px -6px black;
+            box-shadow: 0 8px 6px -6px black;
+}
 </style>
 
 <div class="container-fluid">
@@ -39,12 +44,14 @@
 		</div>
 
 	</div>
-	
-	<div id="notfound">
-		<p>За вашим запитом нічого не знайдено...</p>
+	<div class="container-fluid" id="notfound">
+		<legend>Results</legend>
+		<div>
+			<p>За вашим запитом нічого не знайдено...</p>
+		</div>
 	</div>
-	<div id="results" class="row-fluid">
-		<div class="span12">
+	<div id="results" class="container-fluid">
+		<div>
 			<legend>Results</legend>
 			<table class="table table-hover">
 				<thead>
