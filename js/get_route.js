@@ -2,6 +2,7 @@ var directionsDisplay;
 		var directionsService = new google.maps.DirectionsService();
 		var map;
 		var geocoder;
+		var markersArray = [];
 
 		function initialize() {
 		  directionsDisplay = new google.maps.DirectionsRenderer();
@@ -39,20 +40,29 @@ var directionsDisplay;
 		}
 
 		function codeAddress() {
-			var m = new google.maps.Marker();
-			m.setMap(null);
+			deleteOverlays();
     		var address = document.getElementById("search").value;
-    		geocoder.geocode( { 'address': address}, function(results, status) {
+    		geocoder.geocode( { 'address': address, 'region': 'uk' }, function(results, status) {
 	     		if (status == google.maps.GeocoderStatus.OK) {
 	        		map.setCenter(results[0].geometry.location);
 	        		var marker = new google.maps.Marker({
 	            	map: map,
 	            	position: results[0].geometry.location
 	        	});
+	        		markersArray.push(marker);
 	      		} else {
-	        		alert("Geocode was not successful for the following reason: " + status);
+	        		console.log("Geocode was not successful for the following reason: " + status);
 	      		}
     		});
+		}
+
+		function deleteOverlays() {
+  			if (markersArray) {
+    			for (i in markersArray) {
+      				markersArray[i].setMap(null);
+    			}
+    			markersArray.length = 0;
+  			}
 		}
 		
 		var input = document.getElementById("start");
