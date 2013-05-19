@@ -4,6 +4,8 @@ var ui = {
 		this.styleIt();
 		this.whoIam();
 		this.isAdvanced();
+		this.initFB();
+		this.isAuthenticated();
 	},
 
 	styleIt: function() {
@@ -57,6 +59,43 @@ var ui = {
 			}
 			
 		});
+	},
+	initFB: function() {
+		FB.init({
+    		appId      : '430939383625961', // App ID from the App Dashboard
+    		channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File for x-domain communication
+    		status     : true, // check the login status upon init?
+    		cookie     : true, // set sessions cookies to allow your server to access the session?
+    		xfbml      : true  // parse XFBML tags on this page?
+    	});
+	},
+	isAuthenticated: function() {
+		var is_auth_user = this.config.is_auth_user;
+		var is_auth_user_link = this.config.is_auth_user_link;
+		FB.getLoginStatus(function(response) {
+			if(response.status === 'connected') {
+				FB.api('/me', function(response) {
+					// is_auth_user_link.text(response.name);
+					var id = response.id;
+					console.log(id);
+					$.ajax({
+							url: './login.php',
+							type: 'post',
+							data: {id:id},
+							dataType: "JSON",
+							success: function (data) {
+								is_auth_user_link.text(data.objA.name);
+							}
+						});
+				})
+			}
+			else if(response.status === 'not_authorized') {
+				is_auth_user.hide();
+			}
+			else {
+				is_auth_user.hide();	
+			}
+		})
 	}
 };
 //html elements initialization
@@ -69,5 +108,7 @@ ui.init({
 	nopost_buttons_4:$('#advanced_btn'),
 	type: $('#type'),
 	search: $('#search'),
-	advanced_div: $('#advanced')
+	advanced_div: $('#advanced'),
+	is_auth_user: $('#is_auth_user'),
+	is_auth_user_link: $('#is_auth_user_link')
 });

@@ -16,8 +16,13 @@
        	initialize();
     	}
 	</script>
-    <!-- script for serch from top menu -->
+    <!-- facebook -->
+    <script src="//connect.facebook.net/en_US/all.js"></script>
+    <!-- local scripts -->
+    <script type="text/javascript" src="./js/facebook.js"></script>
+        <!-- script for serch from top menu -->
     <script type="text/javascript" src="./js/search_header.js"></script>
+    
     <!-- Google Fonts -->
  	<link href='http://fonts.googleapis.com/css?family=Lobster|Raleway|Audiowide' rel='stylesheet' type='text/css'>
     
@@ -42,6 +47,7 @@
 </head>
 
 <body>
+
 <div class="container">
 	<div class="navbar">
         <div class="navbar-inner">
@@ -67,7 +73,18 @@
                         </li>
                         <li><a href="#">Контакти</a></li>
                         <li class="divider-vertical"></li>
-                        
+                        <li id="is_auth_user"><a id="is_auth_user_link" href="#"><?php session_start(); echo $_SESSION['name']; ?></a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Profile<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#" onclick="user_init()">Увійти з Facebook</a>
+                                </li>
+                                <li>
+                                    <a href="#" onclick="fb_logout()">Вийти</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                     <ul class="nav pull-right">
                         <form id="top_menu_search" class="navbar-search" action="search.php" method="post">

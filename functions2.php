@@ -191,28 +191,51 @@ function render_route($id) {
 	return $stmt->fetch(PDO::FETCH_OBJ);
 }
 
-/*function search($search) {
+function new_user($id,$name,$username) {
 	global $pdo;
-	if(empty($search)) {
-		return $stmt = null;
-	}
-	else {
+
+	$pdo->beginTransaction();
+	try {
 		$stmt = $pdo->prepare('
-			SELECT start, end, id FROM test
-			WHERE (start LIKE :search OR end LIKE :search);
+			insert into user_table(user_id,name,username) values(:id,:name,:username)
 			');
-		$stmt-> execute(array(':search'=>$search . '%'));
-		return $stmt->fetchAll(PDO::FETCH_OBJ);
-	}
+		$stmt->bindParam(':id',$id, PDO::PARAM_STR);
+		$stmt->bindParam(':name',$name,PDO::PARAM_STR);
+		$stmt->bindParam(':username',$username,PDO::PARAM_STR);
+		$stmt->execute();
+		$user_pk = $pdo->lastInsertId();
+		$pdo->commit();
+		// header("Location: ./user.php?q=$user_pk");
+	} catch (Exception $e) {
+		throw new Exception("ID already exists", 1);
+		throw Exception($e);
+	};
+	// $chk = $pdo->prepare('
+	// 			select user_id from user_table where user_id = :id
+	// 			');
+	// $chk->execute(array(':id'=>$id));
+	// $usr_exists = $chk->fetch(PDO::FETCH_OBJ);
+
+	// if ($usr_exists->user_id==$id) {
+	// 	throw new Exception("ID already exists", 1);
+	// }
+	// else {
+	// 	$stmt = $pdo->prepare('
+	// 		insert into user_table(user_id,name,username) values(:id,:name,:username)
+	// 		');
+	// 	$stmt->execute(array(':id'=>$id,':name'=>$name,':username'=>$username));
+	// };
 }
 
-function show_routes() {
+function user_profile($id) {
 	global $pdo;
 
 	$stmt = $pdo->prepare('
-		SELECT route_id, start, end FROM routes;
+		select * from user_table where user_id = :id
 		');
-	$stmt->execute();
-	return $stmt->fetchAll(PDO::FETCH_OBJ);
+	$stmt->execute(array(':id'=>$id));
+	return $stmt->fetch(PDO::FETCH_OBJ);
+	session_start();
+	$_SESSION['name'] = $stmt->fetchColumn(1);
+	echo $_SESSION['name'];
 }
-*/
