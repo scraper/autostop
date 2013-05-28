@@ -72,28 +72,58 @@ var ui = {
 	isAuthenticated: function() {
 		var is_auth_user = this.config.is_auth_user;
 		var is_auth_user_link = this.config.is_auth_user_link;
+		var profile_legend = this.config.profile_legend;
 		FB.getLoginStatus(function(response) {
 			if(response.status === 'connected') {
-				FB.api('/me', function(response) {
-					// is_auth_user_link.text(response.name);
-					var id = response.id;
-					console.log(id);
-					$.ajax({
-							url: './login.php',
-							type: 'post',
-							data: {id:id},
-							dataType: "JSON",
-							success: function (data) {
-								is_auth_user_link.text(data.objA.name);
-							}
+				var c_name = "user_id";
+				var c_value = document.cookie;
+				var c_start = c_value.indexOf(" " + c_name + "=");
+				if (c_start == -1) {
+					c_start = c_value.indexOf(c_name + "=");
+					document.cookie = "user_id=" + ";domain=.gokit.tk;path=/";
+				}
+				if (c_start == -1) {
+					c_value = null;
+					document.cookie = "user_id=" + ";domain=.gokit.tk;path=/";
+				}
+				else {
+					c_start = c_value.indexOf("=", c_start) + 1;
+					var c_end = c_value.indexOf(";", c_start);
+					if (c_end == -1) {
+						c_end = c_value.length;
+					}
+					c_value = unescape(c_value.substring(c_start,c_end));
+					if (c_value.length == 0) {
+						FB.api('/me', function(response) {
+							document.cookie = "user_id=" + response.name + ";domain=.gokit.tk;path=/";
+							is_auth_user_link.text(response.name);
 						});
-				})
+					}
+				};
+				is_auth_user_link.text(c_value);
+				profile_legend.text(c_value);
+				is_auth_user.hide();
+			
+				// FB.api('/me', function(response) {
+				// 	// is_auth_user_link.text(response.name);
+				// 	var id = response.id;
+				// 	console.log(id);
+				// 	$.ajax({
+				// 			url: './login.php',
+				// 			type: 'post',
+				// 			data: {id:id},
+				// 			dataType: "JSON",
+				// 			success: function (data) {
+				// 				is_auth_user_link.text(data.objA.name);
+				// 			}
+				// 		});
+				// })
 			}
 			else if(response.status === 'not_authorized') {
-				is_auth_user.hide();
+				is_auth_user_link.hide();
 			}
 			else {
-				is_auth_user.hide();	
+				is_auth_user_link.hide();	
 			}
 		})
 	}
@@ -110,5 +140,6 @@ ui.init({
 	search: $('#search'),
 	advanced_div: $('#advanced'),
 	is_auth_user: $('#is_auth_user'),
-	is_auth_user_link: $('#is_auth_user_link')
+	is_auth_user_link: $('#is_auth_user_link'),
+	profile_legend: $('#profile_legend')
 });

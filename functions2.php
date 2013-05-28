@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 function connect() {
 	global $pdo;
 	$pdo = new PDO("mysql:host=localhost;dbname=test;","root","bruselee", array(
@@ -235,7 +235,4 @@ function user_profile($id) {
 		');
 	$stmt->execute(array(':id'=>$id));
 	return $stmt->fetch(PDO::FETCH_OBJ);
-	session_start();
-	$_SESSION['name'] = $stmt->fetchColumn(1);
-	echo $_SESSION['name'];
 }

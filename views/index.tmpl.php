@@ -12,7 +12,7 @@
 .thumbnails {cursor: default;}
 </style>
       
-<div class="span12">
+<div class="container-fluid">
 	<div class="row-fluid">
 		<ul class="thumbnails">
 			

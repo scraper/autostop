@@ -73,13 +73,11 @@
                         </li>
                         <li><a href="#">Контакти</a></li>
                         <li class="divider-vertical"></li>
-                        <li id="is_auth_user"><a id="is_auth_user_link" href="#"><?php session_start(); echo $_SESSION['name']; ?></a></li>
+                        <li><a href="#" onclick="user_init()" id="is_auth_user">Увійти з Facebook</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Profile<b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="is_auth_user_link"><b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li>
-                                    <a href="#" onclick="user_init()">Увійти з Facebook</a>
-                                </li>
+                                <li><a href="./profile.php">Мій профіль</a></li>        
                                 <li>
                                     <a href="#" onclick="fb_logout()">Вийти</a>
                                 </li>
