@@ -53,7 +53,7 @@
 							</tr>
 						</tbody>
 					</table>
-					<button class="btn btn-success">Зберегти</button>
+					<button id="btn" class="btn btn-success" onclick="getUserDetailes()">Зберегти</button>
 				</form>
 			</div>
 		</div>
@@ -61,4 +61,5 @@
 	</div>
 </div>
 
+<script type="text/javascript" src="./js/profile.js"></script>
 <?php include '_partials/footer.php'; ?>

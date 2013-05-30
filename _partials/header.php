@@ -77,7 +77,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="is_auth_user_link"><b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="./profile.php">Мій профіль</a></li>        
+                                <li><a id="user_profile_href" href="./profile.php">Мій профіль</a></li>        
                                 <li>
                                     <a href="#" onclick="fb_logout()">Вийти</a>
                                 </li>

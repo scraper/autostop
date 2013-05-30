@@ -13,3 +13,7 @@ else if (isset($_POST['id']) && empty($_POST['name']) && empty($_POST['username'
 	$res = array('objA'=>user_profile($_POST['id']));
 	echo json_encode($res);
 }
+else if (isset($_GET['id'])) {
+	$res = array('objA'=>user_profile($_GET['id']));
+	echo json_encode($res);
+}

@@ -73,34 +73,47 @@ var ui = {
 		var is_auth_user = this.config.is_auth_user;
 		var is_auth_user_link = this.config.is_auth_user_link;
 		var profile_legend = this.config.profile_legend;
+		var user_profile_href = this.config.user_profile_href;
 		FB.getLoginStatus(function(response) {
 			if(response.status === 'connected') {
 				var c_name = "user_id";
 				var c_value = document.cookie;
+				//calculating chars to the c_name in cookie
 				var c_start = c_value.indexOf(" " + c_name + "=");
+				//check if cookie user_id exists
 				if (c_start == -1) {
 					c_start = c_value.indexOf(c_name + "=");
+					//if c_name cookie does not exist then create it with parameters 
 					document.cookie = "user_id=" + ";domain=.gokit.tk;path=/";
 				}
 				if (c_start == -1) {
 					c_value = null;
+					//if c_name cookie does not exist then create it with parameters
 					document.cookie = "user_id=" + ";domain=.gokit.tk;path=/";
 				}
+				//if c_name cookie exists
 				else {
+					//calculate length of the value of the c_name cookie
 					c_start = c_value.indexOf("=", c_start) + 1;
 					var c_end = c_value.indexOf(";", c_start);
 					if (c_end == -1) {
 						c_end = c_value.length;
 					}
+					//get the c_name cookie value
 					c_value = unescape(c_value.substring(c_start,c_end));
+					//if c_name cookie value equals 0 get user name from FB.api
 					if (c_value.length == 0) {
 						FB.api('/me', function(response) {
 							document.cookie = "user_id=" + response.name + ";domain=.gokit.tk;path=/";
 							is_auth_user_link.text(response.name);
+							user_profile_href.attr('href','./profile.php?id=' + response.id);
 						});
 					}
 				};
 				is_auth_user_link.text(c_value);
+				FB.api('/me', function(response) {
+					user_profile_href.attr('href','./profile.php?id=' + response.id);
+				});
 				profile_legend.text(c_value);
 				is_auth_user.hide();
 			
@@ -141,5 +154,6 @@ ui.init({
 	advanced_div: $('#advanced'),
 	is_auth_user: $('#is_auth_user'),
 	is_auth_user_link: $('#is_auth_user_link'),
-	profile_legend: $('#profile_legend')
+	profile_legend: $('#profile_legend'),
+	user_profile_href: $('#user_profile_href')
 });
