@@ -1,19 +1,5 @@
 <?php
-session_start();
-function connect() {
-	global $pdo;
-	$pdo = new PDO("mysql:host=localhost;dbname=test;","root","bruselee", array(
-  					PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-}
 
-function create_table() {
-	global $pdo;
-
-	$stmt = $pdo->prepare('
-		CREATE TABLE test (start VARCHAR(100), end VARCHAR(100));
-		');
-	$stmt->execute();
-}
 //getting json result from google maps and pushing to array route info, new.php
 function get_json($origin, $destination, $seats, $price, $type, $date) {
 	if(isset($origin,$destination)) {
