@@ -54,6 +54,7 @@
 						</tbody>
 					</table>
 					<button id="btn" class="btn btn-success" onclick="getUserDetailes()">Зберегти</button>
+					<input id="user_id" type="hidden">
 				</form>
 			</div>
 		</div>

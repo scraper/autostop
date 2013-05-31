@@ -10,12 +10,6 @@
     </script>
 	<!-- jquery min cdn -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<!--map initialization-->
-    <script type="text/javascript">
-		window.onload = function () {
-       	initialize();
-    	}
-	</script>
     <!-- facebook -->
     <script src="//connect.facebook.net/en_US/all.js"></script>
     <!-- local scripts -->

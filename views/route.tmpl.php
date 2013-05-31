@@ -1,4 +1,11 @@
 <?php include '_partials/header.php'; ?>
+<!--map initialization-->
+<script type="text/javascript">
+	window.onload = function () {
+		initialize();
+	}
+</script>
+
 
 <style type="text/css">
 .span7 {

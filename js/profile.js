@@ -1,8 +1,10 @@
-(function getUserDetailes() {
+(function () {
 	$('#btn').click(function(e) {
 			e.preventDefault();
 		});
-	var id = '100000152656098';
+})();
+
+function showUserDetailes(id) {
 	$.ajax({
 			url: './login.php',
 			dataType: 'json',
@@ -11,5 +13,10 @@
 			success: function (data) {
 				console.log(data);
 			}
-		});
-})();
+	});
+}
+function getUserDetailes() {
+	FB.api('/me', function(response) {
+		showUserDetailes(response.id);
+	});
+}

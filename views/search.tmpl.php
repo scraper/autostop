@@ -1,4 +1,10 @@
 <?php include '_partials/header.php'; ?>
+<!--map initialization-->
+<script type="text/javascript">
+	window.onload = function () {
+		initialize();
+	}
+</script>
 
 <style type="text/css">
 .tr {cursor: pointer;}

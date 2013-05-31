@@ -1,6 +1,7 @@
 <?php header('content-type: application/json; charset=utf-8');
 
 require '../functions2.php';
+require '../conf.php';
 connect();
 if (isset($_POST['query']) && empty($_POST['s_date'])) {
 	$q = $_POST['query'];
