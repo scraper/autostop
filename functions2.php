@@ -176,7 +176,7 @@ function render_route($id) {
 	$stmt->execute(array(':q'=>$id));
 	return $stmt->fetch(PDO::FETCH_OBJ);
 }
-
+//create user after he logins first time from FB
 function new_user($id,$name,$username) {
 	global $pdo;
 
@@ -196,23 +196,42 @@ function new_user($id,$name,$username) {
 		throw new Exception("ID already exists", 1);
 		throw Exception($e);
 	};
-	// $chk = $pdo->prepare('
-	// 			select user_id from user_table where user_id = :id
-	// 			');
-	// $chk->execute(array(':id'=>$id));
-	// $usr_exists = $chk->fetch(PDO::FETCH_OBJ);
-
-	// if ($usr_exists->user_id==$id) {
-	// 	throw new Exception("ID already exists", 1);
-	// }
-	// else {
-	// 	$stmt = $pdo->prepare('
-	// 		insert into user_table(user_id,name,username) values(:id,:name,:username)
-	// 		');
-	// 	$stmt->execute(array(':id'=>$id,':name'=>$name,':username'=>$username));
-	// };
 }
+//save user detailed information
+function update_user_profile($id,$isDriver,$vehicle,$v_color,$climat,$experience,$smoking,$email,$phone) {
+	global $pdo;
 
+	$pdo->beginTransaction();
+	try {
+	 	$stmt = $pdo->prepare('
+			update user_table 
+			set 
+				is_driver = :isDriver, 
+				vehicle = :vehicle, 
+				v_color = :v_color, 
+				climat = :climat, 
+				experience = :experience, 
+				smoking = :smoking, 
+				email = :email, 
+				phone = :phone
+			where user_id = :id
+			');
+	$stmt->bindParam(':id', $id, PDO::PARAM_STR);
+	$stmt->bindParam(':isDriver', $isDriver, PDO::PARAM_STR);
+	$stmt->bindParam(':vehicle', $vehicle, PDO::PARAM_STR);
+	$stmt->bindParam(':v_color', $v_color, PDO::PARAM_STR);
+	$stmt->bindParam(':climat', $climat, PDO::PARAM_STR);
+	$stmt->bindParam(':experience', $experience, PDO::PARAM_STR);
+	$stmt->bindParam(':smoking', $smoking, PDO::PARAM_STR);
+	$stmt->bindParam(':email', $email, PDO::PARAM_STR);
+	$stmt->bindParam(':phone', $phone, PDO::PARAM_STR);
+	$stmt->execute();
+	$pdo->commit();	
+	} catch (Exception $e) {
+		// throw new Exception("Unable to update user profile detailes", 1);
+		throw Exception($e);	
+	};
+}
 function user_profile($id) {
 	global $pdo;
 
