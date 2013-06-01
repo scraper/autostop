@@ -72,7 +72,6 @@ var ui = {
 	isAuthenticated: function() {
 		var is_auth_user = this.config.is_auth_user;
 		var is_auth_user_link = this.config.is_auth_user_link;
-		var profile_legend = this.config.profile_legend;
 		var user_profile_href = this.config.user_profile_href;
 		FB.getLoginStatus(function(response) {
 			if(response.status === 'connected') {
@@ -114,7 +113,6 @@ var ui = {
 				FB.api('/me', function(response) {
 					user_profile_href.attr('href','./profile.php?id=' + response.id);
 				});
-				profile_legend.text(c_value);
 				is_auth_user.hide();
 			
 				// FB.api('/me', function(response) {
@@ -154,6 +152,5 @@ ui.init({
 	advanced_div: $('#advanced'),
 	is_auth_user: $('#is_auth_user'),
 	is_auth_user_link: $('#is_auth_user_link'),
-	profile_legend: $('#profile_legend'),
 	user_profile_href: $('#user_profile_href')
 });

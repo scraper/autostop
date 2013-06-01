@@ -23,6 +23,7 @@ var profile = {
 
 	showUserDetailes: function() {
 		var user_id = this.config.user_id.val();
+		var profile_legend = this.config.profile_legend;
 		var driver_1 = this.config.driver_1;
 		var driver_0 = this.config.driver_0;
 		var vehicle = this.config.vehicle;
@@ -42,6 +43,7 @@ var profile = {
 				data: {id:user_id},
 				success: function (data) {
 					console.log(data);
+					profile_legend.text(data.objA.name);
 					if (data.objA.is_driver == "1") {
 						driver_1.attr('checked', true);
 						vehicle_info.show('slow');
@@ -97,6 +99,7 @@ var profile = {
 profile.init({
 	save_btn: $('#save_btn'),
 	user_id: $('#user_id'),
+	profile_legend: $('#profile_legend'),
 	driver_1: $('#driver_1'),
 	driver_0: $('#driver_0'),
 	vehicle: $('#vehicle'),
