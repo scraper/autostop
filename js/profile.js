@@ -4,6 +4,8 @@ var profile = {
 		this.btn();
 		this.showUserDetailes();
 		this.vehicleInfo();
+		this.initFB();
+		this.ifAuthorized();
 	},
 	btn: function() {
 		this.config.save_btn.click(function(e) {
@@ -20,6 +22,92 @@ var profile = {
 			vehicle_info.hide('slow');
 		});
 	},
+	initFB: function() {
+		FB.init({
+			appId      : '430939383625961', // App ID from the App Dashboard
+			channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File for x-domain communication
+			status     : true, // check the login status upon init?
+			cookie     : true, // set sessions cookies to allow your server to access the session?
+			xfbml      : true  // parse XFBML tags on this page?
+		});
+	},	
+	ifAuthorized: function() {
+		var user_id = this.config.user_id.val();
+		var driver_1 = this.config.driver_1;
+		var driver_0 = this.config.driver_0;
+		var vehicle = this.config.vehicle;
+		var v_color = this.config.v_color;
+		var has_climat = this.config.has_climat;
+		var no_climat = this.config.no_climat;
+		var experience = this.config.experience;
+		var is_smoking = this.config.is_smoking;
+		var no_smoking = this.config.no_smoking;
+		var email = this.config.email;
+		var phone = this.config.phone;
+		var save_btn = this.config.save_btn;
+		
+		FB.getLoginStatus(function(response) {
+			if(response.status === 'connected') {	
+				FB.api('/me', function(response) {
+					console.log(response.id, user_id);
+					if (response.id != user_id) {
+						driver_1.prop('disabled', true);
+						driver_0.prop('disabled', true);
+						vehicle.prop('disabled', true);
+						v_color.prop('disabled', true);
+						has_climat.prop('disabled', true);
+						no_climat.prop('disabled', true);
+						experience.prop('disabled', true);
+						is_smoking.prop('disabled', true);
+						no_smoking.prop('disabled', true);
+						email.prop('disabled', true);
+						phone.prop('disabled', true);
+						save_btn.hide();
+					}
+				});
+			}
+			else if(response.status === 'not_authorized') {
+				console.log("FB not authorized");
+				FB.api('/me', function(response) {
+					console.log(response.id, user_id);
+					if (response.id != user_id) {
+						driver_1.prop('disabled', true);
+						driver_0.prop('disabled', true);
+						vehicle.prop('disabled', true);
+						v_color.prop('disabled', true);
+						has_climat.prop('disabled', true);
+						no_climat.prop('disabled', true);
+						experience.prop('disabled', true);
+						is_smoking.prop('disabled', true);
+						no_smoking.prop('disabled', true);
+						email.prop('disabled', true);
+						phone.prop('disabled', true);
+						save_btn.hide();
+					}
+				});
+			}
+			else {
+				console.log("FB please login");
+				FB.api('/me', function(response) {
+					console.log(response.id, user_id);
+					if (response.id != user_id) {
+						driver_1.prop('disabled', true);
+						driver_0.prop('disabled', true);
+						vehicle.prop('disabled', true);
+						v_color.prop('disabled', true);
+						has_climat.prop('disabled', true);
+						no_climat.prop('disabled', true);
+						experience.prop('disabled', true);
+						is_smoking.prop('disabled', true);
+						no_smoking.prop('disabled', true);
+						email.prop('disabled', true);
+						phone.prop('disabled', true);
+						save_btn.hide();
+					}
+				});				
+			};
+		});
+	},	
 
 	showUserDetailes: function() {
 		var user_id = this.config.user_id.val();
@@ -132,4 +220,4 @@ function getUserDetailes() {
 	FB.api('/me', function(response) {
 		profile.showUserDetailes(response.id);
 	});
-}
+};

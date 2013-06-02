@@ -62,12 +62,12 @@ var ui = {
 	},
 	initFB: function() {
 		FB.init({
-    		appId      : '430939383625961', // App ID from the App Dashboard
-    		channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File for x-domain communication
-    		status     : true, // check the login status upon init?
-    		cookie     : true, // set sessions cookies to allow your server to access the session?
-    		xfbml      : true  // parse XFBML tags on this page?
-    	});
+			appId      : '430939383625961', // App ID from the App Dashboard
+			channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File for x-domain communication
+			status     : true, // check the login status upon init?
+			cookie     : true, // set sessions cookies to allow your server to access the session?
+			xfbml      : true  // parse XFBML tags on this page?
+		});
 	},
 	isAuthenticated: function() {
 		var is_auth_user = this.config.is_auth_user;
