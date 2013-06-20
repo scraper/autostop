@@ -26,17 +26,20 @@ var ui = {
 
 	whoIam: function() {
 		var seats = this.config.seats;
+		var seats_i = this.config.seats_i;
 		var type = this.config.type;
 		
 		this.config.seats.hide();
 		this.config.nopost_buttons_2.click(function(e){
 			e.preventDefault();
 			seats.show('slow');
+			seats_i.removeClass('validate-hidden').addClass('validate');
 			type.val("Водій");
 		});
 		this.config.nopost_buttons_3.click(function(e){
 			e.preventDefault();
 			seats.hide('slow');
+			seats_i.removeClass('validate').addClass('validate-hidden');
 			type.val("Пасажир");
 		});
 	},
@@ -142,6 +145,7 @@ var ui = {
 //html elements initialization
 ui.init({
 	seats: $('#seats'),
+	seats_i: $('#seats_i'),
 	date_input: $('#dp1'),
 	date_input2: $('#dp2'),
 	nopost_buttons_2:$('#idriver'),

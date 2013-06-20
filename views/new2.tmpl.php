@@ -36,7 +36,7 @@
                                 <input class="span12 validate" type="text" id="prices" placeholder="Введіть ціну..." name="price">
                                 <li id="seats" style="list-style-type:none;">
                                 <label for="seats_i">Вільних місць:</label>
-                                <input class="span12 validate" id="seats_i" placeholder="Введіть кількість місць..." type="text" name="seats">
+                                <input class="span12 validate-hidden" id="seats_i" placeholder="Введіть кількість місць..." type="text" name="seats">
                                 </li>
 								<div class="btn-group" data-toggle="buttons-radio">
                                     <button class="btn btn-info" id="idriver">Я-Водій</button>
