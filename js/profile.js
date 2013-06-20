@@ -23,13 +23,14 @@ var profile = {
 		});
 	},
 	initFB: function() {
-		FB.init({
-			appId      : '430939383625961', // App ID from the App Dashboard
-			channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File for x-domain communication
-			status     : true, // check the login status upon init?
-			cookie     : true, // set sessions cookies to allow your server to access the session?
-			xfbml      : true  // parse XFBML tags on this page?
-		});
+		// FB.init({
+		// 	appId      : '430939383625961', // App ID from the App Dashboard
+		// 	channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File for x-domain communication
+		// 	status     : true, // check the login status upon init?
+		// 	cookie     : true, // set sessions cookies to allow your server to access the session?
+		// 	xfbml      : true  // parse XFBML tags on this page?
+		// });
+		ui.initFB();
 	},	
 	ifAuthorized: function() {
 		var user_id = this.config.user_id.val();

@@ -86,7 +86,7 @@
 
 <script type="text/javascript">
 
-		var directionsDisplay;
+		var directionsDisplay = new google.maps.DirectionsRenderer();
 		var directionsService = new google.maps.DirectionsService();
 		var map;
 
@@ -119,7 +119,8 @@
 		setTimeout(
 			function(){
 				calcRoute();
-			}, 200)
+				console.log("timer");
+			}, 500)
 
 		// console.log(document.getElementById("start").innerText);
 </script>

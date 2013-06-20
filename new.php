@@ -10,4 +10,4 @@ if (isset($_POST['origin'], $_POST['destination'] ) ) {
 	new_route();
 };
 
-include 'views/new.tmpl.php';
+include 'views/new2.tmpl.php';
