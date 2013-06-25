@@ -48,6 +48,47 @@
 									<button class="btn btn-primary" id="submit_btn" rel="popover" data-placement="bottom" data-content="Ведіть обов'язкові поля">Додати маршрут</button>
 								</div>
 							</div>
+                            <div class="driver_info">
+                                <label id="label_vehicle" for="vehicle">Авто (марка, модель):</label>
+                                <input class="span12" type="text" id="vehicle" name="vehicle"/>
+                                    
+                                <label id="label_v_color" for="v_color">Колір:</label>
+                                <input class="span12" type="text" id="v_color" name="v_color"/>
+                                    
+                                <label class="radio inline">
+                                    <input id="climat_1" type="radio" name="climat" value="1">Клімат контроль/кондиціонер
+                                </label>
+                                
+                                <label class="radio inline">
+                                    <input id="climat_0" type="radio" name="climat" value="0">Немає кондиціонеру
+                                </label>
+                                <label id="label_experience" for="experience">Стаж водіння:</label>
+                                <!-- <input class="span5" type="text" id="experience" name="experience"/> -->
+                                <select class="span12" id="experience">
+                                    <option value="менше 1 року">менше 1 року</option>
+                                    <option value="1 рік">1 рік</option>
+                                    <option value="2 роки">2 роки</option>
+                                    <option value="3 роки">3 роки</option>
+                                    <option value="4 роки">4 роки</option>
+                                    <option value="5 років">5 років</option>
+                                    <option value="більше 5 років">більше 5 років</option>
+                                </select>
+                            </div>
+                            <div class="general_info">
+                                <label class="radio inline">
+                                    <input id="smoking_0" type="radio" name="smoking" value="0">Не курю
+                                </label>
+
+                                <label class="radio inline">
+                                    <input id="smoking_1" type="radio" name="smoking" value="1">Курю
+                                </label>
+                                <label id="label_email" for="email">E-mail:</label>
+                                <input class="span12" type="text" id="email" name="email"/>
+                                <label id="label_phone" for="phone">Телефон:</label>
+                                <input class="span12" type="text" id="phone" name="phone"/>
+                                <label id="label_languages" for="languages">Володіння мовами:</label>
+                                <input class="span12" type="text" id="languages" name="languages"/>
+                            </div>
 						</form>
 					</div>
     			</div><!--/span-->

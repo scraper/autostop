@@ -11,6 +11,8 @@ function validation() {
         validated.each(function() {
             if ($(this).val() == null || $(this).val() == "") {
                 $(this).css({'border':'1px solid red'});
+                $('#submit_btn').popover('show');
+                $('.popover-inner').css({'width':'auto'});
             }
             else {
                 $(this).css({'border':'1px solid #CCC'});
@@ -22,6 +24,8 @@ function validation() {
         validated.each(function() {
             if ($(this).val() == null || $(this).val() == "") {
                 $(this).css({'border':'1px solid red'});
+                $('#submit_btn').popover('show');
+                $('.popover-inner').css({'width':'auto'});
             }
             else {
                 $(this).css({'border':'1px solid #CCC'});
@@ -29,29 +33,4 @@ function validation() {
             }
         })
     }
-
-    // validated.each(function(i) {
-    //     if ($(this).val() == null || $(this).val() == "") {
-    //         validated.removeClass('validate').addClass('validated');
-    //         $('.validated').each(function() {
-    //             $(this).css({'border':'1px solid red'});
-    //         })
-    //         // $('.validated').each(function(i) {
-    //         //     $(this).css({'border':'1px solid red'});
-    //         // })
-    //         return false;
-    //     }
-    //     else {
-    //         $('.validated').css({'border':'1px solid #CCC'});
-    //         console.log("not null");
-    //         return false;            
-    //     }
-    // })
-    // return false;
-    // // if (validated.val() == null || validated.val() == "") {
-    //     console.log(validated);
-    //     $('#submit').popover('show');
-    //     $('.popover-inner').css({'width':'auto'});
-
-    //     }
 };

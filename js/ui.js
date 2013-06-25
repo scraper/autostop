@@ -28,19 +28,24 @@ var ui = {
 		var seats = this.config.seats;
 		var seats_i = this.config.seats_i;
 		var type = this.config.type;
+		var driver_info = this.config.driver_info;
+		var general_info = this.config.general_info;
 		
+		this.config.driver_info.hide();
 		this.config.seats.hide();
 		this.config.nopost_buttons_2.click(function(e){
 			e.preventDefault();
 			seats.show('slow');
 			seats_i.removeClass('validate-hidden').addClass('validate');
 			type.val("Водій");
+			driver_info.show('slow');
 		});
 		this.config.nopost_buttons_3.click(function(e){
 			e.preventDefault();
 			seats.hide('slow');
 			seats_i.removeClass('validate').addClass('validate-hidden');
 			type.val("Пасажир");
+			driver_info.hide('slow');
 		});
 	},
 	isAdvanced: function() {	
@@ -117,27 +122,15 @@ var ui = {
 					user_profile_href.attr('href','./profile.php?id=' + response.id);
 				});
 				is_auth_user.hide();
-			
-				// FB.api('/me', function(response) {
-				// 	// is_auth_user_link.text(response.name);
-				// 	var id = response.id;
-				// 	console.log(id);
-				// 	$.ajax({
-				// 			url: './login.php',
-				// 			type: 'post',
-				// 			data: {id:id},
-				// 			dataType: "JSON",
-				// 			success: function (data) {
-				// 				is_auth_user_link.text(data.objA.name);
-				// 			}
-				// 		});
-				// })
+				return true;
 			}
 			else if(response.status === 'not_authorized') {
 				is_auth_user_link.hide();
+				return false;
 			}
 			else {
-				is_auth_user_link.hide();	
+				is_auth_user_link.hide();
+				return false;
 			}
 		})
 	}
@@ -156,5 +149,7 @@ ui.init({
 	advanced_div: $('#advanced'),
 	is_auth_user: $('#is_auth_user'),
 	is_auth_user_link: $('#is_auth_user_link'),
-	user_profile_href: $('#user_profile_href')
+	user_profile_href: $('#user_profile_href'),
+	driver_info: $('.driver_info'),
+	general_info: $('.general_info')
 });
