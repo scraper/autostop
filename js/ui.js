@@ -122,15 +122,12 @@ var ui = {
 					user_profile_href.attr('href','./profile.php?id=' + response.id);
 				});
 				is_auth_user.hide();
-				return true;
 			}
 			else if(response.status === 'not_authorized') {
 				is_auth_user_link.hide();
-				return false;
 			}
 			else {
 				is_auth_user_link.hide();
-				return false;
 			}
 		})
 	}
