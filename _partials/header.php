@@ -61,7 +61,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Маршрути
                             <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="new.php">Новий</a></li>
+                                <li><a id="auth_new_route" href="new.php">Новий</a></li>
                                 <li><a href="search.php">Пошук</a></li>
                             </ul>
                         </li>

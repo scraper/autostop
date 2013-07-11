@@ -81,10 +81,13 @@ var ui = {
 		var is_auth_user = this.config.is_auth_user;
 		var is_auth_user_link = this.config.is_auth_user_link;
 		var user_profile_href = this.config.user_profile_href;
+		var auth_new_route = this.config.auth_new_route;
 		FB.getLoginStatus(function(response) {
 			if(response.status === 'connected') {
 				var c_name = "user_id";
 				var c_value = document.cookie;
+				//create a cookie for FB user id
+				document.cookie = "fb_id=" + ";domain=.gokit.tk;path=/";
 				//calculating chars to the c_name in cookie
 				var c_start = c_value.indexOf(" " + c_name + "=");
 				//check if cookie user_id exists
@@ -116,11 +119,18 @@ var ui = {
 							user_profile_href.attr('href','./profile.php?id=' + response.id);
 						});
 					}
+					else {
+						is_auth_user_link.text(c_value);
+						FB.api('./me', function(response) {
+							user_profile_href.attr('href','./profile.php?id=' + response.id);
+						});
+					}
 				};
-				is_auth_user_link.text(c_value);
-				FB.api('/me', function(response) {
-					user_profile_href.attr('href','./profile.php?id=' + response.id);
-				});
+				// is_auth_user_link.text(c_value);
+				// user_profile_href.attr('href','./profile.php?id=');
+				// FB.api('/me', function(response) {
+				// 	user_profile_href.attr('href','./profile.php?id=' + response.id);
+				// });
 				is_auth_user.hide();
 			}
 			else if(response.status === 'not_authorized') {
@@ -147,6 +157,7 @@ ui.init({
 	is_auth_user: $('#is_auth_user'),
 	is_auth_user_link: $('#is_auth_user_link'),
 	user_profile_href: $('#user_profile_href'),
+	auth_new_route: $('#auth_new_route'),
 	driver_info: $('.driver_info'),
 	general_info: $('.general_info')
 });

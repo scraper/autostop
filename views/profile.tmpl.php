@@ -11,11 +11,11 @@
 							<tr>
 								<td>
 									<label class="radio inline">
-										<input id="driver_1" type="radio" name="isDriver" value="1">Я водій
+										<input class="profile-page" id="driver_1" type="radio" name="isDriver" value="1">Я водій
 									</label>
 
 									<label class="radio inline">
-										<input id="driver_0" type="radio" name="isDriver" value="0">Я пасажир
+										<input class="profile-page" id="driver_0" type="radio" name="isDriver" value="0">Я пасажир
 									</label>									
 								</td>
 							</tr>
@@ -23,22 +23,22 @@
 								<!-- <label id="label_vehicle">Мій автомобіль:</label> -->
 								<td>
 									<label id="label_vehicle" for="vehicle">Авто (марка, модель):</label>
-									<input class="span5" type="text" id="vehicle" name="vehicle"/>
+									<input class="span5 profile-page" type="text" id="vehicle" name="vehicle"/>
 									
 									<label id="label_v_color" for="v_color">Колір:</label>
-									<input class="span5" type="text" id="v_color" name="v_color"/>
+									<input class="span5 profile-page" type="text" id="v_color" name="v_color"/>
 									
 									<label class="radio inline">
-										<input id="climat_1" type="radio" name="climat" value="1">Клімат контроль/кондиціонер
+										<input class="profile-page" id="climat_1" type="radio" name="climat" value="1">Клімат контроль/кондиціонер
 									</label>
 								
 									<label class="radio inline">
-										<input id="climat_0" type="radio" name="climat" value="0">Немає кондиціонеру
+										<input class="profile-page" id="climat_0" type="radio" name="climat" value="0">Немає кондиціонеру
 									</label>
 									<p></p>
 									<label id="label_experience" for="experience">Стаж водіння:</label>
 									<!-- <input class="span5" type="text" id="experience" name="experience"/> -->
-									<select id="experience">
+									<select class="profile-page" id="experience">
 										<option value="менше 1 року">менше 1 року</option>
 										<option value="1 рік">1 рік</option>
 										<option value="2 роки">2 роки</option>
@@ -53,22 +53,22 @@
 								<!-- <label id="label_vehicle">Про мене:</label> -->
 								<td>
 									<label class="radio inline">
-										<input id="smoking_0" type="radio" name="smoking" value="0">Не курю
+										<input class="profile-page" id="smoking_0" type="radio" name="smoking" value="0">Не курю
 									</label>
 
 									<label class="radio inline">
-										<input id="smoking_1" type="radio" name="smoking" value="1">Курю
+										<input class="profile-page" id="smoking_1" type="radio" name="smoking" value="1">Курю
 									</label>
 								</td>
 							</tr>
 							<tr>
 								<td>
 									<label id="label_email" for="email">E-mail:</label>
-									<input class="span5" type="text" id="email" name="email"/>
+									<input class="span5 profile-page" type="text" id="email" name="email"/>
 									<label id="label_phone" for="phone">Телефон:</label>
-									<input class="span5" type="text" id="phone" name="phone"/>
+									<input class="span5 profile-page" type="text" id="phone" name="phone"/>
 									<label id="label_languages" for="languages">Володіння мовами:</label>
-									<input class="span5" type="text" id="languages" name="languages"/>
+									<input class="span5 profile-page" type="text" id="languages" name="languages"/>
 								</td>
 							</tr>
 						</tbody>

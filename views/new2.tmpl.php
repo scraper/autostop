@@ -25,28 +25,25 @@
     				<div id="controls">
 						<form class="well" action="new.php" id="route_form" method="post">
 							<div class="directions">
-								
+								<div class="btn-group" data-toggle="buttons-radio">
+                                    <button class="btn btn-info" id="idriver">Я-Водій</button>
+                                    <button class="btn btn-success" id="ipassngr">Я-Пасажир</button>
+                                </div>
 								<label id="a" for="start">Відправляюсь з міста:</label>
 								<input class="span12 validate" type="text" id="start" name="origin" onkeypress="calcRoute();" onchange="calcRoute();" onblur="calcRoute();" onfocus="calcRoute();"/>
 								<label id="b" for="end">Їду в місто:</label>
 								<input class="span12 validate" type="text" id="end" name="destination" onkeypress="calcRoute();" onchange="calcRoute();" onblur="calcRoute();" onfocus="calcRoute();"/>
 							    <label for="date">Відправлення</label>
-                                <input class="span12 validate" type="text" id="dp1" name="date">
+                                <input class="span12 validate" type="text" id="dp1" name="date" onkeypress="calcRoute();" onchange="calcRoute();" onblur="calcRoute();" onfocus="calcRoute();">
 								<label for="prices">Ціна за місце:</label>
-                                <input class="span12 validate" type="text" id="prices" placeholder="Введіть ціну..." name="price">
+                                <input class="span12 validate" type="text" id="prices" placeholder="Введіть ціну..." name="price" onkeypress="calcRoute();" onchange="calcRoute();" onblur="calcRoute();" onfocus="calcRoute();">
                                 <li id="seats" style="list-style-type:none;">
                                 <label for="seats_i">Вільних місць:</label>
                                 <input class="span12 validate-hidden" id="seats_i" placeholder="Введіть кількість місць..." type="text" name="seats">
                                 </li>
-								<div class="btn-group" data-toggle="buttons-radio">
-                                    <button class="btn btn-info" id="idriver">Я-Водій</button>
-                                    <button class="btn btn-success" id="ipassngr">Я-Пасажир</button>
-                                </div>
+
                                 <input type="hidden" id="type" name="type" value="">
-                                <p></p>
-								<div class="btn-group">
-									<button class="btn btn-primary" id="submit_btn" rel="popover" data-placement="bottom" data-content="Ведіть обов'язкові поля">Додати маршрут</button>
-								</div>
+
 							</div>
                             <div class="driver_info">
                                 <label id="label_vehicle" for="vehicle">Авто (марка, модель):</label>
@@ -62,6 +59,7 @@
                                 <label class="radio inline">
                                     <input id="climat_0" type="radio" name="climat" value="0">Немає кондиціонеру
                                 </label>
+
                                 <label id="label_experience" for="experience">Стаж водіння:</label>
                                 <!-- <input class="span5" type="text" id="experience" name="experience"/> -->
                                 <select class="span12" id="experience">
@@ -85,12 +83,18 @@
                                 <label id="label_email" for="email">E-mail:</label>
                                 <input class="span12" type="text" id="email" name="email"/>
                                 <label id="label_phone" for="phone">Телефон:</label>
-                                <input class="span12" type="text" id="phone" name="phone"/>
+                                <input class="span12 validate" type="text" id="phone" name="phone"/>
                                 <label id="label_languages" for="languages">Володіння мовами:</label>
                                 <input class="span12" type="text" id="languages" name="languages"/>
                             </div>
+                            <div class="buttons">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary" id="submit_btn" rel="popover" data-placement="bottom" data-content="Ведіть обов'язкові поля">Додати маршрут</button>
+                                </div>
+                            </div>
 						</form>
 					</div>
+                    <input id="user_id" type="" value="<?php echo ($id=$_GET['id']);?>">
     			</div><!--/span-->
     		</div><!--/row-->
        		<br>
@@ -119,6 +123,7 @@
 
 <script src="js/get_route.js"></script>
 <script type="text/javascript" src="js/validation2.js"></script>
+<script type="text/javascript" src="./js/profile.js"></script>
 <script type="text/javascript" src="./js/search.js"></script>
 
 <?php include '_partials/footer.php'; ?>
