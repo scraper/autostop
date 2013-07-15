@@ -94,7 +94,7 @@
                             </div>
 						</form>
 					</div>
-                    <input id="user_id" type="" value="<?php echo ($id=$_GET['id']);?>">
+                    <input id="user_id" type="">
     			</div><!--/span-->
     		</div><!--/row-->
        		<br>
@@ -122,8 +122,12 @@
 </div><!--/.fluid-container-->
 
 <script src="js/get_route.js"></script>
-<script type="text/javascript" src="js/validation2.js"></script>
+<script src="./bootstrap/assets/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="./js/validation2.js"></script>
+<script type="text/javascript" src="./js/new_route.js"></script>
 <script type="text/javascript" src="./js/profile.js"></script>
 <script type="text/javascript" src="./js/search.js"></script>
+<!-- <script src="./bootstrap/assets/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="./js/new_route.js"></script> -->
 
 <?php include '_partials/footer.php'; ?>

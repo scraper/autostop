@@ -26,7 +26,7 @@
 									<input class="span5 profile-page" type="text" id="vehicle" name="vehicle"/>
 									
 									<label id="label_v_color" for="v_color">Колір:</label>
-									<input class="span5 profile-page" type="text" id="v_color" name="v_color"/>
+									<input class="span5 profile-page validate" type="text" id="v_color" name="v_color"/>
 									
 									<label class="radio inline">
 										<input class="profile-page" id="climat_1" type="radio" name="climat" value="1">Клімат контроль/кондиціонер

@@ -5,32 +5,54 @@
     })
 })();
 function validation() {
-    var validated = $('.validate');
+	var validated = $('.validate');
+	var arr = [];
+	var arr2 = [];
+	for (var i = 0; i <= validated.length - 1; i++) {
+		console.log(i);
+		arr2.push(i);
+	};
+	validated.each(function(index, elem) {
+		$(this).css({'border':'1px solid red'});
+		$('#submit_btn').popover('show');
+		$('.popover-inner').css({'width':'auto'});
+		if ($(this).val() != null && $(this).val() != "") {
+			$(elem).css({'border':'1px solid #CCC'});
+			arr.push(index);
+			
+		}
+	});
+	console.log(arr, arr2);
+	if (arr.length === arr2.length) {
+		console.log("done!");
+		$('#submit_btn').popover('hide');
+		$('form').submit();
+	}
 
-    if (validated.val() == null || validated.val() == "") {
-        validated.each(function() {
-            if ($(this).val() == null || $(this).val() == "") {
-                $(this).css({'border':'1px solid red'});
-                $('#submit_btn').popover('show');
-                $('.popover-inner').css({'width':'auto'});
-            }
-            else {
-                $(this).css({'border':'1px solid #CCC'});
-            }
+    // if (validated.val() == null || validated.val() == "") {
+    //     validated.each(function() {
+    //         if ($(this).val() == null || $(this).val() == "") {
+    //             $(this).css({'border':'1px solid red'});
+    //             $('#submit_btn').popover('show');
+    //             $('.popover-inner').css({'width':'auto'});
+    //         }
+    //         else {
+    //             $(this).css({'border':'1px solid #CCC'});
+    //         }
             
-        });
-    }
-    else {
-        validated.each(function() {
-            if ($(this).val() == null || $(this).val() == "") {
-                $(this).css({'border':'1px solid red'});
-                $('#submit_btn').popover('show');
-                $('.popover-inner').css({'width':'auto'});
-            }
-            else {
-                $(this).css({'border':'1px solid #CCC'});
-                $('form').submit();
-            }
-        })
-    }
+    //     });
+    // }
+    // else {
+    //     validated.each(function() {
+    //         if ($(this).val() == null || $(this).val() == "") {
+    //             $(this).css({'border':'1px solid red'});
+    //             $('#submit_btn').popover('show');
+    //             $('.popover-inner').css({'width':'auto'});
+    //         }
+    //         else {
+    //             $(this).css({'border':'1px solid #CCC'});
+    //             $('form').submit();
+    //         }
+    //     })
+    // }
 };

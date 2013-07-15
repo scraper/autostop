@@ -1,8 +1,8 @@
 var ui = {
 	init: function(config){
 		this.config = config;
-		this.styleIt();
-		this.whoIam();
+		// this.styleIt();
+		// this.whoIam();
 		this.isAdvanced();
 		this.initFB();
 		this.isAuthenticated();

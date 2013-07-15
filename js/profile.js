@@ -2,6 +2,7 @@ var profile = {
 	init: function(config) {
 		this.config = config;
 		this.btn();
+		// this.isAuthenticated();
 		this.showUserDetailes();
 		this.vehicleInfo();
 		this.initFB();
@@ -33,17 +34,6 @@ var profile = {
 	},
 	ifAuthorized: function() {
 		var user_id = this.config.user_id.val();
-		// var driver_1 = this.config.driver_1;
-		// var driver_0 = this.config.driver_0;
-		// var vehicle = this.config.vehicle;
-		// var v_color = this.config.v_color;
-		// var has_climat = this.config.has_climat;
-		// var no_climat = this.config.no_climat;
-		// var experience = this.config.experience;
-		// var is_smoking = this.config.is_smoking;
-		// var no_smoking = this.config.no_smoking;
-		// var email = this.config.email;
-		// var phone = this.config.phone;
 		var save_btn = this.config.save_btn;
 		var canDisable = this.config.canDisable;
 		
@@ -53,17 +43,6 @@ var profile = {
 				FB.api('/me', function(response) {
 					console.log(response.id, user_id);
 					if (response.id != user_id) {
-						// driver_1.prop('disabled', true);
-						// driver_0.prop('disabled', true);
-						// vehicle.prop('disabled', true);
-						// v_color.prop('disabled', true);
-						// has_climat.prop('disabled', true);
-						// no_climat.prop('disabled', true);
-						// experience.prop('disabled', true);
-						// is_smoking.prop('disabled', true);
-						// no_smoking.prop('disabled', true);
-						// email.prop('disabled', true);
-						// phone.prop('disabled', true);
 						canDisable.prop('disabled', true);
 						save_btn.hide();
 					}
@@ -74,17 +53,6 @@ var profile = {
 				FB.api('/me', function(response) {
 					console.log(response.id, user_id);
 					if (response.id != user_id) {
-						// driver_1.prop('disabled', true);
-						// driver_0.prop('disabled', true);
-						// vehicle.prop('disabled', true);
-						// v_color.prop('disabled', true);
-						// has_climat.prop('disabled', true);
-						// no_climat.prop('disabled', true);
-						// experience.prop('disabled', true);
-						// is_smoking.prop('disabled', true);
-						// no_smoking.prop('disabled', true);
-						// email.prop('disabled', true);
-						// phone.prop('disabled', true);
 						canDisable.prop('disabled', true);
 						save_btn.hide();
 					}
@@ -96,23 +64,68 @@ var profile = {
 					console.log(response.id, user_id);
 					if (response.id != user_id) {
 						canDisable.prop('disabled', true);
-						// driver_1.prop('disabled', true);
-						// driver_0.prop('disabled', true);
-						// vehicle.prop('disabled', true);
-						// v_color.prop('disabled', true);
-						// has_climat.prop('disabled', true);
-						// no_climat.prop('disabled', true);
-						// experience.prop('disabled', true);
-						// is_smoking.prop('disabled', true);
-						// no_smoking.prop('disabled', true);
-						// email.prop('disabled', true);
-						// phone.prop('disabled', true);
 						save_btn.hide();
 					}
 				});				
 			};
 		});
 	},	
+
+	isAuthenticated: function() {
+		var user_id = this.config.user_id;
+		console.log("isAuthenticated");
+		FB.getLoginStatus(function(response) {
+			if(response.status === 'connected') {
+				var c_name = "user_id";
+				var c_value = document.cookie;
+				console.log("isAuthenticated 1 if");
+				//calculating chars to the c_name in cookie
+				var c_start = c_value.indexOf(" " + c_name + "=");
+				//check if cookie user_id exists
+				if (c_start == -1) {
+					c_start = c_value.indexOf(c_name + "=");
+					//if c_name cookie does not exist then create it with parameters 
+					document.cookie = "user_id=" + ";domain=.gokit.tk;path=/";
+				}
+				if (c_start == -1) {
+					c_value = null;
+					//if c_name cookie does not exist then create it with parameters
+					document.cookie = "user_id=" + ";domain=.gokit.tk;path=/";
+				}
+				//if c_name cookie exists
+				else {
+					//calculate length of the value of the c_name cookie
+					c_start = c_value.indexOf("=", c_start) + 1;
+					var c_end = c_value.indexOf(";", c_start);
+					if (c_end == -1) {
+						c_end = c_value.length;
+					}
+					//get the c_name cookie value
+					c_value = unescape(c_value.substring(c_start,c_end));
+					//if c_name cookie value equals 0 get user name from FB.api
+					if (c_value.length == 0) {
+						console.log("not in cookie");
+						FB.api('/me', function(response) {
+							document.cookie = "user_id=" + response.name + ";domain=.gokit.tk;path=/";
+							user_id.val(response.id);
+						});
+					}
+					else {
+						console.log("in cookie");
+						FB.api('./me', function(response) {
+							user_id.val() = response.id;
+						});
+					}
+				};
+			}
+			else if(response.status === 'not_authorized') {
+				
+			}
+			else {
+				
+			}
+		})
+	},
 
 	showUserDetailes: function() {
 		var user_id = this.config.user_id.val();
