@@ -2,16 +2,19 @@ var profile = {
 	init: function(config) {
 		this.config = config;
 		this.btn();
-		this.showUserDetailes();
+		// this.showUserDetailes();
+		this.get_fb_id();
 		this.vehicleInfo();
 		this.initFB();
 		this.ifAuthorized();
 	},
+	//prevent button from submit
 	btn: function() {
 		this.config.save_btn.click(function(e) {
 			e.preventDefault();
 		})
 	},
+	//show or hide vehicle_info div
 	vehicleInfo: function() {
 		var vehicle_info = this.config.vehicle_info;
 		vehicle_info.hide();
@@ -22,6 +25,7 @@ var profile = {
 			vehicle_info.hide('slow');
 		});
 	},
+	//initialize FB
 	initFB: function() {
 		FB.init({
 			appId      : '430939383625961', // App ID from the App Dashboard
@@ -31,11 +35,50 @@ var profile = {
 			xfbml      : true  // parse XFBML tags on this page?
 		});
 	},
-	ifAuthorized: function() {
+
+	get_fb_id: function() {
+			//set FB.id cookie value
+				var c_id = "fb_id";
+				var c_id_value = document.cookie;
+				//calculating chars to the c_name in cookie
+				var c_id_start = c_id_value.indexOf(" " + c_id + "=");
+				//check if cookie user_id exists
+				if (c_id_start == -1) {
+					c_id_start = c_id_value.indexOf(c_id + "=");
+					//if c_name cookie does not exist then create it with parameters 
+					document.cookie = "fb_id=" + ";domain=.gokit.tk;path=/";
+				}
+				if (c_id_start == -1) {
+					c_id_value = null;
+					//if c_name cookie does not exist then create it with parameters
+					document.cookie = "fb_id=" + ";domain=.gokit.tk;path=/";
+				}
+				//if c_name cookie exists
+				else {
+					//calculate length of the value of the c_name cookie
+					c_id_start = c_id_value.indexOf("=", c_id_start) + 1;
+					var c_id_end = c_id_value.indexOf(";", c_id_start);
+					if (c_id_end == -1) {
+						c_id_end = c_id_value.length;
+					}
+					//get the c_name cookie value
+					c_id_value = unescape(c_id_value.substring(c_id_start,c_id_end));
+					//if c_name cookie value equals 0 get user name from FB.api
+					if (c_id_value.length == 0) {
+
+					}
+					else {
+						profile.showUserDetailes(c_id_value);
+						profile.ifAuthorized(c_id_value);
+					}
+				};
+	},
+	//if user is authorized in FB enable or disable editing data
+	ifAuthorized: function(fb_id) {
 		var user_id = this.config.user_id.val();
 		var save_btn = this.config.save_btn;
 		var canDisable = this.config.canDisable;
-		
+		profile.showUserDetailes(fb_id);
 		FB.getLoginStatus(function(response) {
 			if(response.status === 'connected') {	
 				console.log("connected");
@@ -69,9 +112,19 @@ var profile = {
 			};
 		});
 	},	
-		
-	showUserDetailes: function() {
+	//show user detailes
+	showUserDetailes: function(fb_id) {
+		//user_id hidden input new2.tmpl.php
 		var user_id = this.config.user_id.val();
+		//global FB.id variable
+		var id = "";
+		//if user logged in then fb_id will not be blank, else it is null and value is taken from url param
+		if (fb_id == null || fb_id == "") {
+			id = user_id;
+		}
+		else {
+			id = fb_id;
+		};
 		var profile_legend = this.config.profile_legend;
 		var driver_1 = this.config.driver_1;
 		var driver_0 = this.config.driver_0;
@@ -89,7 +142,7 @@ var profile = {
 				url: './login.php',
 				dataType: 'json',
 				type: 'get',
-				data: {id:user_id},
+				data: {id:id},
 				success: function (data) {
 					console.log(data);
 					profile_legend.text(data.objA.name);
@@ -120,7 +173,7 @@ var profile = {
 				}
 		});		
 	},
-
+	//save user detailes
 	setUserDetailes: function(id,isDriver,vehicle,v_color,climat,experience,smoking,email,phone) {
 		$.ajax({
 				url: './profile.php',

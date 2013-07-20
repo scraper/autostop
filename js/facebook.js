@@ -1,9 +1,9 @@
   function fb_logout() {
 	FB.logout(function(response) {
 	  window.location.reload();
+	  document.cookie = "user_id=" + ";domain=.gokit.tk;path=/";
+	  document.cookie = "fb_id=" + ";domain=.gokit.tk;path=/";
 	});
-	
-	// document.cookie = "user_id=";
   };
 function doit(id,name,username) {
   $.ajax({
@@ -44,6 +44,6 @@ function fb_share() {
 };
 
 function setCookie(id,name,username) {
-  // var cookie_data = "id=" + id + ";" + "name=" + name + ";" + "username=" + username + ";";
   document.cookie = "user_id=" + name + ";domain=.gokit.tk;path=/";
+  document.cookie = "fb_id=" + id + ";domain=.gokit.tk;path=/";
 };

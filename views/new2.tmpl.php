@@ -47,10 +47,10 @@
 							</div>
                             <div class="driver_info">
                                 <label id="label_vehicle" for="vehicle">Авто (марка, модель):</label>
-                                <input class="span12" type="text" id="vehicle" name="vehicle"/>
+                                <input class="span12 driver-info" type="text" id="vehicle" name="vehicle"/>
                                     
                                 <label id="label_v_color" for="v_color">Колір:</label>
-                                <input class="span12" type="text" id="v_color" name="v_color"/>
+                                <input class="span12  driver-info" type="text" id="v_color" name="v_color"/>
                                     
                                 <label class="radio inline">
                                     <input id="climat_1" type="radio" name="climat" value="1">Клімат контроль/кондиціонер
@@ -62,7 +62,7 @@
 
                                 <label id="label_experience" for="experience">Стаж водіння:</label>
                                 <!-- <input class="span5" type="text" id="experience" name="experience"/> -->
-                                <select class="span12" id="experience">
+                                <select class="span12  driver-info" id="experience">
                                     <option value="менше 1 року">менше 1 року</option>
                                     <option value="1 рік">1 рік</option>
                                     <option value="2 роки">2 роки</option>
@@ -94,20 +94,20 @@
                             </div>
 						</form>
 					</div>
-                    <input id="user_id" type="">
+                    <input id="route_user_id" type="hidden">
     			</div><!--/span-->
     		</div><!--/row-->
        		<br>
             <!-- AddThis Button BEGIN -->
-            <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+            <!--<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
             <a class="addthis_button_preferred_1"></a>
             <a class="addthis_button_preferred_2"></a>
             <a class="addthis_button_preferred_3"></a>
             <a class="addthis_button_preferred_4"></a>
             <a class="addthis_button_compact"></a>
             <a class="addthis_counter addthis_bubble_style"></a>
-            </div>
-            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-50b545cd607bfd66"></script>
+            </div>-->
+            <!--<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-50b545cd607bfd66"></script> -->
             <!-- AddThis Button END -->
         </div><!--/span-->
 
@@ -123,11 +123,10 @@
 
 <script src="js/get_route.js"></script>
 <script src="./bootstrap/assets/js/bootstrap-datepicker.js"></script>
+<script src="./js/ui.js"></script>
 <script type="text/javascript" src="./js/validation2.js"></script>
 <script type="text/javascript" src="./js/new_route.js"></script>
-<script type="text/javascript" src="./js/profile.js"></script>
+<!-- <script type="text/javascript" src="./js/profile.js"></script> -->
 <script type="text/javascript" src="./js/search.js"></script>
-<!-- <script src="./bootstrap/assets/js/bootstrap-datepicker.js"></script>
-<script type="text/javascript" src="./js/new_route.js"></script> -->
 
 <?php include '_partials/footer.php'; ?>

@@ -53,13 +53,11 @@ var ui = {
 		var is_auth_user = this.config.is_auth_user;
 		var is_auth_user_link = this.config.is_auth_user_link;
 		var user_profile_href = this.config.user_profile_href;
-		var auth_new_route = this.config.auth_new_route;
 		FB.getLoginStatus(function(response) {
 			if(response.status === 'connected') {
+			//set FB.username cookie value
 				var c_name = "user_id";
 				var c_value = document.cookie;
-				//create a cookie for FB user id
-				document.cookie = "fb_id=" + ";domain=.gokit.tk;path=/";
 				//calculating chars to the c_name in cookie
 				var c_start = c_value.indexOf(" " + c_name + "=");
 				//check if cookie user_id exists
@@ -104,6 +102,44 @@ var ui = {
 				// 	user_profile_href.attr('href','./profile.php?id=' + response.id);
 				// });
 				is_auth_user.hide();
+
+			//set FB.id cookie value
+				var c_id = "fb_id";
+				var c_id_value = document.cookie;
+				//calculating chars to the c_name in cookie
+				var c_id_start = c_id_value.indexOf(" " + c_id + "=");
+				//check if cookie user_id exists
+				if (c_id_start == -1) {
+					c_id_start = c_id_value.indexOf(c_id + "=");
+					//if c_name cookie does not exist then create it with parameters 
+					document.cookie = "fb_id=" + ";domain=.gokit.tk;path=/";
+				}
+				if (c_id_start == -1) {
+					c_id_value = null;
+					//if c_name cookie does not exist then create it with parameters
+					document.cookie = "fb_id=" + ";domain=.gokit.tk;path=/";
+				}
+				//if c_name cookie exists
+				else {
+					//calculate length of the value of the c_name cookie
+					c_id_start = c_id_value.indexOf("=", c_id_start) + 1;
+					var c_id_end = c_id_value.indexOf(";", c_id_start);
+					if (c_id_end == -1) {
+						c_id_end = c_id_value.length;
+					}
+					//get the c_name cookie value
+					c_id_value = unescape(c_id_value.substring(c_id_start,c_id_end));
+					//if c_name cookie value equals 0 get user name from FB.api
+					if (c_id_value.length == 0) {
+						FB.api('/me', function(response) {
+							document.cookie = "fb_id=" + response.id + ";domain=.gokit.tk;path=/";
+						});
+					}
+					else {
+						$('#user_id').val(c_id_value);
+					}
+				};
+
 			}
 			else if(response.status === 'not_authorized') {
 				is_auth_user_link.hide();
