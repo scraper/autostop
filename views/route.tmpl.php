@@ -59,6 +59,8 @@
 		</div>
 	</div>
 	<br>
+	<input id="start_val" type="hidden" value="<?php echo ($id->s_city_id);?>">
+	<input id="end_val" type="hidden" value="<?php echo ($id->e_city_id);?>">
 	<!-- AddThis Button BEGIN -->
 	<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
 	<a class="addthis_button_preferred_1"></a>
@@ -103,8 +105,8 @@
 		}
 
 		function calcRoute() {
-		  var start = "<?php echo ($id->s_city_id);?>";
-		  var end = "<?php echo ($id->e_city_id);?>";
+		  var start = $('#start_val').val();
+		  var end = $('#end_val').val();
 		  var request = {
 		    origin:start,
 		    destination:end,
@@ -120,7 +122,7 @@
 			function(){
 				calcRoute();
 				console.log("timer");
-			}, 500)
+			}, 1700)
 
 		// console.log(document.getElementById("start").innerText);
 </script>

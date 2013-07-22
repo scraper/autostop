@@ -505,3 +505,4 @@ Stack trace:
 #1 E:\Dropbox\Dev\autostop\new.php(10): new_route()
 #2 {main}
 Route was added:78
+Route was added:79
