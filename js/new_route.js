@@ -83,9 +83,23 @@ var ui = {
 					}
 					else {
 						// $('#route_user_id').val(c_id_value);
+						window.location.hash = c_id_value;
+						// ui.get_fb_id(c_id_value);
 						ui.showUserDetailes(c_id_value);
 					}
 				};
+	},
+	//post fb_id to return user_pk
+	get_user_pk: function(fb_id) {
+		$.ajax({
+				url: './login.php',
+				type: 'post',
+				dataType: 'json',
+				data: {id:fb_id},
+				success: function (data) {
+					console.log(data);
+				}
+			});
 	},
 
 	showUserDetailes: function(fb_id) {

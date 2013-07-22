@@ -23,6 +23,19 @@ function get_json($origin, $destination, $seats, $price, $type, $date) {
 	/*return $result;*/
 	/*print_r($result);*/
 }
+//get user fb_id and return user_table.user_pk
+function get_user_pk($fb_id) {
+	global $pdo;
+	global $user_pk;
+
+	$stmt = $pdo->prepare("
+		SELECT user_pk FROM user_table WHERE user_id = :fb_id;
+		");
+	$stmt->execute(array(':fb_id'=>$fb_id));
+	$user_pk = $stmt->fetchAll(PDO::FETCH_OBJ);
+	return $user_pk;
+	print_r($user_pk);
+}
 //adding a new route, new.php
 function new_route() {
 	global $pdo;
