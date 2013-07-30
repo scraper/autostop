@@ -92,7 +92,7 @@
                                     <button class="btn btn-primary" id="submit_btn" rel="popover" data-placement="bottom" data-content="Ведіть обов'язкові поля">Додати маршрут</button>
                                 </div>
                             </div>
-                            <input id="route_user_id" name="fb_id" type="">
+                            <input id="route_user_id" name="fb_id" type="hidden">
 						</form>
 					</div>
                     
