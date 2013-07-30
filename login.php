@@ -11,14 +11,10 @@ if (isset($_POST['id'], $_POST['name'], $_POST['username'])) {
 	echo json_encode($usr);
 }
 else if (isset($_POST['id']) && empty($_POST['name']) && empty($_POST['username'])) {
-	$res = array('objA'=>user_profile($_POST['id']),'objB'=>get_user_pk($_POST['id']));
+	$res = array('objA'=>user_profile($_POST['id']));
 	echo json_encode($res);
 }
 else if (isset($_GET['id'])) {
 	$res = array('objA'=>user_profile($_GET['id']),'objB'=>get_user_pk($_GET['id']));
 	echo json_encode($res);
 };
-// if (isset($_POST['id'])) {
-// 	get_user_pk($_POST['id']);
-
-// }

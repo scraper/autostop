@@ -50,6 +50,7 @@ var ui = {
 
 	get_fb_id: function() {
 			//set FB.id cookie value
+				var user_id = this.config.user_id;
 				var c_id = "fb_id";
 				var c_id_value = document.cookie;
 				//calculating chars to the c_name in cookie
@@ -82,27 +83,14 @@ var ui = {
 						// });
 					}
 					else {
-						// $('#route_user_id').val(c_id_value);
 						window.location.hash = c_id_value;
-						// ui.get_fb_id(c_id_value);
-						ui.showUserDetailes(c_id_value);
+						ui.showUserDetailes(c_id_value, './login.php');
+						user_id.val(c_id_value);
 					}
 				};
 	},
-	//post fb_id to return user_pk
-	get_user_pk: function(fb_id) {
-		$.ajax({
-				url: './login.php',
-				type: 'post',
-				dataType: 'json',
-				data: {id:fb_id},
-				success: function (data) {
-					console.log(data);
-				}
-			});
-	},
 
-	showUserDetailes: function(fb_id) {
+	showUserDetailes: function(fb_id, url) {
 		// var user_id = this.config.user_id.val();
 		var driver_info = this.config.driver_info;
 		var driver_1 = this.config.driver_1;
@@ -117,7 +105,7 @@ var ui = {
 		var email = this.config.email;
 		var phone = this.config.phone;
 		$.ajax({
-				url: './login.php',
+				url: url,
 				dataType: 'json',
 				type: 'get',
 				data: {id:fb_id},

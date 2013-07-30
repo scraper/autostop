@@ -1,7 +1,7 @@
 <?php
 
 //getting json result from google maps and pushing to array route info, new.php
-function get_json($origin, $destination, $seats, $price, $type, $date) {
+function get_json($origin, $destination, $seats, $price, $type, $date, $fb_id) {
 	if(isset($origin,$destination)) {
 		$or_city_name = explode(' ',trim($origin));
 		$origin_city_name = $or_city_name[0];
@@ -19,31 +19,29 @@ function get_json($origin, $destination, $seats, $price, $type, $date) {
 	$start = $output["routes"][0]["legs"][0]["start_address"];
 	$end = $output["routes"][0]["legs"][0]["end_address"];
 	global $result;
-	$result = array($start, $end, $seats, $price, $type, $date);
+	$result = array($start, $end, $seats, $price, $type, $date, $fb_id);
 	/*return $result;*/
 	/*print_r($result);*/
 }
 //get user fb_id and return user_table.user_pk
 function get_user_pk($fb_id) {
 	global $pdo;
-	global $user_pk;
 
 	$stmt = $pdo->prepare("
 		SELECT user_pk FROM user_table WHERE user_id = :fb_id;
 		");
 	$stmt->execute(array(':fb_id'=>$fb_id));
-	$user_pk = $stmt->fetchAll(PDO::FETCH_OBJ);
+	$user_pk = $stmt->fetch(PDO::FETCH_BOTH);
 	return $user_pk;
-	print_r($user_pk);
 }
 //adding a new route, new.php
 function new_route() {
 	global $pdo;
 	global $result;
-	$pdo->beginTransaction();
 	
-	try {
+	$pdo->beginTransaction();
 
+	try {
 
 		$stmt = $pdo->prepare("
 			insert into s_city (s_city_id) values (:start_c);
@@ -58,10 +56,11 @@ function new_route() {
 		$stmt->execute();
 
 		$stmt = $pdo->prepare("
-			insert into routes (s_city, e_city, seats, price, type, date)
+			insert into routes (s_city, e_city, seats, price, type, date, fb_id)
 			values ( 	(select s_city_pk from s_city where s_city_id like :start),
 						(select e_city_pk from e_city where e_city_id like :end),
-        				:seats, :price, :type, :date);
+        				:seats, :price, :type, :date,
+        				(select user_pk from user_table where user_id = :fb_id));
 			");
 		$s = $result[0]. "%";
 		$e = $result[1]. "%";
@@ -72,14 +71,18 @@ function new_route() {
 		$stmt->bindParam(':price',$result[3], PDO::PARAM_INT);
 		$stmt->bindParam(':type',$result[4], PDO::PARAM_STR);
 		$stmt->bindParam(':date',$result[5], PDO::PARAM_STR);
+		$stmt->bindParam(':fb_id',$result[6], PDO::PARAM_STR);
 		$stmt->execute();
 		$route_pk = $pdo->lastInsertId();
+		//newr_route.log - user_id, route_id
 		$file = 'new_route.log';
 		$route_log_msg = "\r\nRoute was added:";
 		file_put_contents($file, $route_log_msg, FILE_APPEND | LOCK_EX);
 		$route_log_id = $route_pk;
 		file_put_contents($file, $route_log_id, FILE_APPEND | LOCK_EX);
-
+		$route_log_msg_user_id = "\r\nAdded by user_id:";
+		file_put_contents($file, $route_log_msg_user_id, FILE_APPEND | LOCK_EX);
+		file_put_contents($file, $result[6], FILE_APPEND | LOCK_EX);
 		$pdo->commit();
 		header("Location: ./route.php?q=$route_pk");
 
@@ -93,10 +96,11 @@ function new_route() {
 		// file_put_contents($file, $e, FILE_APPEND | LOCK_EX);
 		try {
 			$stmt = $pdo->prepare("
-			insert into routes (s_city, e_city, seats, price, type, date)
+			insert into routes (s_city, e_city, seats, price, type, date, user_id)
 			values ( 	(select s_city_pk from s_city where s_city_id like :start),
 						(select e_city_pk from e_city where e_city_id like :end),
-        				:seats, :price, :type, :date);
+        				:seats, :price, :type, :date, 
+        				(select user_pk from user_table where user_id = :fb_id));
 			");
 			$s = $result[0]. "%";
 			$e = $result[1]. "%";
@@ -107,14 +111,18 @@ function new_route() {
 			$stmt->bindParam(':price',$result[3], PDO::PARAM_INT);
 			$stmt->bindParam(':type',$result[4], PDO::PARAM_STR);
 			$stmt->bindParam(':date',$result[5], PDO::PARAM_STR);
+			$stmt->bindParam(':fb_id',$result[6], PDO::PARAM_STR);
 			$stmt->execute();
 			$route_pk = $pdo->lastInsertId();
+			//newr_route.log - user_id, route_id
 			$file = 'new_route.log';
 			$route_log_msg = "\r\nRoute was added:";
 			file_put_contents($file, $route_log_msg, FILE_APPEND | LOCK_EX);
 			$route_log_id = $route_pk;
 			file_put_contents($file, $route_log_id, FILE_APPEND | LOCK_EX);
-
+			$route_log_msg_user_id = "\r\nAdded by user_id:";
+			file_put_contents($file, $route_log_msg_user_id, FILE_APPEND | LOCK_EX);
+			file_put_contents($file, $result[6], FILE_APPEND | LOCK_EX);
 			$pdo->commit();
 			header("Location: ./route.php?q=$route_pk");
 		}

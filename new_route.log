@@ -506,3 +506,45 @@ Stack trace:
 #2 {main}
 Route was added:78
 Route was added:79
+exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_pk' in 'field list'' in E:\Dropbox\Dev\autostop\functions2.php:111
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(111): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(10): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_pk' in 'field list'' in E:\Dropbox\Dev\autostop\functions2.php:111
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(111): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(10): new_route()
+#2 {main}
+Route was added:80
+Route was added:81
+Route was added:82
+Route was added:83
+Route was added:84
+Route was added:85
+Route was added:86
+Route was added:87
+Route was added:88
+Route was added:89error
+Route was added:90
+Route was added:91
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'e_city' cannot be null' in E:\Dropbox\Dev\autostop\functions2.php:111
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(111): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+Route was added:92
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:110
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(110): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:110
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(110): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route()
+#2 {main}
+Route was added:93
+Route was added:94100000152656098
+Route was added:95
+Added by user_id:100000152656098
