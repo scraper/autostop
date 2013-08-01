@@ -188,14 +188,130 @@ function render_route($id) {
 	global $pdo;
 
 	$stmt = $pdo->prepare('
-		select routes.route_id, s_city.s_city_id, e_city.e_city_id, routes.seats, routes.price, routes.type, routes.date
+		select 
+			user_id,
+			unregistered_id,
+			type
 		from routes
-		join s_city on routes.s_city = s_city.s_city_pk
-		join e_city on routes.e_city = e_city.e_city_pk
 		where routes.route_id = :q;
 		');
 	$stmt->execute(array(':q'=>$id));
-	return $stmt->fetch(PDO::FETCH_OBJ);
+	$reg_result = $stmt->fetch(PDO::FETCH_BOTH);
+	if ($reg_result[2] == "Водій" || $reg_result == "1") {	
+		if ($reg_result[0] != null) {
+			$stmt1 = $pdo->prepare('
+				select 
+					routes.route_id,
+					routes.seats, 
+					routes.price, 
+					routes.type, 
+					routes.date,
+					s_city.s_city_id, 
+					e_city.e_city_id, 
+					user_table.name, 
+					user_table.vehicle, 
+					user_table.v_color,
+					user_table.climat, 
+					user_table.smoking, 
+					user_table.email, 
+					user_table.phone, 
+					user_table.experience
+				from routes
+				join s_city on routes.s_city = s_city.s_city_pk
+				join e_city on routes.e_city = e_city.e_city_pk
+				join user_table on routes.user_id = user_table.user_pk
+				where routes.route_id = :q;
+				');
+			$stmt1->execute(array(':q'=>$id));
+			$result = $stmt1->fetch(PDO::FETCH_OBJ);
+			return $result;
+		}
+		else if ($reg_result[1] != null) {
+			$stmt2 = $pdo->prepare('
+				select 
+					routes.route_id, 
+					routes.seats, 
+					routes.price, 
+					routes.type, 
+					routes.date,
+					s_city.s_city_id,
+					e_city.e_city_id,
+					unregistered_user_data.vehicle, 
+					unregistered_user_data.v_color, 
+					unregistered_user_data.climat,
+					unregistered_user_data.smoking, 
+					unregistered_user_data.email, 
+					unregistered_user_data.phone, 
+					unregistered_user_data.experience,
+					unregistered_user_data.is_driver
+				from routes
+				join s_city on routes.s_city = s_city.s_city_pk
+				join e_city on routes.e_city = e_city.e_city_pk
+				join unregistered_user_data on routes.unregistered_id = unregistered_user_data.user_pk
+				where routes.route_id = :q;
+				');
+			$stmt2->execute(array(':q'=>$id));
+			$result = $stmt2->fetch(PDO::FETCH_OBJ);
+			return $result;
+		}
+		else {
+			return $reg_result;
+		};
+	}
+	else if ($reg_result[2] == "Пасажир" || $reg_result[2] == "0") {
+		if ($reg_result[0] != null) {
+			$stmt1 = $pdo->prepare('
+				select 
+					routes.route_id,
+					routes.seats, 
+					routes.price, 
+					routes.type, 
+					routes.date,
+					s_city.s_city_id, 
+					e_city.e_city_id, 
+					user_table.name, 
+					user_table.smoking, 
+					user_table.email, 
+					user_table.phone, 
+					user_table.experience
+				from routes
+				join s_city on routes.s_city = s_city.s_city_pk
+				join e_city on routes.e_city = e_city.e_city_pk
+				join user_table on routes.user_id = user_table.user_pk
+				where routes.route_id = :q;
+				');
+			$stmt1->execute(array(':q'=>$id));
+			$result = $stmt1->fetch(PDO::FETCH_OBJ);
+			return $result;
+		}
+		else if ($reg_result[1] != null) {
+			$stmt2 = $pdo->prepare('
+				select 
+					routes.route_id, 
+					routes.seats, 
+					routes.price, 
+					routes.type, 
+					routes.date,
+					s_city.s_city_id,
+					e_city.e_city_id,
+					unregistered_user_data.smoking, 
+					unregistered_user_data.email, 
+					unregistered_user_data.phone, 
+					unregistered_user_data.experience,
+				from routes
+				join s_city on routes.s_city = s_city.s_city_pk
+				join e_city on routes.e_city = e_city.e_city_pk
+				join unregistered_user_data on routes.unregistered_id = unregistered_user_data.user_pk
+				where routes.route_id = :q;
+				');
+			$stmt2->execute(array(':q'=>$id));
+			$result = $stmt2->fetch(PDO::FETCH_OBJ);
+			return $result;
+		}
+		else {
+			return $reg_result;
+		};		
+	};
 }
 //create user after he logins first time from FB
 function new_user($id,$name,$username) {

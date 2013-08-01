@@ -54,6 +54,14 @@
 						<td>Дата виїзду:</td>
 						<td><?php echo ($id->date);?></td>
 					</tr>
+					<tr>
+						<td>user_id:</td>
+						<td><?php echo ($id->user_id);?></td>
+					</tr>
+					<tr>
+						<td>name:</td>
+						<td><?php echo ($id->name);?></td>
+					</tr>
 				</tbody>	
 			</table>
 		</div>

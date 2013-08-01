@@ -53,6 +53,7 @@ function item_clicked() {
 
 //Pushing results to the page
 function search_results_show() {
+	window.location.hash = $('#search').val();
 			if ($('#search').val() != "") {
 				$('#q').val("");
 				console.log("not null");
