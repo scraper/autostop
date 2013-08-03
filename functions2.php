@@ -197,7 +197,9 @@ function render_route($id) {
 		');
 	$stmt->execute(array(':q'=>$id));
 	$reg_result = $stmt->fetch(PDO::FETCH_BOTH);
+	//if route is driver
 	if ($reg_result[2] == "Водій" || $reg_result == "1") {	
+		//if user is registered
 		if ($reg_result[0] != null) {
 			$stmt1 = $pdo->prepare('
 				select 
@@ -206,6 +208,7 @@ function render_route($id) {
 					routes.price, 
 					routes.type, 
 					routes.date,
+					routes.user_id,
 					s_city.s_city_id, 
 					e_city.e_city_id, 
 					user_table.name, 
@@ -226,6 +229,7 @@ function render_route($id) {
 			$result = $stmt1->fetch(PDO::FETCH_OBJ);
 			return $result;
 		}
+		//if user is unregistered
 		else if ($reg_result[1] != null) {
 			$stmt2 = $pdo->prepare('
 				select 
@@ -254,11 +258,14 @@ function render_route($id) {
 			$result = $stmt2->fetch(PDO::FETCH_OBJ);
 			return $result;
 		}
+		//should not happen, but if happen show some result
 		else {
 			return $reg_result;
 		};
 	}
+	//if route is passenger
 	else if ($reg_result[2] == "Пасажир" || $reg_result[2] == "0") {
+		//if user is registered
 		if ($reg_result[0] != null) {
 			$stmt1 = $pdo->prepare('
 				select 
@@ -272,8 +279,7 @@ function render_route($id) {
 					user_table.name, 
 					user_table.smoking, 
 					user_table.email, 
-					user_table.phone, 
-					user_table.experience
+					user_table.phone
 				from routes
 				join s_city on routes.s_city = s_city.s_city_pk
 				join e_city on routes.e_city = e_city.e_city_pk
@@ -284,6 +290,7 @@ function render_route($id) {
 			$result = $stmt1->fetch(PDO::FETCH_OBJ);
 			return $result;
 		}
+		//if user is unregistered
 		else if ($reg_result[1] != null) {
 			$stmt2 = $pdo->prepare('
 				select 
@@ -296,8 +303,7 @@ function render_route($id) {
 					e_city.e_city_id,
 					unregistered_user_data.smoking, 
 					unregistered_user_data.email, 
-					unregistered_user_data.phone, 
-					unregistered_user_data.experience,
+					unregistered_user_data.phone
 				from routes
 				join s_city on routes.s_city = s_city.s_city_pk
 				join e_city on routes.e_city = e_city.e_city_pk
@@ -308,6 +314,7 @@ function render_route($id) {
 			$result = $stmt2->fetch(PDO::FETCH_OBJ);
 			return $result;
 		}
+		//should not happen, but if happen show some result
 		else {
 			return $reg_result;
 		};		

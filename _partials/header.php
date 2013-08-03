@@ -3,7 +3,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
 	<title>Autostop UA</title>
-	
+	<link rel="icon" type="image/ico" href="./imgs/favicon_green.ico"/>
 	<!-- google maps api cdn -->
 	<script type="text/javascript"
       src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDN8CZL6PryCYP8ZnXUnPu3CzgR1lOjMho&sensor=false&libraries=places">

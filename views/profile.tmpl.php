@@ -4,6 +4,8 @@
 	<div class="row-fuid">
 		<div class="span5">
 			<h4 id="profile_legend">Профіль</h4>
+			<img src="https://graph.facebook.com/petro.franko/picture?width=160&height=160" style="border-radius:5px">
+			<p></p>
 			<div id="controls">
 				<form id="form">
 					<table class="table table-hover">
