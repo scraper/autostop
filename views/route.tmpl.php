@@ -72,7 +72,7 @@
 						<td>Водій/пасажир:</td>
 						<td id="type"></td>
 					</tr>
-					<tr>
+					<tr class="name">
 						<td>Ім'я:</td>
 						<td id="name"></td>
 					</tr>

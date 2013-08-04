@@ -34,7 +34,7 @@ var ui = {
 			e.preventDefault();
 			seats.show('slow');
 			seats_i.removeClass('validate-hidden').addClass('validate');
-			type.val("Водій");
+			type.val("1");
 			driver_info.show('slow');
 			driver_info_inputs.addClass('validate');
 		});
@@ -42,7 +42,7 @@ var ui = {
 			e.preventDefault();
 			seats.hide('slow');
 			seats_i.removeClass('validate').addClass('validate-hidden');
-			type.val("Пасажир");
+			type.val("0");
 			driver_info.hide('slow');
 			driver_info_inputs.removeClass('validate');
 		});

@@ -29,6 +29,7 @@ var route = {
 		var smoking = this.config.smoking;
 		
 		var driverClass = this.config.driverClass;
+		var nameClass = this.config.nameClass;
 		var q = getQueryVariable("q");
 
 		$.ajax({
@@ -53,16 +54,21 @@ var route = {
 					//if route is driver
 					if (data.objA.type == "1" || data.objA.type == "Водій") {
 						//if user is registered show #name
-						if (data.objA.user_id != null || data.objA.user_id != "") {
+						if (data.objA.user_id != null && data.objA.user_id != "") {
 							name.text(data.objA.name);
 						}
 						//if user is unregistered hide #name
 						else if (data.objA.user_id == null || data.objA.user_id == "") {
-							name.hide();
+							nameClass.hide();
 						};
 						driverClass.show();
 						seats.text(data.objA.seats);
-						email.text(data.objA.email);
+						if (data.objA.email == null || data.objA.email == "") {
+							email.text("н/д");
+						}
+						else {
+							email.text(data.objA.email);
+						};
 						vehicle.text(data.objA.vehicle);
 						v_color.text(data.objA.v_color);
 						if (data.objA.climat == "1") {
@@ -83,12 +89,12 @@ var route = {
 					//if user is passenger
 					else if (data.objA.type == "0" || data.objA.type == "Пасажир") {
 						//if user is registered show #name
-						if (data.objA.user_id != null || data.objA.user_id != "") {
+						if (data.objA.user_id != null && data.objA.user_id != "") {
 							name.text(data.objA.name);
 						}
 						//if user is unregistered hide #name
 						else if (data.objA.user_id == null || data.objA.user_id == "") {
-							name.hide();
+							nameClass.hide();
 						};
 						if (data.objA.smoking == "1") {
 							smoking.text("Так");
@@ -120,7 +126,8 @@ smoking: $('#smoking'),
 
 user_id: $('#user_id'),
 //driver class for hiding if route is passenger
-driverClass: $('.driver')
+driverClass: $('.driver'),
+nameClass: $('.name')
 });
 function getQueryVariable(variable)
 {

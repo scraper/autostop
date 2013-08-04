@@ -246,8 +246,7 @@ function render_route($id) {
 					unregistered_user_data.smoking, 
 					unregistered_user_data.email, 
 					unregistered_user_data.phone, 
-					unregistered_user_data.experience,
-					unregistered_user_data.is_driver
+					unregistered_user_data.experience
 				from routes
 				join s_city on routes.s_city = s_city.s_city_pk
 				join e_city on routes.e_city = e_city.e_city_pk
@@ -274,6 +273,7 @@ function render_route($id) {
 					routes.price, 
 					routes.type, 
 					routes.date,
+					routes.user_id,
 					s_city.s_city_id, 
 					e_city.e_city_id, 
 					user_table.name, 
@@ -299,6 +299,7 @@ function render_route($id) {
 					routes.price, 
 					routes.type, 
 					routes.date,
+					routes.user_id,
 					s_city.s_city_id,
 					e_city.e_city_id,
 					unregistered_user_data.smoking, 
