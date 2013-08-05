@@ -1,11 +1,22 @@
 <?php include '_partials/header.php'; ?>
 
 <div class="container-fluid">
-	<div class="row-fuid">
-		<div class="span5">
-			<h4 id="profile_legend">Профіль</h4>
-			<img src="https://graph.facebook.com/petro.franko/picture?width=160&height=160" style="border-radius:5px">
+	<div class="row-fluid">
+		<div class="span3">
+			<div>
+				<h4 id="profile_legend">Профіль <img class="img" src="./imgs/ajax-loader2.gif"></h4>			
+				<img id="picture" src="" style="border-radius:5px">
+			</div>
 			<p></p>
+			<div>
+				<button id="showUserRoutes" class="btn btn-info">Мої маршрути</button>
+				<button id="save_btn" class="btn btn-success" onclick="saveUserDetailes()">Зберегти</button>
+			</div>
+		</div>		
+		<div class="span5">
+			<h4>Мої дані:</h4>			
+			<!-- <img id="picture" src="" style="border-radius:5px">
+			<p></p> -->
 			<div id="controls">
 				<form id="form">
 					<table class="table table-hover">
@@ -22,13 +33,12 @@
 								</td>
 							</tr>
 							<tr id="vehicle_info">
-								<!-- <label id="label_vehicle">Мій автомобіль:</label> -->
 								<td>
 									<label id="label_vehicle" for="vehicle">Авто (марка, модель):</label>
-									<input class="span5 profile-page" type="text" id="vehicle" name="vehicle"/>
+									<input class="span12 profile-page" type="text" id="vehicle" name="vehicle"/>
 									
 									<label id="label_v_color" for="v_color">Колір:</label>
-									<input class="span5 profile-page validate" type="text" id="v_color" name="v_color"/>
+									<input class="span12 profile-page validate" type="text" id="v_color" name="v_color"/>
 									
 									<label class="radio inline">
 										<input class="profile-page" id="climat_1" type="radio" name="climat" value="1">Клімат контроль/кондиціонер
@@ -39,8 +49,8 @@
 									</label>
 									<p></p>
 									<label id="label_experience" for="experience">Стаж водіння:</label>
-									<!-- <input class="span5" type="text" id="experience" name="experience"/> -->
-									<select class="profile-page" id="experience">
+									
+									<select class="span12 profile-page" id="experience">
 										<option value="менше 1 року">менше 1 року</option>
 										<option value="1 рік">1 рік</option>
 										<option value="2 роки">2 роки</option>
@@ -52,7 +62,6 @@
 								</td>
 							</tr>
 							<tr>
-								<!-- <label id="label_vehicle">Про мене:</label> -->
 								<td>
 									<label class="radio inline">
 										<input class="profile-page" id="smoking_0" type="radio" name="smoking" value="0">Не курю
@@ -66,21 +75,21 @@
 							<tr>
 								<td>
 									<label id="label_email" for="email">E-mail:</label>
-									<input class="span5 profile-page" type="text" id="email" name="email"/>
+									<input class="span12 profile-page" type="text" id="email" name="email"/>
 									<label id="label_phone" for="phone">Телефон:</label>
-									<input class="span5 profile-page" type="text" id="phone" name="phone"/>
-									<label id="label_languages" for="languages">Володіння мовами:</label>
-									<input class="span5 profile-page" type="text" id="languages" name="languages"/>
+									<input class="span12 profile-page" type="text" id="phone" name="phone"/>
+									<!-- <label id="label_languages" for="languages">Володіння мовами:</label> -->
+									<!-- <input class="span12 profile-page" type="text" id="languages" name="languages"/> -->
 								</td>
 							</tr>
 						</tbody>
 					</table>
-					<button id="save_btn" class="btn btn-success" onclick="saveUserDetailes()">Зберегти</button>
-					<input id="user_id" type="hidden" value="<?php echo ($id=$_GET['id']);?>">
+					
+					
 				</form>
 			</div>
 		</div>
-
+		
 	</div>
 </div>
 

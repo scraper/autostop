@@ -21,4 +21,9 @@ elseif (isset($_POST['s_city'], $_POST['s_date'])) {
 	$type = $_POST['type'];
 	$res = array('objB'=>advanced_search($s_city, $e_city, $s_date, $e_date, $type));
 	echo json_encode($res);
+}
+elseif (isset($_GET['uid'])) {
+	$uid = $_GET['uid'];
+	$res = array('objB'=>showUserRoute($uid));
+	echo json_encode($res);
 };

@@ -164,6 +164,21 @@ function search($query) {
 	$search = $stmt->fetchALL(PDO::FETCH_OBJ);
 	return $search;
 }
+//show user routes
+function showUserRoute($uid) {
+	global $pdo;
+
+	$stmt = $pdo->prepare("
+		select routes.route_id, s_city.s_city_id, e_city.e_city_id, routes.seats, routes.price, routes.type, routes.date
+		from routes
+		join s_city on routes.s_city = s_city.s_city_pk
+		join e_city on routes.e_city = e_city.e_city_pk
+		where user_id = (select user_pk from user_table where user_id = :uid);
+		");
+	$stmt->execute(array(':uid'=>$uid));
+	$search = $stmt->fetchALL(PDO::FETCH_OBJ);
+	return $search;
+}
 
 function advanced_search($s_city,$e_city,$s_date,$e_date,$type) {
 	global $pdo;

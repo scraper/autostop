@@ -12,7 +12,10 @@ var profile = {
 	btn: function() {
 		this.config.save_btn.click(function(e) {
 			e.preventDefault();
-		})
+		});
+		this.config.showUserRoutes.click(function(e) {
+			window.location.href = './search.php?uid=' + getQueryVariable('id');
+		});
 	},
 	//show or hide vehicle_info div
 	vehicleInfo: function() {
@@ -73,9 +76,14 @@ var profile = {
 					}
 				};
 	},
+	//build url for facebook picture of the user
+	showUserPicture: function(fb_id) {
+		var pictureUrl = "https://graph.facebook.com/" + fb_id + "/picture?width=200&height=200";
+		$('#picture').attr('src', pictureUrl);
+	},
 	//if user is authorized in FB enable or disable editing data
 	ifAuthorized: function(fb_id) {
-		var user_id = this.config.user_id.val();
+		var user_id = getQueryVariable('id');
 		var save_btn = this.config.save_btn;
 		var canDisable = this.config.canDisable;
 		profile.showUserDetailes(fb_id);
@@ -87,6 +95,7 @@ var profile = {
 					if (response.id != user_id) {
 						canDisable.prop('disabled', true);
 						save_btn.hide();
+						$('#showUserRoutes').text('Маршрути користувача');
 					}
 				});
 			}
@@ -115,7 +124,7 @@ var profile = {
 	//show user detailes
 	showUserDetailes: function(fb_id) {
 		//user_id hidden input new2.tmpl.php
-		var user_id = this.config.user_id.val();
+		var user_id = getQueryVariable('id');
 		//global FB.id variable
 		var id = "";
 		//if user logged in then fb_id will not be blank, else it is null and value is taken from url param
@@ -145,6 +154,7 @@ var profile = {
 				data: {id:id},
 				success: function (data) {
 					console.log(data);
+					profile.showUserPicture(getQueryVariable('id'));
 					profile_legend.text(data.objA.name);
 					if (data.objA.is_driver == "1") {
 						driver_1.attr('checked', true);
@@ -200,7 +210,7 @@ var profile = {
 
 profile.init({
 	save_btn: $('#save_btn'),
-	user_id: $('#user_id'),
+	showUserRoutes: $('#showUserRoutes'),
 	profile_legend: $('#profile_legend'),
 	driver_1: $('#driver_1'),
 	driver_0: $('#driver_0'),
@@ -236,3 +246,13 @@ function getUserDetailes() {
 		profile.showUserDetailes(response.id);
 	});
 };
+function getQueryVariable(variable)
+{
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+}
