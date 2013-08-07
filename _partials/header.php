@@ -14,9 +14,10 @@
     <script src="//connect.facebook.net/en_US/all.js"></script>
     <!-- local scripts -->
     <script type="text/javascript" src="./js/facebook.js"></script>
-        <!-- script for serch from top menu -->
+    <!-- script for serch from top menu -->
     <script type="text/javascript" src="./js/search_header.js"></script>
-    
+    <!-- getUrlParam script -->
+    <script type="text/javascript" src="./js/getUrlParam.js"></script>
     <!-- Google Fonts -->
  	<link href='http://fonts.googleapis.com/css?family=Lobster|Raleway|Audiowide' rel='stylesheet' type='text/css'>
     
@@ -73,7 +74,7 @@
                             <ul class="dropdown-menu">
                                 <li><a id="user_profile_href" href="./profile.php">Мій профіль</a></li>        
                                 <li>
-                                    <a href="#" onclick="fb_logout()">Вийти</a>
+                                    <a href="" onclick="fb_logout()">Вийти</a>
                                 </li>
                             </ul>
                         </li>

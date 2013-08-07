@@ -2,7 +2,6 @@ var profile = {
 	init: function(config) {
 		this.config = config;
 		this.btn();
-		// this.showUserDetailes();
 		this.get_fb_id();
 		this.vehicleInfo();
 		this.initFB();
@@ -14,7 +13,7 @@ var profile = {
 			e.preventDefault();
 		});
 		this.config.showUserRoutes.click(function(e) {
-			window.location.href = './search.php?uid=' + getQueryVariable('id');
+			window.location.href = './search.php?uid=' + getUrlParam.init('id');
 		});
 	},
 	//show or hide vehicle_info div
@@ -68,11 +67,10 @@ var profile = {
 					c_id_value = unescape(c_id_value.substring(c_id_start,c_id_end));
 					//if c_name cookie value equals 0 get user name from FB.api
 					if (c_id_value.length == 0) {
-
+						profile.showUserDetailes(getUrlParam.init('id'));
 					}
 					else {
 						profile.showUserDetailes(c_id_value);
-						profile.ifAuthorized(c_id_value);
 					}
 				};
 	},
@@ -83,15 +81,13 @@ var profile = {
 	},
 	//if user is authorized in FB enable or disable editing data
 	ifAuthorized: function(fb_id) {
-		var user_id = getQueryVariable('id');
+		var user_id = getUrlParam.init('id');
 		var save_btn = this.config.save_btn;
 		var canDisable = this.config.canDisable;
-		profile.showUserDetailes(fb_id);
 		FB.getLoginStatus(function(response) {
 			if(response.status === 'connected') {	
-				console.log("connected");
 				FB.api('/me', function(response) {
-					console.log(response.id, user_id);
+					//if logged in user is not the owner of the profile
 					if (response.id != user_id) {
 						canDisable.prop('disabled', true);
 						save_btn.hide();
@@ -100,7 +96,6 @@ var profile = {
 				});
 			}
 			else if(response.status === 'not_authorized') {
-				console.log("FB not authorized");
 				FB.api('/me', function(response) {
 					console.log(response.id, user_id);
 					if (response.id != user_id) {
@@ -110,7 +105,6 @@ var profile = {
 				});
 			}
 			else {
-				console.log("FB please login");
 				FB.api('/me', function(response) {
 					console.log(response.id, user_id);
 					if (response.id != user_id) {
@@ -124,7 +118,7 @@ var profile = {
 	//show user detailes
 	showUserDetailes: function(fb_id) {
 		//user_id hidden input new2.tmpl.php
-		var user_id = getQueryVariable('id');
+		var user_id = getUrlParam.init('id');
 		//global FB.id variable
 		var id = "";
 		//if user logged in then fb_id will not be blank, else it is null and value is taken from url param
@@ -154,7 +148,7 @@ var profile = {
 				data: {id:id},
 				success: function (data) {
 					console.log(data);
-					profile.showUserPicture(getQueryVariable('id'));
+					profile.showUserPicture(getUrlParam.init('id'));
 					profile_legend.text(data.objA.name);
 					if (data.objA.is_driver == "1") {
 						driver_1.attr('checked', true);
@@ -246,13 +240,3 @@ function getUserDetailes() {
 		profile.showUserDetailes(response.id);
 	});
 };
-function getQueryVariable(variable)
-{
-       var query = window.location.search.substring(1);
-       var vars = query.split("&");
-       for (var i=0;i<vars.length;i++) {
-               var pair = vars[i].split("=");
-               if(pair[0] == variable){return pair[1];}
-       }
-       return(false);
-}

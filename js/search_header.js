@@ -61,6 +61,34 @@ $(function() {
 							console.log(data);
 						}
 					});
+				}
+				else if (getUrlParam.init('uid') != "") {
+					$.ajax({
+						url: './search/index.php',
+						type: 'get',
+						data: {uid: getUrlParam.init('uid')},
+						dataType: "JSON",
+						success: function(data) {
+							
+							$('.tbody').html('');
+							if (data.objB.length > 0) {
+								$('#notfound').hide();
+								$.each(data.objB, function(column, value) {
+									$('.tbody').append('<tr class="tr" id="' + value['route_id'] + '"><td>' + value['s_city_id'] + '</td><td>' + value['e_city_id'] + '</td><td>' + value['date'] + '</td></tr>');
+									//click function on the table row
+									$('#'+value['route_id']+'.tr').click(function() {
+										window.location = './route.php?q=' + $('#'+value['route_id']+'.tr').attr('id'); 
+									});
+									$('#results').slideDown();
+								});
+							}
+							else {
+								$('#results').hide();
+								$('#notfound').slideDown();
+							};
+							console.log(data);
+						}
+					});				
 				};
 
 });
