@@ -2,6 +2,7 @@ var profile = {
 	init: function(config) {
 		this.config = config;
 		this.btn();
+		this.redirect();
 		this.get_fb_id();
 		this.vehicleInfo();
 		this.initFB();
@@ -15,6 +16,12 @@ var profile = {
 		this.config.showUserRoutes.click(function(e) {
 			window.location.href = './search.php?uid=' + getUrlParam.init('id');
 		});
+	},
+	//redirect to register if there is no id in url
+	redirect: function() {
+		if (getUrlParam.init('id') == "" || getUrlParam == null) {
+			window.location.href = './register';
+		}
 	},
 	//show or hide vehicle_info div
 	vehicleInfo: function() {

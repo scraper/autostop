@@ -84,8 +84,8 @@
                                 <input class="span12" type="text" id="email" name="email"/>
                                 <label id="label_phone" for="phone">Телефон:</label>
                                 <input class="span12 validate" type="text" id="phone" name="phone"/>
-                                <label id="label_languages" for="languages">Володіння мовами:</label>
-                                <input class="span12" type="text" id="languages" name="languages"/>
+                                <!-- <label id="label_languages" for="languages">Володіння мовами:</label>
+                                <input class="span12" type="text" id="languages" name="languages"/> -->
                             </div>
                             <div class="buttons">
                                 <div class="btn-group">
