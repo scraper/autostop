@@ -14,13 +14,13 @@ var profile = {
 			e.preventDefault();
 		});
 		this.config.showUserRoutes.click(function(e) {
-			window.location.href = './search.php?uid=' + getUrlParam.init('id');
+			window.location.href = '/search.php?uid=' + getUrlParam.init('id');
 		});
 	},
 	//redirect to register if there is no id in url
 	redirect: function() {
 		if (getUrlParam.init('id') == "" || getUrlParam == null) {
-			window.location.href = './register';
+			window.location.href = '/register';
 		}
 	},
 	//show or hide vehicle_info div
@@ -149,7 +149,7 @@ var profile = {
 		var phone = this.config.phone;
 		var vehicle_info = this.config.vehicle_info;
 		$.ajax({
-				url: './login.php',
+				url: '/login.php',
 				dataType: 'json',
 				type: 'get',
 				data: {id:id},
@@ -187,7 +187,7 @@ var profile = {
 	//save user detailes
 	setUserDetailes: function(id,isDriver,vehicle,v_color,climat,experience,smoking,email,phone) {
 		$.ajax({
-				url: './profile.php',
+				url: '/profile.php',
 				type: 'post',
 				data: {
 					id:id,

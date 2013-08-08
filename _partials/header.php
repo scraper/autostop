@@ -35,9 +35,9 @@
 	<link rel="stylesheet" type="text/css" href="/bootstrap/assets/css/bootstrap-responsive.css">
 
 	<link rel="shortcut icon" href="./bootstrap/assets/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="./bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="./bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
 
 </head>
 
@@ -54,7 +54,7 @@
                     <span class="icon-bar"></span>
                 </a>
 
-                <a class="brand" style="font-family:'Lobster', cursive; color: green;" href="./">driveful</a>
+                <a class="brand" style="font-family:'Lobster', cursive; color: green;" href="/">driveful</a>
                 <div class="nav-collapse">
                     <ul class="nav">
                         <li class="divider-vertical"></li>
@@ -62,8 +62,8 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Маршрути
                             <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a id="auth_new_route" href="new.php">Новий</a></li>
-                                <li><a href="search.php">Пошук</a></li>
+                                <li><a id="auth_new_route" href="/new.php">Новий</a></li>
+                                <li><a href="/search.php">Пошук</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Контакти</a></li>
@@ -72,7 +72,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="is_auth_user_link"><b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a id="user_profile_href" href="./profile.php">Мій профіль</a></li>        
+                                <li><a id="user_profile_href" href="/profile.php">Мій профіль</a></li>        
                                 <li>
                                     <a href="" onclick="fb_logout()">Вийти</a>
                                 </li>
