@@ -13,15 +13,15 @@
     <!-- facebook -->
     <script src="//connect.facebook.net/en_US/all.js"></script>
     <!-- local scripts -->
-    <script type="text/javascript" src="./js/facebook.js"></script>
+    <script type="text/javascript" src="/js/facebook.js"></script>
     <!-- script for serch from top menu -->
-    <script type="text/javascript" src="./js/search_header.js"></script>
+    <script type="text/javascript" src="/js/search_header.js"></script>
     <!-- getUrlParam script -->
-    <script type="text/javascript" src="./js/getUrlParam.js"></script>
+    <script type="text/javascript" src="/js/getUrlParam.js"></script>
     <!-- Google Fonts -->
  	<link href='http://fonts.googleapis.com/css?family=Lobster|Raleway|Audiowide' rel='stylesheet' type='text/css'>
     
-	<link rel="stylesheet" type="text/css" href="./bootstrap/assets/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/bootstrap/assets/css/bootstrap.css">
 	<style type="text/css">
       body {
         padding-top: 15px;
@@ -31,8 +31,8 @@
         padding: 9px 0;
       }
     </style>
-	<link rel="stylesheet" type="text/css" href="./bootstrap/assets/css/datepicker.css">
-	<link rel="stylesheet" type="text/css" href="./bootstrap/assets/css/bootstrap-responsive.css">
+	<link rel="stylesheet" type="text/css" href="/bootstrap/assets/css/datepicker.css">
+	<link rel="stylesheet" type="text/css" href="/bootstrap/assets/css/bootstrap-responsive.css">
 
 	<link rel="shortcut icon" href="./bootstrap/assets/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="./bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">

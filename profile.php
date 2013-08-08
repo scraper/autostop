@@ -18,17 +18,4 @@ if(isset($_POST['id'])) {
 		$_POST['email'],
 		$_POST['phone']
 	);
-}
-else {
-ob_start(); // ensures anything dumped out will be caught 
-// do stuff here
-$redirectUrl = "./register";
-// clear out the output buffer
-while (ob_get_status()) 
-{
-    ob_end_clean();
-}
-
-// no redirect
-header( "Location: $redirectUrl" );
-}
+};
