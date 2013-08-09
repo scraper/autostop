@@ -40,7 +40,105 @@ function new_route() {
 	global $result;
 	
 	$pdo->beginTransaction();
+	//if the user is not registered
+	if ($result[6] == null || $result[6] == "")	{
+		//if the start or end city is new
+		try {
+			$stmt = $pdo->prepare("
+				insert into s_city (s_city_id) values (:start_c);
+			");
+			$stmt->bindParam(':start_c', $result[0], PDO::PARAM_STR);
+			$stmt->execute();
 
+			$stmt = $pdo->prepare("
+				insert into e_city (e_city_id) values (:end_c);
+				");
+			$stmt->bindParam(':end_c',$result[1], PDO::PARAM_STR);
+			$stmt->execute();
+
+			$stmt = $pdo->prepare("
+				insert into routes (s_city, e_city, seats, price, type, date, fb_id)
+				values ( 	(select s_city_pk from s_city where s_city_id like :start),
+							(select e_city_pk from e_city where e_city_id like :end),
+	        				:seats, :price, :type, :date,
+	        				(select user_pk from user_table where user_id = :fb_id));
+				");
+			$s = $result[0]. "%";
+			$e = $result[1]. "%";
+
+			$stmt->bindParam(':start',$s, PDO::PARAM_STR);
+			$stmt->bindParam(':end',$e, PDO::PARAM_STR);
+			$stmt->bindParam(':seats',$result[2], PDO::PARAM_INT);
+			$stmt->bindParam(':price',$result[3], PDO::PARAM_INT);
+			$stmt->bindParam(':type',$result[4], PDO::PARAM_STR);
+			$stmt->bindParam(':date',$result[5], PDO::PARAM_STR);
+			$stmt->bindParam(':fb_id',$result[6], PDO::PARAM_STR);
+			$stmt->execute();
+			$route_pk = $pdo->lastInsertId();
+			//newr_route.log - user_id, route_id
+			$file = 'new_route.log';
+			$route_log_msg = "\r\nRoute was added:";
+			file_put_contents($file, $route_log_msg, FILE_APPEND | LOCK_EX);
+			$route_log_id = $route_pk;
+			file_put_contents($file, $route_log_id, FILE_APPEND | LOCK_EX);
+			$route_log_msg_user_id = "\r\nAdded by user_id:";
+			file_put_contents($file, $route_log_msg_user_id, FILE_APPEND | LOCK_EX);
+			file_put_contents($file, $result[6], FILE_APPEND | LOCK_EX);
+			$pdo->commit();
+			header("Location: ./route.php?q=$route_pk");
+
+		}
+		//if the start or end city is already in db
+		catch (PDOException $e) {
+			//write log
+			// echo $e->getMessage();
+			// $file = 'new_route.log';
+			// $msg = "\r\nNew route with existing city was added\r\n";
+			// file_put_contents($file, $msg, FILE_APPEND | LOCK_EX);
+			// file_put_contents($file, $e, FILE_APPEND | LOCK_EX);
+			try {
+				$stmt = $pdo->prepare("
+				insert into routes (s_city, e_city, seats, price, type, date, user_id)
+				values ( 	(select s_city_pk from s_city where s_city_id like :start),
+							(select e_city_pk from e_city where e_city_id like :end),
+	        				:seats, :price, :type, :date, 
+	        				(select user_pk from user_table where user_id = :fb_id));
+				");
+				$s = $result[0]. "%";
+				$e = $result[1]. "%";
+
+				$stmt->bindParam(':start',$s, PDO::PARAM_STR);
+				$stmt->bindParam(':end',$e, PDO::PARAM_STR);
+				$stmt->bindParam(':seats',$result[2], PDO::PARAM_INT);
+				$stmt->bindParam(':price',$result[3], PDO::PARAM_INT);
+				$stmt->bindParam(':type',$result[4], PDO::PARAM_STR);
+				$stmt->bindParam(':date',$result[5], PDO::PARAM_STR);
+				$stmt->bindParam(':fb_id',$result[6], PDO::PARAM_STR);
+				$stmt->execute();
+				$route_pk = $pdo->lastInsertId();
+				//newr_route.log - user_id, route_id
+				$file = 'new_route.log';
+				$route_log_msg = "\r\nRoute was added:";
+				file_put_contents($file, $route_log_msg, FILE_APPEND | LOCK_EX);
+				$route_log_id = $route_pk;
+				file_put_contents($file, $route_log_id, FILE_APPEND | LOCK_EX);
+				$route_log_msg_user_id = "\r\nAdded by user_id:";
+				file_put_contents($file, $route_log_msg_user_id, FILE_APPEND | LOCK_EX);
+				file_put_contents($file, $result[6], FILE_APPEND | LOCK_EX);
+				$pdo->commit();
+				header("Location: ./route.php?q=$route_pk");
+			}
+			catch (PDOException $e)	{
+				$file = 'new_route.log';
+				$new_line = "\r\n";
+				file_put_contents($file, $new_line, FILE_APPEND | LOCK_EX);
+				file_put_contents($file, $e, FILE_APPEND | LOCK_EX);
+			}
+		}	
+	}
+	elseif ($result[6] != null && $result[6] != "") {
+		# code...
+	};
 	try {
 
 		$stmt = $pdo->prepare("
