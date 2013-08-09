@@ -27,7 +27,7 @@
 							<div class="directions">
 								<div class="btn-group" data-toggle="buttons-radio">
                                     <button class="btn btn-info" id="idriver">Я-Водій</button>
-                                    <button class="btn btn-success" id="ipassngr">Я-Пасажир</button>
+                                    <button class="btn btn-success active" id="ipassngr">Я-Пасажир</button>
                                 </div>
 								<label id="a" for="start">Відправляюсь з міста:</label>
 								<input class="span12 validate" type="text" id="start" name="origin" onkeypress="calcRoute();" onchange="calcRoute();" onblur="calcRoute();" onfocus="calcRoute();"/>
