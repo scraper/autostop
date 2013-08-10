@@ -23,6 +23,7 @@ var ui = {
 
 	whoIam: function() {
 		var seats = this.config.seats;
+		var seats_label = this.config.seats_label;
 		var seats_i = this.config.seats_i;
 		var type = this.config.type;
 		var driver_info = this.config.driver_info;
@@ -32,8 +33,9 @@ var ui = {
 		// this.config.seats.hide();
 		this.config.idriver.click(function(e){
 			e.preventDefault();
-			seats.show('slow');
+			// seats.show('slow');
 			// seats_i.removeClass('validate-hidden').addClass('validate');
+			seats_label.text('Вільних місць:');
 			type.val("1");
 			driver_info.show('slow');
 			driver_info_inputs.addClass('validate');
@@ -42,6 +44,7 @@ var ui = {
 			e.preventDefault();
 			// seats.hide('slow');
 			// seats_i.removeClass('validate').addClass('validate-hidden');
+			seats_label.text('Вільних місць (потрібно):');
 			type.val("0");
 			driver_info.hide('slow');
 			driver_info_inputs.removeClass('validate');
@@ -106,6 +109,7 @@ var ui = {
 		var phone = this.config.phone;
 		var idriver = this.config.idriver;
 		var ipassngr = this.config.ipassngr;
+		var seats_label = this.config.seats_label;
 		$.ajax({
 				url: url,
 				dataType: 'json',
@@ -123,6 +127,7 @@ var ui = {
 						// driver_0.attr('checked', true);
 						idriver.removeClass('active');
 						ipassngr.addClass('active');
+						seats_label.text('Вільних місць (потрібно):');
 					};
 					vehicle.val(data.objA.vehicle);
 					v_color.val(data.objA.v_color);
@@ -148,6 +153,7 @@ var ui = {
 //html elements initialization
 ui.init({
 	seats: $('#seats'),
+	seats_label: $('#seats_label'),
 	seats_i: $('#seats_i'),
 	date_input: $('#dp1'),
 	idriver:$('#idriver'),
