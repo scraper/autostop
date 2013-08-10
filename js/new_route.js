@@ -29,19 +29,19 @@ var ui = {
 		var driver_info_inputs = this.config.driver_info_inputs;
 		
 		this.config.driver_info.hide();
-		this.config.seats.hide();
-		this.config.nopost_buttons_2.click(function(e){
+		// this.config.seats.hide();
+		this.config.idriver.click(function(e){
 			e.preventDefault();
 			seats.show('slow');
-			seats_i.removeClass('validate-hidden').addClass('validate');
+			// seats_i.removeClass('validate-hidden').addClass('validate');
 			type.val("1");
 			driver_info.show('slow');
 			driver_info_inputs.addClass('validate');
 		});
-		this.config.nopost_buttons_3.click(function(e){
+		this.config.ipassngr.click(function(e){
 			e.preventDefault();
-			seats.hide('slow');
-			seats_i.removeClass('validate').addClass('validate-hidden');
+			// seats.hide('slow');
+			// seats_i.removeClass('validate').addClass('validate-hidden');
 			type.val("0");
 			driver_info.hide('slow');
 			driver_info_inputs.removeClass('validate');
@@ -49,7 +49,7 @@ var ui = {
 	},
 
 	get_fb_id: function() {
-			//set FB.id cookie value
+				//set FB.id cookie value
 				var user_id = this.config.user_id;
 				var c_id = "fb_id";
 				var c_id_value = document.cookie;
@@ -104,6 +104,8 @@ var ui = {
 		var no_smoking = this.config.no_smoking;
 		var email = this.config.email;
 		var phone = this.config.phone;
+		var idriver = this.config.idriver;
+		var ipassngr = this.config.ipassngr;
 		$.ajax({
 				url: url,
 				dataType: 'json',
@@ -115,9 +117,12 @@ var ui = {
 					if (data.objA.is_driver == "1") {
 						// driver_1.attr('checked', true);
 						driver_info.show('slow');
+						idriver.addClass('active');
 					}
 					else if (data.objA.is_driver == "0") {
 						// driver_0.attr('checked', true);
+						idriver.removeClass('active');
+						ipassngr.addClass('active');
 					};
 					vehicle.val(data.objA.vehicle);
 					v_color.val(data.objA.v_color);
@@ -145,8 +150,8 @@ ui.init({
 	seats: $('#seats'),
 	seats_i: $('#seats_i'),
 	date_input: $('#dp1'),
-	nopost_buttons_2:$('#idriver'),
-	nopost_buttons_3:$('#ipassngr'),
+	idriver:$('#idriver'),
+	ipassngr:$('#ipassngr'),
 	type: $('#type'),
 	driver_info: $('.driver_info'),
 	driver_info_inputs: $('.driver-info'),
