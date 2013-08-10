@@ -33,7 +33,7 @@ var route = {
 		var q = getUrlParam.init("q");
 
 		$.ajax({
-				url: './route/index.php',
+				url: '/route/index.php',
 				type: 'get',
 				data: {q:q},
 				beforeSend: function() {
