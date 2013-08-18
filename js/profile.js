@@ -148,11 +148,18 @@ var profile = {
 		var email = this.config.email;
 		var phone = this.config.phone;
 		var vehicle_info = this.config.vehicle_info;
+		var loader = this.config.loader;
 		$.ajax({
 				url: '/login.php',
 				dataType: 'json',
 				type: 'get',
 				data: {id:id},
+				beforeSend: function() {
+					loader.show();
+				},
+				complete: function() {
+					loader.hide();
+				},				
 				success: function (data) {
 					console.log(data);
 					profile.showUserPicture(getUrlParam.init('id'));
@@ -186,6 +193,8 @@ var profile = {
 	},
 	//save user detailes
 	setUserDetailes: function(id,isDriver,vehicle,v_color,climat,experience,smoking,email,phone) {
+		var loader = this.config.loader;
+		
 		$.ajax({
 				url: '/profile.php',
 				type: 'post',
@@ -199,6 +208,12 @@ var profile = {
 					smoking:smoking,
 					email:email,
 					phone:phone
+				},
+				beforeSend: function() {
+					loader.show();
+				},
+				complete: function() {
+					loader.hide();
 				},
 				success: function (data) {
 					$('#myModal').modal({
@@ -225,7 +240,8 @@ profile.init({
 	email: $('#email'),
 	phone: $('#phone'),
 	vehicle_info: $('#vehicle_info'),
-	canDisable: $('.profile-page')
+	canDisable: $('.profile-page'),
+	loader: $('#loader')
 });
 function saveUserDetailes() {
 	FB.api('/me', function(response) {

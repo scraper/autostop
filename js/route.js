@@ -27,6 +27,7 @@ var route = {
 		var climat = this.config.climat;
 		var experience = this.config.experience;
 		var smoking = this.config.smoking;
+		var loader = this.config.loader;
 		
 		var driverClass = this.config.driverClass;
 		var nameClass = this.config.nameClass;
@@ -37,10 +38,10 @@ var route = {
 				type: 'get',
 				data: {q:q},
 				beforeSend: function() {
-					$('#loader').show();
+					loader.show();
 				},
 				complete: function() {
-					$("#loader").hide();
+					loader.hide();
 				},
 				success: function (data) {
 					console.log(data);
@@ -123,6 +124,7 @@ v_color: $('#v_color'),
 climat: $('#climat'),
 experience: $('#experience'),
 smoking: $('#smoking'),
+loader: $('#loader'),
 
 user_id: $('#user_id'),
 //driver class for hiding if route is passenger

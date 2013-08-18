@@ -213,7 +213,7 @@ function render_route($id) {
 	$stmt->execute(array(':q'=>$id));
 	$reg_result = $stmt->fetch(PDO::FETCH_BOTH);
 	//if route is driver
-	if ($reg_result[2] == "Водій" || $reg_result[2] == "1") {	
+	if ($reg_result[2] == "Водій" || $reg_result[2] == "1") {
 		//if user is registered
 		if ($reg_result[0] != null) {
 			$stmt1 = $pdo->prepare('

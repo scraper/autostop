@@ -30,6 +30,9 @@
       .sidebar-nav {
         padding: 9px 0;
       }
+      #main {
+        float: none; margin-left: auto; margin-right: auto;
+      }
     </style>
 	<link rel="stylesheet" type="text/css" href="/bootstrap/assets/css/datepicker.css">
 	<link rel="stylesheet" type="text/css" href="/bootstrap/assets/css/bootstrap-responsive.css">
@@ -78,11 +81,15 @@
                                 </li>
                             </ul>
                         </li>
+                        <li>
+                            <a id="loader" style="display:none"><img class="img" src="/imgs/ajax-loader4.gif"></a>
+                        </li>
                     </ul>
                     <ul class="nav pull-right">
                         <form id="top_menu_search" class="navbar-search" action="search.php" method="post">
                             <input id="search_h" name="q" type="text" class="search-query" placeholder="Пошук" autocomplete="off">
                             <i id="search_ico" class="icon-search"></i>
+                            
                         </form>
                     </ul>
                 </div>

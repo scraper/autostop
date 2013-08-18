@@ -5,6 +5,7 @@ var ui = {
 		this.initFB();
 		this.isAuthenticated();
 	},
+
 	isAdvanced: function() {	
 		var advanced = this.config.advanced_div;
 		var search = this.config.search;
@@ -160,5 +161,6 @@ ui.init({
 	is_auth_user: $('#is_auth_user'),
 	is_auth_user_link: $('#is_auth_user_link'),
 	user_profile_href: $('#user_profile_href'),
-	auth_new_route: $('#auth_new_route')
+	auth_new_route: $('#auth_new_route'),
+	loader: $('#loader')
 });

@@ -24,6 +24,12 @@ $(function() {
 					type: 'post',
 					data: {query: $('#search').val()},
 					dataType: "JSON",
+					beforeSend: function() {
+						$('#loader').show();
+					},
+					complete: function() {
+						$('#loader').hide();
+					},
 					success: function(data) {
 						//bootstrap typeahead does not know how to read JSON, so we push JSON items to JavaScript array
 							
@@ -62,6 +68,12 @@ function search_results_show() {
 					type: 'post',
 					data: {query: $('#search').val()},
 					dataType: "JSON",
+					beforeSend: function() {
+						$('#loader').show();
+					},
+					complete: function() {
+						$('#loader').hide();
+					},
 					success: function(data) {
 						
 						$('.tbody').html('');

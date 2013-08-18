@@ -12,21 +12,6 @@
 	-webkit-box-shadow: 0 8px 6px -6px black;
 	   -moz-box-shadow: 0 8px 6px -6px black;
 	        box-shadow: 0 8px 6px -6px black;
-},
-
-#loader {
-	position:relative;
-	z-index:0;
-}
-#inner {
-	position: relative;
-}
-.img {
-	position: absolute;
-	vertical-align: middle;
-    top: 50%;
-    left: 50%;
-    z-index: 1;
 }
 </style>
 
@@ -37,9 +22,7 @@
 			<div id="map" style="width:100%;height:400px;"></div>
 		</div>
 		<div class="span5">
-			<div id="loader">
-				<div id="inner"><img class="img" src="./imgs/ajax-loader2.gif"></div>
-			</div>
+			
 			<legend>Маршрут:</legend>
 			<table class="table table-hover">
 				<thead>

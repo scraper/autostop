@@ -4,7 +4,6 @@
 	<div class="row-fluid">
 		<div class="span3">
 			<div>
-				<h4 id="profile_legend">Профіль <img class="img" src="./imgs/ajax-loader2.gif"></h4>			
 				<img id="picture" src="" style="border-radius:5px">
 			</div>
 			<p></p>
