@@ -62,7 +62,7 @@
 
                                 <label id="label_experience" for="experience">Стаж водіння:</label>
                                 <!-- <input class="span5" type="text" id="experience" name="experience"/> -->
-                                <select class="span12  driver-info" id="experience">
+                                <select class="span12  driver-info" id="experience" name="experience">
                                     <option value="менше 1 року">менше 1 року</option>
                                     <option value="1 рік">1 рік</option>
                                     <option value="2 роки">2 роки</option>
@@ -92,10 +92,9 @@
                                     <button class="btn btn-primary" id="submit_btn" rel="popover" data-placement="bottom" data-content="Ведіть обов'язкові поля">Додати маршрут</button>
                                 </div>
                             </div>
-                            <input id="route_user_id" name="fb_id" type="hidden">
+                            <input id="route_user_id" name="fb_id" type="">
 						</form>
 					</div>
-                    
     			</div><!--/span-->
     		</div><!--/row-->
        		<br>

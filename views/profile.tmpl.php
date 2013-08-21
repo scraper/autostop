@@ -4,6 +4,7 @@
 	<div class="row-fluid">
 		<div class="span3">
 			<div>
+				<h4 id="profile_legend"></h4>
 				<img id="picture" src="" style="border-radius:5px">
 			</div>
 			<p></p>
@@ -14,8 +15,7 @@
 		</div>		
 		<div class="span5">
 			<h4>Мої дані:</h4>			
-			<!-- <img id="picture" src="" style="border-radius:5px">
-			<p></p> -->
+
 			<div id="controls">
 				<form id="form">
 					<table class="table table-hover">

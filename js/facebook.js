@@ -1,13 +1,13 @@
   function fb_logout() {
 	FB.logout(function(response) {
-	  window.location.reload();
 	  document.cookie = "user_id=" + ";domain=.gokit.tk;path=/";
 	  document.cookie = "fb_id=" + ";domain=.gokit.tk;path=/";
+	  window.location.reload();
 	});
   };
 function doit(id,name,username) {
   $.ajax({
-	  url: './login.php',
+	  url: '/login.php',
 	  type: 'post',
 	  data: {id: id,name:name,username:username},
 	  success: function (data) {

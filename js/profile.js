@@ -74,6 +74,7 @@ var profile = {
 					c_id_value = unescape(c_id_value.substring(c_id_start,c_id_end));
 					//if c_name cookie value equals 0 get user name from FB.api
 					if (c_id_value.length == 0) {
+						console.log("zero length");
 						profile.showUserDetailes(getUrlParam.init('id'));
 					}
 					else {
@@ -129,12 +130,13 @@ var profile = {
 		//global FB.id variable
 		var id = "";
 		//if user logged in then fb_id will not be blank, else it is null and value is taken from url param
-		if (fb_id == null || fb_id == "") {
+		if (fb_id == null || fb_id == "" || fb_id != getUrlParam.init('id')) {
 			id = user_id;
 		}
 		else {
 			id = fb_id;
 		};
+		console.log(id);
 		var profile_legend = this.config.profile_legend;
 		var driver_1 = this.config.driver_1;
 		var driver_0 = this.config.driver_0;
@@ -258,8 +260,8 @@ function saveUserDetailes() {
 		profile.setUserDetailes(id,isDriver,vehicle,v_color,climat,experience,smoking,email,phone);
 	});
 };
-function getUserDetailes() {
-	FB.api('/me', function(response) {
-		profile.showUserDetailes(response.id);
-	});
-};
+// function getUserDetailes() {
+// 	FB.api('/me', function(response) {
+// 		profile.showUserDetailes(response.id);
+// 	});
+// };
