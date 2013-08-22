@@ -57,7 +57,7 @@
                     <span class="icon-bar"></span>
                 </a>
 
-                <a class="brand" style="font-family:'Lobster', cursive; color: green;" href="/">driveful</a>
+                <a class="brand" style="font-family:'Lobster', cursive; color: green;" href="/">drivefull</a>
                 <div class="nav-collapse">
                     <ul class="nav">
                         <li class="divider-vertical"></li>
