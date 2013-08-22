@@ -63,7 +63,7 @@
 						<td>Телефон:</td>
 						<td id="phone"></td>
 					</tr>					
-					<tr class="driver">
+					<tr>
 						<td>E-mail:</td>
 						<td id="email"></td>
 					</tr>								

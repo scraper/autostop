@@ -52,6 +52,7 @@ var route = {
 					date.text(data.objA.date);
 					type.text(data.objA.type);
 					phone.text(data.objA.phone);
+					// email.text(data.objA.email);
 					//if route is driver
 					if (data.objA.type == "1" || data.objA.type == "Водій") {
 						//if user is registered show #name
@@ -64,11 +65,11 @@ var route = {
 						};
 						driverClass.show();
 						seats.text(data.objA.seats);
-						if (data.objA.email == null || data.objA.email == "") {
-							email.text("н/д");
+						if (data.objA.email != null && data.objA.email != "") {
+							email.text(data.objA.email);
 						}
 						else {
-							email.text(data.objA.email);
+							email.text("н/д");
 						};
 						vehicle.text(data.objA.vehicle);
 						v_color.text(data.objA.v_color);
@@ -102,6 +103,12 @@ var route = {
 						}
 						else if (data.objA.smoking == "0") {
 							smoking.text("Ні");
+						};
+						if (data.objA.email != null && data.objA.email != "") {
+							email.text(data.objA.email);
+						}
+						else {
+							email.text("н/д");
 						};
 					}
 				}

@@ -141,6 +141,7 @@ function new_route_unregistered($vehicle, $v_color, $climat, $smoking, $email, $
 	global $pdo;
 	global $result;
 	global $u_user_data;
+	global $user_pk;
 	$u_user_data = array($vehicle, $v_color, $climat, $smoking, $email, $phone, $experience);
 
 	$pdo->beginTransaction();
@@ -159,6 +160,13 @@ function new_route_unregistered($vehicle, $v_color, $climat, $smoking, $email, $
 		$stmt->bindParam(':experience', $u_user_data[6], PDO::PARAM_STR);
 		$stmt->execute();
 		$user_pk = $pdo->lastInsertId();
+	} catch (Exception $e) {
+		$file = 'new_route.log';
+		$route_log_msg = "\r\nUnregistered user data was not saved because of unknown error";
+		file_put_contents($file, $route_log_msg, FILE_APPEND | LOCK_EX);
+	};
+
+	try {
 
 		$stmt = $pdo->prepare("
 			insert into s_city (s_city_id) values (:start_c);
@@ -211,19 +219,6 @@ function new_route_unregistered($vehicle, $v_color, $climat, $smoking, $email, $
 		// file_put_contents($file, $msg, FILE_APPEND | LOCK_EX);
 		// file_put_contents($file, $e, FILE_APPEND | LOCK_EX);
 		try {
-			$stmt = $pdo->prepare("
-				insert into unregistered_user_data (vehicle,v_color, climat, smoking, email, phone, experience)
-				values (:vehicle, :v_color, :climat, :smoking, :email, :phone, :experience)
-				");
-			$stmt->bindParam(':vehicle', $vehicle, PDO::PARAM_STR);
-			$stmt->bindParam(':v_color', $v_color, PDO::PARAM_STR);
-			$stmt->bindParam(':climat', $climat, PDO::PARAM_STR);
-			$stmt->bindParam(':smoking', $smoking, PDO::PARAM_STR);
-			$stmt->bindParam(':email', $email, PDO::PARAM_STR);
-			$stmt->bindParam(':phone', $phone, PDO::PARAM_STR);
-			$stmt->bindParam(':experience', $experience, PDO::PARAM_STR);
-			$stmt->execute();
-			$user_pk = $pdo->lastInsertId();
 
 			$stmt = $pdo->prepare("
 			insert into routes (s_city, e_city, seats, price, type, date, unregistered_id)
