@@ -50,11 +50,12 @@ var route = {
 					end.text(data.objA.e_city_id);
 					price.text(data.objA.price);
 					date.text(data.objA.date);
-					type.text(data.objA.type);
+					// type.text(data.objA.type);
 					phone.text(data.objA.phone);
 					// email.text(data.objA.email);
 					//if route is driver
 					if (data.objA.type == "1" || data.objA.type == "Водій") {
+						type.text('Водій');
 						//if user is registered show #name
 						if (data.objA.user_id != null && data.objA.user_id != "") {
 							name.text(data.objA.name);
@@ -90,6 +91,7 @@ var route = {
 					}
 					//if user is passenger
 					else if (data.objA.type == "0" || data.objA.type == "Пасажир") {
+						type.text('Пасажир');
 						//if user is registered show #name
 						if (data.objA.user_id != null && data.objA.user_id != "") {
 							name.text(data.objA.name);

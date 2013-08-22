@@ -26,4 +26,8 @@ elseif (isset($_GET['uid'])) {
 	$uid = $_GET['uid'];
 	$res = array('objB'=>showUserRoute($uid));
 	echo json_encode($res);
+}
+elseif (empty($_GET['q'])) {
+	$top = array('objC'=>top_routes());
+	echo json_encode($top);
 };

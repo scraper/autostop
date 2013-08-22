@@ -259,6 +259,23 @@ function new_route_unregistered($vehicle, $v_color, $climat, $smoking, $email, $
 	}
 }
 
+//show top 10 routes
+function top_routes() {
+	global $pdo;
+
+	$stmt = $pdo->prepare("
+		select routes.route_id, s_city.s_city_id, e_city.e_city_id, routes.type
+		from routes
+		join s_city on routes.s_city = s_city.s_city_pk
+		join e_city on routes.e_city = e_city.e_city_pk
+		where routes.date >= curdate()
+		order by route_id desc
+		limit 7;
+		");
+	$stmt->execute();
+	$top = $stmt->fetchALL(PDO::FETCH_OBJ);
+	return $top;
+}
 //push results to typeahead prediction, search.js uses
 function typeahead_search($query) {
 	global $pdo;
