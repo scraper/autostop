@@ -43,17 +43,26 @@ function new_route() {
 
 	try {
 
-		$stmt = $pdo->prepare("
-			insert into s_city (s_city_id) values (:start_c);
-		");
-		$stmt->bindParam(':start_c', $result[0], PDO::PARAM_STR);
-		$stmt->execute();
-
-		$stmt = $pdo->prepare("
-			insert into e_city (e_city_id) values (:end_c);
+		try {
+			$stmt = $pdo->prepare("
+				insert into s_city (s_city_id) values (:start_c);
 			");
-		$stmt->bindParam(':end_c',$result[1], PDO::PARAM_STR);
-		$stmt->execute();
+			$stmt->bindParam(':start_c', $result[0], PDO::PARAM_STR);
+			$stmt->execute();
+		} catch (Exception $e) {
+			
+		};
+		
+		try {
+			$stmt = $pdo->prepare("
+				insert into e_city (e_city_id) values (:end_c);
+				");
+			$stmt->bindParam(':end_c',$result[1], PDO::PARAM_STR);
+			$stmt->execute();
+		} catch (Exception $e) {
+			
+		};
+
 
 		$stmt = $pdo->prepare("
 			insert into routes (s_city, e_city, seats, price, type, date, fb_id)
@@ -168,17 +177,25 @@ function new_route_unregistered($vehicle, $v_color, $climat, $smoking, $email, $
 
 	try {
 
-		$stmt = $pdo->prepare("
-			insert into s_city (s_city_id) values (:start_c);
-		");
-		$stmt->bindParam(':start_c', $result[0], PDO::PARAM_STR);
-		$stmt->execute();
-
-		$stmt = $pdo->prepare("
-			insert into e_city (e_city_id) values (:end_c);
+		try {
+			$stmt = $pdo->prepare("
+				insert into s_city (s_city_id) values (:start_c);
 			");
-		$stmt->bindParam(':end_c',$result[1], PDO::PARAM_STR);
-		$stmt->execute();
+			$stmt->bindParam(':start_c', $result[0], PDO::PARAM_STR);
+			$stmt->execute();
+		} catch (Exception $e) {
+			
+		};
+		
+		try {
+			$stmt = $pdo->prepare("
+				insert into e_city (e_city_id) values (:end_c);
+				");
+			$stmt->bindParam(':end_c',$result[1], PDO::PARAM_STR);
+			$stmt->execute();
+		} catch (Exception $e) {
+			
+		};
 
 		$stmt = $pdo->prepare("
 			insert into routes (s_city, e_city, seats, price, type, date, unregistered_id)

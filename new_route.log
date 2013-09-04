@@ -578,3 +578,63 @@ Route was added:103
 Added by unregistered user_pk:7
 Route was added:104
 Added by unregistered user_pk:8
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'e_city' cannot be null' in E:\Dropbox\Dev\autostop\functions2.php:115
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(115): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(9): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'e_city' cannot be null' in E:\Dropbox\Dev\autostop\functions2.php:115
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(115): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(9): new_route()
+#2 {main}
+Route was added:105
+Added by user_id:100000152656098
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'e_city' cannot be null' in E:\Dropbox\Dev\autostop\functions2.php:115
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(115): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(9): new_route()
+#2 {main}
+Route was added:106
+Added by user_id:100000152656098
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:115
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(115): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(9): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'e_city' cannot be null' in E:\Dropbox\Dev\autostop\functions2.php:239
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(239): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, '0', 'admin@gokit.tk', '+15544331122', '?????????? 1 ??...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'e_city' cannot be null' in E:\Dropbox\Dev\autostop\functions2.php:239
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(239): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, '0', 'admin@gokit.tk', '+15544331122', '?????????? 1 ??...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'e_city' cannot be null' in E:\Dropbox\Dev\autostop\functions2.php:239
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(239): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, '0', 'admin@gokit.tk', '+15544331122', '?????????? 1 ??...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'e_city' cannot be null' in E:\Dropbox\Dev\autostop\functions2.php:239
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(239): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, '0', 'admin@gokit.tk', '+15544331122', '?????????? 1 ??...')
+#2 {main}
+Route was added:107
+Added by user_id:100000152656098
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 's_city' cannot be null' in E:\Dropbox\Dev\autostop\functions2.php:121
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(121): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(9): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 's_city' cannot be null' in E:\Dropbox\Dev\autostop\functions2.php:121
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(121): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(9): new_route()
+#2 {main}
+Route was added:108
+Added by user_id:100000152656098
+Route was added:109
+Added by user_id:100000152656098

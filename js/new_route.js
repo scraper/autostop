@@ -108,6 +108,7 @@ var ui = {
 		var email = this.config.email;
 		var phone = this.config.phone;
 		var idriver = this.config.idriver;
+		var type = this.config.type;
 		var ipassngr = this.config.ipassngr;
 		var seats_label = this.config.seats_label;
 		$.ajax({
@@ -122,11 +123,13 @@ var ui = {
 						// driver_1.attr('checked', true);
 						driver_info.show('slow');
 						idriver.addClass('active');
+						type.val("1");
 					}
 					else if (data.objA.is_driver == "0") {
 						// driver_0.attr('checked', true);
 						idriver.removeClass('active');
 						ipassngr.addClass('active');
+						type.val("0");
 						seats_label.text('Вільних місць (потрібно):');
 					};
 					vehicle.val(data.objA.vehicle);

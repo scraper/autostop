@@ -42,8 +42,6 @@
                                 <input class="span12 validate" id="seats_i" placeholder="Введіть кількість місць..." type="text" name="seats">
                                 </li>
 
-                                <input type="hidden" id="type" name="type" value="">
-
 							</div>
                             <div class="driver_info">
                                 <label id="label_vehicle" for="vehicle">Авто (марка, модель):</label>
@@ -93,6 +91,7 @@
                                 </div>
                             </div>
                             <input id="route_user_id" name="fb_id" type="hidden">
+                            <input id="type" name="type" type="hidden" value="">
 						</form>
 					</div>
     			</div><!--/span-->
