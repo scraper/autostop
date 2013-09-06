@@ -34,7 +34,7 @@ $(function() {
 
 //Pushing results to the page from search_h (search input in header)
 				var q = $('#q').val();
-				if (q != "") { 
+				if (q != "" && q != null) { 
 					$.ajax({
 						url: './search/index.php',
 						type: 'post',

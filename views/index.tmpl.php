@@ -2,13 +2,17 @@
 
 <script type="text/javascript" src="./js/search.js"></script>
 <style type="text/css">
-
+.tr {cursor: pointer;}
 .span3:hover {
     -webkit-box-shadow: 0 8px 6px -6px black;
        -moz-box-shadow: 0 8px 6px -6px black;
             box-shadow: 0 8px 6px -6px black;
-},
-
+}
+.span4:hover {
+    -webkit-box-shadow: 0 8px 6px -6px black;
+       -moz-box-shadow: 0 8px 6px -6px black;
+            box-shadow: 0 8px 6px -6px black;
+}
 .thumbnails {cursor: default;}
 </style>
       
@@ -40,13 +44,14 @@
       
         <li class="span4">
           <div class="thumbnail" style="height:316px;cursor: default;">
-            <img alt="">
+            <img id="span4_img" alt="Routes">
             <div class="caption">
               <h4>Нові маршрути:</h4>
               <table class="table table-hover">
                 <thead>
                   <tr>
                     <!-- <th>Нові маршрути:</th> -->
+                    <!-- <td><img src="/glyphicons_free/glyphicons/png/glyphicons_003_user.png"></td> -->
                   </tr>
                 </thead>
                 <tbody class="tbody">
