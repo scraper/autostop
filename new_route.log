@@ -640,3 +640,13 @@ Route was added:109
 Added by user_id:100000152656098
 Route was added:110
 Added by user_id:100000152656098
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:124
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(124): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(9): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:124
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(124): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(9): new_route()
+#2 {main}

@@ -15,6 +15,12 @@ var tops = {
 				type: 'post',
 				data: {},
 				dataType: "JSON",
+				beforeSend: function() {
+					$('#loader').show();
+				},
+				complete: function() {
+					$('#loader').hide();
+				},
 				success: function (data) {
 					$('.tbody').html('');
 					$.each(data.objC, function(column,value) {

@@ -23,7 +23,7 @@
 		</div>
 		<div class="span5">
 			
-			<legend>Маршрут:</legend>
+			<legend>Маршрут</legend>
 			<table class="table table-hover">
 				<thead>
 					<tr>

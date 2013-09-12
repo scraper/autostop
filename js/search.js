@@ -1,6 +1,7 @@
 $(function() {
 	$('#results').hide();
 	$('#notfound').hide();
+	$('#appendedInput').hide();
 	$('#search_btn').click(function(e) {
 		if ($('#advanced_btn').attr('class') == 'btn btn-info active') {
 			e.preventDefault();
@@ -13,10 +14,20 @@ $(function() {
 			console.log("search_results_show");
 		}
 	});
+	$('#appendedInput').click(function() {
+		$('#search').val("");
+		$('#search').css({"border-radius":"4px 4px 4px 4px"});
+		$('#appendedInput').hide();
+		$('#results').hide();
+		$('#notfound').hide();
+	});
 
 //Pushing results to typeahead (search input), search.php
 		$('#search').typeahead({
 			source: function(query, process) {
+				$('#appendedInput').fadeIn(function() {
+					$('#search').css({"border-radius":"4px 0px 0px 4px"});
+				});
 				var arr = [];
 				
 				return $.ajax({

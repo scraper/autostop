@@ -17,11 +17,13 @@ var ui = {
 			e.preventDefault();
 			if(advanced.attr('style') == 'display: none;') {
 				advanced.show('slow');
-				search.prop('disabled', true);
+				// search.prop('disabled', true);
+				search.hide('slow');
 			}
 			else {
 				advanced.hide('slow');
-				search.prop('disabled', false);
+				// search.prop('disabled', false);
+				search.show('slow');
 			}
 			
 		});

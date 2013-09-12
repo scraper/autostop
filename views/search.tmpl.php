@@ -1,30 +1,32 @@
 <?php include '_partials/header.php'; ?>
 <!--map initialization-->
-<script type="text/javascript">
-	window.onload = function () {
-		initialize();
-	}
-</script>
+
 
 <style type="text/css">
 .tr {cursor: pointer;}
-.span7 {
-    -webkit-box-shadow: 0 8px 6px -6px black;
-       -moz-box-shadow: 0 8px 6px -6px black;
-            box-shadow: 0 8px 6px -6px black;
-}
+/*#search {
+	background: white url(/glyphicons_free/glyphicons/png/glyphicons_197_remove.png) right no-repeat;
+	padding-right: 17px;
+}*/
+/*.search {
+	position: relative;
+}*/
+#search {
+	border-radius: 4px 4px 4px 4px;
+};
 </style>
 
 <div class="container-fluid">
 	<div class="row-fluid">
-		<div class="span7">
-    				<legend>Карта</legend>
-    				<div id="map" style="width:100%;height:400px;"></div>
-    			</div><!--/span-->
 		<div class="span5">
 			<legend>Пошук</legend>
-			<form id="form" class="well" method="post" onsubmit="return search_results_show()">
-				<input id="search" class="span12" type="text" data-provide="typeahead" placeholder="Введіть місто для пошуку..." autocomplete="off" onchange="codeAddress();">
+			<form id="form" class="" method="post" onsubmit="return search_results_show()">
+				<div class="input-append">
+					<input id="search" class="span12" type="text" data-provide="typeahead" placeholder="Введіть місто для пошуку..." autocomplete="off" onchange="">
+					<img id="appendedInput" title="Очистити" class="add-on" src="/glyphicons_free/glyphicons/png/glyphicons_197_remove.png">
+					<!-- <i id="appendedInput" class="icon-remove-circle add-on"></i> -->
+				</div>
+
 				<div class="btn-group">
 					<button id="search_btn" class="btn btn-success">Go!</button>
 					<button id="advanced_btn" class="btn btn-info" data-toggle="button">Розширений</button>
@@ -38,44 +40,45 @@
 					<input class="span12" type="text" id="dp2" name="to_date" autocomplete="off">
 					<br>
 					<label class="radio inline">
-						<input type="radio" name="type" value="Водій">Водій
+						<input type="radio" name="type" value="1">Водій
 					</label>
 					<label class="radio inline">
-						<input type="radio" name="type" value="Пасажир">Пасажир
+						<input type="radio" name="type" value="0">Пасажир
 					</label>
 				</div>
 					
 			</form>
 			
 		</div>
+		<div class="span7">
+    		<div class="container-fluid" id="notfound">
+				<legend>Результати</legend>
+				<div>
+					<p>За вашим запитом нічого не знайдено...</p>
+				</div>
+			</div>
+			<div id="results" class="container-fluid">
+				<div>
+					<legend>Результати</legend>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>A</th>
+								<th>B</th>
+								<th>Дата</th>
+							</tr>
+						</thead>
+						<tbody class="tbody">
+
+						</tbody>
+					</table>
+
+					<div class="result"></div>
+				</div>
+			</div>
+		</div><!--/span-->
 
 	</div>
-	<div class="container-fluid" id="notfound">
-		<legend>Results</legend>
-		<div>
-			<p>За вашим запитом нічого не знайдено...</p>
-		</div>
-	</div>
-	<div id="results" class="container-fluid">
-		<div>
-			<legend>Results</legend>
-			<table class="table table-hover">
-				<thead>
-					<tr>
-						<th>A</th>
-						<th>B</th>
-						<th>Дата</th>
-					</tr>
-				</thead>
-				<tbody class="tbody">
-
-				</tbody>
-			</table>
-
-			<div class="result"></div>
-		</div>
-	</div>
-
 </div>
 
     </div><!--/row-->
@@ -92,5 +95,13 @@
 <input id="q" type="hidden" value="<?php echo ($q=$_POST['q']);?>">
 <script type="text/javascript" src="./js/search.js"></script>
 <script src="js/get_route.js"></script>
+<script type="text/javascript">
+$(document).on('propertychange keyup input paste', 'input.search', function(){
+    var io = $(this).val().length ? 1 : 0 ;
+    $(this).next('.icon-clear').stop().fadeTo(300,io);
+}).on('click', '.icon-clear', function() {
+    $(this).delay(300).fadeTo(300,0).prev('input').val('');
+});
 
+</script>
 <?php include '_partials/footer.php'; ?>

@@ -30,6 +30,7 @@ var directionsDisplay;
 		  var request = {
 		    origin:start,
 		    destination:end,
+		    waypoints: [],
 		    travelMode: google.maps.TravelMode.DRIVING
 		  };
 		  directionsService.route(request, function(result, status) {
