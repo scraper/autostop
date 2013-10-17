@@ -33,6 +33,9 @@
       #main {
         float: none; margin-left: auto; margin-right: auto;
       }
+      .nav:hover {
+        color: #0088cc;
+      }
     </style>
 	<link rel="stylesheet" type="text/css" href="/bootstrap/assets/css/datepicker.css">
 	<link rel="stylesheet" type="text/css" href="/bootstrap/assets/css/bootstrap-responsive.css">
