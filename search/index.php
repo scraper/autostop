@@ -5,12 +5,12 @@ require '../conf.php';
 connect();
 if (isset($_POST['query']) && empty($_POST['s_date'])) {
 	$q = $_POST['query'];
-	$res = array('objA'=>typeahead_search($q), 'objB'=>search($q), 'objB'=>search($q));
+	$res = array('objA'=>typeahead_search($q), 'objB'=>search($q), 'objD'=>row_count($q));
 	echo json_encode($res);
 }
 elseif (isset($_GET['q'])) {
 	$q = $_GET['q'];
-	$res = array('objA'=>typeahead_search($q), 'objB'=>search($q), 'objB'=>search($q));
+	$res = array('objA'=>typeahead_search($q), 'objB'=>search($q));
 	echo json_encode($res);
 }
 elseif (isset($_POST['s_city'], $_POST['s_date'])) {
