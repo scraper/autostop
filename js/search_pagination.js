@@ -1,0 +1,5 @@
+var pagination = {
+	init: function() {
+
+	}
+};
