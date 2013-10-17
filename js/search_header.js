@@ -34,6 +34,13 @@ $(function() {
 
 //Pushing results to the page from search_h (search input in header)
 				var q = $('#q').val();
+				if (getUrlParam.init('q') != "" && getUrlParam.init('q') != null) {
+					q = decodeURI(getUrlParam.init('q'));
+					$('#search').val(q);
+					$('#appendedInput').fadeIn(function() {
+						$('#search').css({"border-radius":"4px 0px 0px 4px"});
+					});
+				}
 				if (q != "" && q != null) { 
 					$.ajax({
 						url: './search/index.php',
