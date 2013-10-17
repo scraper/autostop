@@ -1,7 +1,9 @@
 $(function() {
 	$('#results').hide();
 	$('#notfound').hide();
-	$('#appendedInput').hide();
+	if ($('#search').val() == null || $('#search').val() == "") {
+		$('#appendedInput').hide();
+	};
 	$('#search_btn').click(function(e) {
 		if ($('#advanced_btn').attr('class') == 'btn btn-info active') {
 			e.preventDefault();
@@ -20,6 +22,7 @@ $(function() {
 		$('#appendedInput').hide();
 		$('#results').hide();
 		$('#notfound').hide();
+		window.history.pushState("q","search","search.php");
 	});
 
 //Pushing results to typeahead (search input), search.php
@@ -70,7 +73,7 @@ function item_clicked() {
 
 //Pushing results to the page
 function search_results_show() {
-	window.location.hash = $('#search').val();
+	window.history.pushState("q","search","search.php?q="+encodeURI($('#search').val()));
 			if ($('#search').val() != "") {
 				$('#q').val("");
 				console.log("not null");
