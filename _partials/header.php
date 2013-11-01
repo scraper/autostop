@@ -89,7 +89,7 @@
                         </li>
                     </ul>
                     <ul class="nav pull-right">
-                        <form id="top_menu_search" class="navbar-search" action="search.php" method="post">
+                        <form id="top_menu_search" class="navbar-search" action="search.php" method="get" onsubmit="encodeURI(this.q.value);">
                             <input id="search_h" name="q" type="text" class="search-query" placeholder="Пошук" autocomplete="off">
                             <i id="search_ico" class="icon-search"></i>
                             

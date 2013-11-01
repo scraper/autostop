@@ -76,14 +76,14 @@
 					<div class="result"></div>
 				</div>
 				<div class="pagination pagination-centered">
-					<ul>
-						<li><a href="#">Prev</a></li>
+					<ul id="pages">
+						<!-- <li id="prev_page"><a href="#">Prev</a></li>
 						<li><a href="#">1</a></li>
 						<li><a href="#">2</a></li>
 						<li><a href="#">3</a></li>
 						<li><a href="#">4</a></li>
 						<li><a href="#">5</a></li>
-						<li><a href="#">Next</a></li>
+						<li><a href="#">Next</a></li> -->
 					</ul>
 				</div>
 			</div>
@@ -103,16 +103,17 @@
     </div><!--/.fluid-container-->
 
 </div>
-<input id="q" type="hidden" value="<?php echo ($q=$_POST['q']);?>">
-<script type="text/javascript" src="./js/search.js"></script>
-<script src="js/get_route.js"></script>
+<!-- <input id="q" type="" value="<?php echo ($q=$_GET['q']);?>"> -->
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/search_pagination.js"></script>
+<script src="/js/get_route.js"></script>
 <script type="text/javascript">
-$(document).on('propertychange keyup input paste', 'input.search', function(){
-    var io = $(this).val().length ? 1 : 0 ;
-    $(this).next('.icon-clear').stop().fadeTo(300,io);
-}).on('click', '.icon-clear', function() {
-    $(this).delay(300).fadeTo(300,0).prev('input').val('');
-});
+// $(document).on('propertychange keyup input paste', 'input.search', function(){
+//     var io = $(this).val().length ? 1 : 0 ;
+//     $(this).next('.icon-clear').stop().fadeTo(300,io);
+// }).on('click', '.icon-clear', function() {
+//     $(this).delay(300).fadeTo(300,0).prev('input').val('');
+// });
 
 </script>
 <?php include '_partials/footer.php'; ?>

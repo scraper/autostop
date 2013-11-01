@@ -309,27 +309,33 @@ function typeahead_search($query) {
 //get number of rows
 function row_count($query) {
 	global $pdo;
+	if ($query != "" && $query != null) {
+		$pre_stmt = $pdo->prepare("
+			select routes.route_id, s_city.s_city_id, e_city.e_city_id, routes.seats, routes.price, routes.type, routes.date
+			from routes
+			join s_city on routes.s_city = s_city.s_city_pk
+			join e_city on routes.e_city = e_city.e_city_pk
+			where routes.date >= curdate() and (s_city.s_city_id like :query or e_city.e_city_id like :query);
+			");
+		$pre_stmt->execute(array(':query'=>$query. '%'));
+		$countRow = $pre_stmt->rowCount();
 
-	$pre_stmt = $pdo->prepare("
-		select routes.route_id, s_city.s_city_id, e_city.e_city_id, routes.seats, routes.price, routes.type, routes.date
-		from routes
-		join s_city on routes.s_city = s_city.s_city_pk
-		join e_city on routes.e_city = e_city.e_city_pk
-		where routes.date >= curdate() and (s_city.s_city_id like :query or e_city.e_city_id like :query);
-		");
-	$pre_stmt->execute(array(':query'=>$query. '%'));
-	$countRow = $pre_stmt->rowCount();
-
-	return $countRow;
+		return $countRow;	
+	}
+	else {
+		return false;
+	};
+	
 }
 //core search
-function core_search($sqlQuery) {
+function core_search($sqlQuery,$start) {
 	global $pdo;
 	$sql = "select routes.route_id, s_city.s_city_id, e_city.e_city_id, routes.seats, routes.price, routes.type, routes.date
 			from routes
 			join s_city on routes.s_city = s_city.s_city_pk
 			join e_city on routes.e_city = e_city.e_city_pk "
-			. $sqlQuery;
+			. $sqlQuery
+			. "limit " . $start . ",5;";
 
 	$stmt = $pdo->prepare($sql);
 	$stmt->execute();
@@ -339,23 +345,17 @@ function core_search($sqlQuery) {
 }
 
 //return the results of search query, search.php page shows, /search/index.php processes
-function search($query) {
-	// global $pdo;
-
-	// $stmt = $pdo->prepare("
-	// 	select routes.route_id, s_city.s_city_id, e_city.e_city_id, routes.seats, routes.price, routes.type, routes.date
-	// 	from routes
-	// 	join s_city on routes.s_city = s_city.s_city_pk
-	// 	join e_city on routes.e_city = e_city.e_city_pk
-	// 	where routes.date >= curdate() and (s_city.s_city_id like :query or e_city.e_city_id like :query);
-	// 	");
-	$sqlQuery = "where routes.date >= curdate() and (s_city.s_city_id like '" . $query . "%' or e_city.e_city_id like '" . $query . "%');";
-
-	// $stmt->execute(array(':query'=>$query. '%'));
-
-	// $search = $stmt->fetchALL(PDO::FETCH_OBJ);
-
-	return core_search($sqlQuery);
+function search($query,$start) {
+	$sqlQuery = "where routes.date >= curdate() and (s_city.s_city_id like '" . $query . "%' or e_city.e_city_id like '" . $query . "%')";	
+	if (empty($start)) {
+		$start = 0;
+		if ($query != "" && $query != null) {
+			return core_search($sqlQuery,$start);
+		}
+		else {
+			return false;
+		};
+	};
 }
 //show user routes
 function showUserRoute($uid) {

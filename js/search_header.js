@@ -13,10 +13,11 @@ $(function() {
 		$('#search_h').typeahead({
 			source: function(query, process) {
 				var arr = [];
+				var typeahead = true;
 				return $.ajax({
 					url: './search/index.php',
 					type: 'post',
-					data: {query: $('#search_h').val()},
+					data: {query: $('#search_h').val(), typeahead: typeahead},
 					dataType: "JSON",
 					success: function(data) {
 						//bootstrap typeahead does not know how to read JSON, so we push JSON items to JavaScript array
@@ -33,45 +34,52 @@ $(function() {
 		});
 
 //Pushing results to the page from search_h (search input in header)
-				var q = $('#q').val();
+				var query;
+				var start;
 				if (getUrlParam.init('q') != "" && getUrlParam.init('q') != null) {
-					q = decodeURI(getUrlParam.init('q'));
-					$('#search').val(q);
+					query = decodeURI(getUrlParam.init('q'));
+					$('#search').val(query);
 					$('#appendedInput').fadeIn(function() {
 						$('#search').css({"border-radius":"4px 0px 0px 4px"});
 					});
+					pagination.row_count(query);
+				};
+				if (getUrlParam.init('start') != "" && getUrlParam.init('start') != null) {
+					start = getUrlParam.init('start');
 				}
-				if (q != "" && q != null) { 
-					$.ajax({
-						url: './search/index.php',
-						type: 'post',
-						data: {query: q},
-						dataType: "JSON",
-						success: function(data) {
-							
-							$('.tbody').html('');
-							if (data.objB.length > 0) {
-								$('#notfound').hide();
-								$.each(data.objB, function(column, value) {
-									$('.tbody').append('<tr class="tr" id="' + value['route_id'] + '"><td>' + value['s_city_id'] + '</td>' + '<td>' + value['e_city_id'] + '</td>' + '<td>' + value['date'] + '</td>' + '</tr>');
-									//click function on the table row
-									$('#'+value['route_id']+'.tr').click(function() {
-										window.location = './route.php?q='+ $('#'+value['route_id']+'.tr').attr('id');
-									});
-								$('#results').slideDown();
-								});
-							}
-							else {
-								$('#results').hide();
-								$('#notfound').slideDown();
-							}
-							console.log(data);
-						}
-					});
+				else {
+					start = 0;
+				};
+				if (query != "" && query != null) {
+					// $.ajax({
+					// 	url: '/search/index.php',
+					// 	type: 'post',
+					// 	data: {query: query, start: start},
+					// 	dataType: "JSON",
+					// 	success: function(data) {
+					// 		$('.tbody').html('');
+					// 		if (data.objB.length > 0) {
+					// 			$('#notfound').hide();
+					// 			$.each(data.objB, function(column, value) {
+					// 				$('.tbody').append('<tr class="tr" id="' + value['route_id'] + '"><td>' + value['s_city_id'] + '</td>' + '<td>' + value['e_city_id'] + '</td>' + '<td>' + value['date'] + '</td>' + '</tr>');
+					// 				//click function on the table row
+					// 				$('#'+value['route_id']+'.tr').click(function() {
+					// 					window.location = './route.php?q='+ $('#'+value['route_id']+'.tr').attr('id');
+					// 				});
+					// 			$('#results').slideDown();
+					// 			});
+					// 		}
+					// 		else {
+					// 			$('#results').hide();
+					// 			$('#notfound').slideDown();
+					// 		}
+					// 		console.log(data);
+					// 	}
+					// });
 				}
 				else if (getUrlParam.init('uid') != "") {
 					$.ajax({
-						url: './search/index.php',
+						url: '/search/index.php',
 						type: 'get',
 						data: {uid: getUrlParam.init('uid')},
 						dataType: "JSON",

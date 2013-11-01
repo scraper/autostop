@@ -9,11 +9,12 @@ var tops = {
 		var start = this.config.start;
 		var end = this.config.end;
 		var type = this.config.type;
+		var isTop = true;
 		this.config.span4_img.hide();
 		$.ajax({
 				url: '/search/index.php',
 				type: 'post',
-				data: {},
+				data: {isTop: isTop},
 				dataType: "JSON",
 				beforeSend: function() {
 					$('#loader').show();
@@ -22,6 +23,7 @@ var tops = {
 					$('#loader').hide();
 				},
 				success: function (data) {
+					console.log(data);
 					$('.tbody').html('');
 					$.each(data.objC, function(column,value) {
 						s_city_id = value['s_city_id'];

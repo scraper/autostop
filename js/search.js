@@ -8,12 +8,12 @@ $(function() {
 		if ($('#advanced_btn').attr('class') == 'btn btn-info active') {
 			e.preventDefault();
 			advanced_results_show();
-			console.log("advanced_results_show");
+			// console.log("advanced_results_show");
 		}
 		else{
 			e.preventDefault();
 			search_results_show();
-			console.log("search_results_show");
+			// console.log("search_results_show");
 		}
 	});
 	$('#appendedInput').click(function() {
@@ -32,11 +32,12 @@ $(function() {
 					$('#search').css({"border-radius":"4px 0px 0px 4px"});
 				});
 				var arr = [];
-				
+				var typeahead = true;
+
 				return $.ajax({
-					url: './search/index.php',
+					url: '/search/index.php',
 					type: 'post',
-					data: {query: $('#search').val()},
+					data: {query: $('#search').val(), typeahead: typeahead},
 					dataType: "JSON",
 					beforeSend: function() {
 						$('#loader').show();
@@ -66,51 +67,13 @@ function item_clicked() {
 		$('.active').click(function() {
 			$('#search').val($('ul.typeahead.dropdown-menu li.active').attr('data-value'));
 			search_results_show();
-			console.log("click");
 		});
 	});
 };
 
 //Pushing results to the page
 function search_results_show() {
-	window.history.pushState("q","search","search.php?q="+encodeURI($('#search').val()));
-			if ($('#search').val() != "") {
-				$('#q').val("");
-				console.log("not null");
-				$.ajax({
-					url: './search/index.php',
-					type: 'post',
-					data: {query: $('#search').val()},
-					dataType: "JSON",
-					beforeSend: function() {
-						$('#loader').show();
-					},
-					complete: function() {
-						$('#loader').hide();
-					},
-					success: function(data) {
-						
-						$('.tbody').html('');
-						if (data.objB.length > 0) {
-							$('#notfound').hide();
-							$.each(data.objB, function(column, value) {
-								$('.tbody').append('<tr class="tr" id="' + value['route_id'] + '"><td>' + value['s_city_id'] + '</td><td>' + value['e_city_id'] + '</td><td>' + value['date'] + '</td></tr>');
-								//click function on the table row
-								$('#'+value['route_id']+'.tr').click(function() {
-									window.location = './route.php?q=' + $('#'+value['route_id']+'.tr').attr('id'); 
-								});
-								$('#results').slideDown();
-							});
-						}
-						else {
-							$('#results').hide();
-							$('#notfound').slideDown();
-						};
-						console.log(data);
-					}
-				});
-			};
-			
+	pagination.row_count($('#search').val());			
 };
 
 //Pushing advanced search results to the page
