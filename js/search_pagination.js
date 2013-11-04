@@ -8,62 +8,56 @@ var pagination = {
 		var pages = this.config.pages;
 		pages.hide();
 	},
-	count: function(rows,limit,searchQuery) {
+	pages_count: function(rows) {
 		var pages = this.config.pages;
 		var prev_page = this.config.prev_page;
+		var limit = 10;
 		var pagesRem;
 		var pagesTotal;
 		var rowsPerPage;
 
-		rowsPerPage = limit;
-		pages.show();
-		pagesRem=rows%rowsPerPage;
-		if (pagesRem>0) {
-			pagesTotal=Math.floor(rows/rowsPerPage)+1;
+		if (rows > limit) {
+			rowsPerPage = limit;
+			pages.show();
+			pagesRem=rows%rowsPerPage;
+			if (pagesRem>0) {
+				pagesTotal=Math.floor(rows/rowsPerPage)+1;
+			}
+			else if (pagesRem==0) {
+				pagesTotal=Math.floor(rows/rowsPerPage);
+			};
+			pages.html('');
+			for (i = 1; i <= pagesTotal; i++) {
+				pages.append("<li id='" + i + "'><a href='/search.php?q=" + getUrlParam.init('q') + "&start=" + (i-1)*10 +" '>" + i + "</a></li>");
+			};
+			$('#1').addClass("active");
 		}
-		else if (pagesRem==0) {
-			pagesTotal=Math.floor(rows/rowsPerPage);
+		else {
+			pages.hide();
 		};
-		pages.html('');
-		for (i = 1; i <= pagesTotal; i++) {
-			pages.append("<li id='" + i + "'><a href='/search.php?q=" + getUrlParam.init('q') + "&start=" + (i-1)*10 +" '>" + i + "</a></li>");
-		};
-		$('#1').addClass("active");
 	},
 
-	row_count: function(searchQuery) {
-		var limit = 5;
-
-		window.history.pushState("q","search","search.php?q="+encodeURI(searchQuery));
-		$.ajax({
-				url: '/search/index.php',
-				type: 'post',
-				data: {query: searchQuery},
-				dataType: "JSON",
-				success: function (data) {
-					console.log(data.objD);
-					if (data.objD > limit) {
-						pagination.count(data.objD,limit,searchQuery);
-						pagination.search(searchQuery);
-					}
-					else if (data.objD <= limit) {
-						pagination.search(searchQuery);
-					};
-				}
-			});
-	},
-	search: function(searchQuery) {
+	search: function(searchQuery,start) {
 		var loader = this.config.loader;
 		var tableBody = this.config.tableBody;
 		var notfound = this.config.notfound;
 		var results = this.config.results;
+		var paging;
 
 			if (searchQuery != "") {
-				
+				if (start == "" || start == null) {
+					start = null;
+					paging = false;
+					window.history.pushState("q","search","search.php?q="+encodeURI(searchQuery));
+				} 
+				else {
+					paging = true;
+				};
+
 				$.ajax({
 					url: '/search/index.php',
 					type: 'post',
-					data: {query: searchQuery},
+					data: {query:searchQuery, paging:paging, start:start},
 					dataType: "JSON",
 					beforeSend: function() {
 						loader.show();
@@ -72,7 +66,6 @@ var pagination = {
 						loader.hide();
 					},
 					success: function(data) {
-						
 						tableBody.html('');
 						if (data.objB.length > 0) {
 							notfound.hide();
@@ -90,6 +83,7 @@ var pagination = {
 							notfound.slideDown();
 						};
 						console.log(data);
+						pagination.pages_count(data.objD);
 					}
 				});
 			};

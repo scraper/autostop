@@ -35,49 +35,21 @@ $(function() {
 
 //Pushing results to the page from search_h (search input in header)
 				var query;
-				var start;
+				
 				if (getUrlParam.init('q') != "" && getUrlParam.init('q') != null) {
-					query = decodeURI(getUrlParam.init('q'));
+					query = getUrlParam.init('q');
+					query = query.replace(/\+/g,'%20');
+					query = query.replace(/%2C/g,',');
+					query = decodeURI(query);
+
 					$('#search').val(query);
 					$('#appendedInput').fadeIn(function() {
 						$('#search').css({"border-radius":"4px 0px 0px 4px"});
 					});
-					pagination.row_count(query);
-				};
-				if (getUrlParam.init('start') != "" && getUrlParam.init('start') != null) {
-					start = getUrlParam.init('start');
+					pagination.search(query,getUrlParam.init('start'));
 				}
-				else {
-					start = 0;
-				};
-				if (query != "" && query != null) {
-					// $.ajax({
-					// 	url: '/search/index.php',
-					// 	type: 'post',
-					// 	data: {query: query, start: start},
-					// 	dataType: "JSON",
-					// 	success: function(data) {
-					// 		$('.tbody').html('');
-					// 		if (data.objB.length > 0) {
-					// 			$('#notfound').hide();
-					// 			$.each(data.objB, function(column, value) {
-					// 				$('.tbody').append('<tr class="tr" id="' + value['route_id'] + '"><td>' + value['s_city_id'] + '</td>' + '<td>' + value['e_city_id'] + '</td>' + '<td>' + value['date'] + '</td>' + '</tr>');
-					// 				//click function on the table row
-					// 				$('#'+value['route_id']+'.tr').click(function() {
-					// 					window.location = './route.php?q='+ $('#'+value['route_id']+'.tr').attr('id');
-					// 				});
-					// 			$('#results').slideDown();
-					// 			});
-					// 		}
-					// 		else {
-					// 			$('#results').hide();
-					// 			$('#notfound').slideDown();
-					// 		}
-					// 		console.log(data);
-					// 	}
-					// });
-				}
-				else if (getUrlParam.init('uid') != "") {
+				else if (getUrlParam.init('uid') != "" && getUrlParam.init('uid') != null) {
+					// pagination.search(null,null,getUrlParam.init('uid'));
 					$.ajax({
 						url: '/search/index.php',
 						type: 'get',
@@ -111,4 +83,5 @@ $(function() {
 //search icon submit function, every page
 $('#search_ico').click(function() {
 	$('#top_menu_search').submit();
+	console.log('search click');
 });

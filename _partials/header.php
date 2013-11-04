@@ -3,8 +3,8 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
 	<title>Autostop UA</title>
-	<link rel="icon" type="image/ico" href="./imgs/favicon_green.ico"/>
-	<!-- google maps api cdn -->
+	<link rel="icon" type="image/ico" href="/imgs/favicon_green.ico"/>
+<!-- google maps api cdn -->
 	<script type="text/javascript"
       src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDN8CZL6PryCYP8ZnXUnPu3CzgR1lOjMho&sensor=false&libraries=places">
     </script>
@@ -12,10 +12,12 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <!-- facebook -->
     <script src="//connect.facebook.net/en_US/all.js"></script>
-    <!-- local scripts -->
+<!-- local scripts -->
     <script type="text/javascript" src="/js/facebook.js"></script>
     <!-- script for serch from top menu -->
     <script type="text/javascript" src="/js/search_header.js"></script>
+    <!-- search -->
+    <script type="text/javascript" src="/js/search_pagination.js"></script>
     <!-- getUrlParam script -->
     <script type="text/javascript" src="/js/getUrlParam.js"></script>
     <!-- Google Fonts -->
@@ -40,7 +42,7 @@
 	<link rel="stylesheet" type="text/css" href="/bootstrap/assets/css/datepicker.css">
 	<link rel="stylesheet" type="text/css" href="/bootstrap/assets/css/bootstrap-responsive.css">
 
-	<link rel="shortcut icon" href="./bootstrap/assets/ico/favicon.ico">
+	
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
@@ -89,7 +91,7 @@
                         </li>
                     </ul>
                     <ul class="nav pull-right">
-                        <form id="top_menu_search" class="navbar-search" action="search.php" method="get" onsubmit="encodeURI(this.q.value);">
+                        <form id="top_menu_search" class="navbar-search" action="search.php" method="get">
                             <input id="search_h" name="q" type="text" class="search-query" placeholder="Пошук" autocomplete="off">
                             <i id="search_ico" class="icon-search"></i>
                             

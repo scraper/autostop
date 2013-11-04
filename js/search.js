@@ -73,7 +73,7 @@ function item_clicked() {
 
 //Pushing results to the page
 function search_results_show() {
-	pagination.row_count($('#search').val());			
+	pagination.search($('#search').val());
 };
 
 //Pushing advanced search results to the page

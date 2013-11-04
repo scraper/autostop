@@ -103,17 +103,11 @@
     </div><!--/.fluid-container-->
 
 </div>
-<!-- <input id="q" type="" value="<?php echo ($q=$_GET['q']);?>"> -->
+<!-- <input id="q" type="" value="<?php echo ($q=$_GET['start']);?>"> -->
 <script type="text/javascript" src="/js/search.js"></script>
 <script type="text/javascript" src="/js/search_pagination.js"></script>
 <script src="/js/get_route.js"></script>
 <script type="text/javascript">
-// $(document).on('propertychange keyup input paste', 'input.search', function(){
-//     var io = $(this).val().length ? 1 : 0 ;
-//     $(this).next('.icon-clear').stop().fadeTo(300,io);
-// }).on('click', '.icon-clear', function() {
-//     $(this).delay(300).fadeTo(300,0).prev('input').val('');
-// });
 
 </script>
 <?php include '_partials/footer.php'; ?>

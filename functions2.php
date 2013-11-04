@@ -335,7 +335,7 @@ function core_search($sqlQuery,$start) {
 			join s_city on routes.s_city = s_city.s_city_pk
 			join e_city on routes.e_city = e_city.e_city_pk "
 			. $sqlQuery
-			. "limit " . $start . ",5;";
+			. "limit " . $start . ",10;";
 
 	$stmt = $pdo->prepare($sql);
 	$stmt->execute();
@@ -347,8 +347,16 @@ function core_search($sqlQuery,$start) {
 //return the results of search query, search.php page shows, /search/index.php processes
 function search($query,$start) {
 	$sqlQuery = "where routes.date >= curdate() and (s_city.s_city_id like '" . $query . "%' or e_city.e_city_id like '" . $query . "%')";	
-	if (empty($start)) {
-		$start = 0;
+	if ($start == null) {
+		$start = "0";
+		if ($query != "" && $query != null) {
+			return core_search($sqlQuery,$start);
+		}
+		else {
+			return false;
+		};
+	}
+	elseif ($start != null) {
 		if ($query != "" && $query != null) {
 			return core_search($sqlQuery,$start);
 		}
