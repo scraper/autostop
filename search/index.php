@@ -30,8 +30,8 @@ elseif (isset($_POST['s_city'], $_POST['s_date'])) {
 	$res = array('objB'=>advanced_search($s_city, $e_city, $s_date, $e_date, $type));
 	echo json_encode($res);
 }
-elseif (isset($_GET['uid'])) {
-	$uid = $_GET['uid'];
+elseif (isset($_POST['uid'])) {
+	$uid = $_POST['uid'];
 	$res = array('objB'=>showUserRoute($uid));
 	echo json_encode($res);
 }

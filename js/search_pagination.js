@@ -37,27 +37,33 @@ var pagination = {
 		};
 	},
 
-	search: function(searchQuery,start) {
+	search: function(searchQuery,start,uid) {
 		var loader = this.config.loader;
 		var tableBody = this.config.tableBody;
 		var notfound = this.config.notfound;
 		var results = this.config.results;
 		var paging;
+		var request;
 
-			if (searchQuery != "") {
-				if (start == "" || start == null) {
-					start = null;
-					paging = false;
+			// if (searchQuery != "") {
+				if (searchQuery != "" && searchQuery != null && (start == "" || start == null)) {
+					request = {"query":searchQuery,"paging":false,"start":null};
+					// start = null;
+					// paging = false;
 					window.history.pushState("q","search","search.php?q="+encodeURI(searchQuery));
-				} 
-				else {
+				}
+				else if (searchQuery != "" && searchQuery != null && start != "" && start != null) {
+					request = {"query":searchQuery,"paging":true,"start":start};
 					paging = true;
+				}
+				else if (searchQuery == null && start == null && (uid != null || "")) {
+					request = {"uid":uid};
 				};
-
+		// request = {"query":searchQuery, "start":start};
 				$.ajax({
 					url: '/search/index.php',
 					type: 'post',
-					data: {query:searchQuery, paging:paging, start:start},
+					data: request,
 					dataType: "JSON",
 					beforeSend: function() {
 						loader.show();
@@ -86,7 +92,7 @@ var pagination = {
 						pagination.pages_count(data.objD);
 					}
 				});
-			};
+			// };
 	}
 };
 pagination.init({
