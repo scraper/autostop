@@ -56,8 +56,8 @@ var pagination = {
 					request = {"query":searchQuery,"paging":true,"start":start};
 					paging = true;
 				}
-				else if (searchQuery == null && start == null && (uid != null || "")) {
-					request = {"uid":uid};
+				else if ((start == "" || null) && (uid != null && "")) {
+					request = {"uid":uid,"start":null};
 				};
 		// request = {"query":searchQuery, "start":start};
 				$.ajax({

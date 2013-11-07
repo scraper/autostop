@@ -49,7 +49,7 @@ $(function() {
 		pagination.search(query,getUrlParam.init('start'));
 	}
 	else if (getUrlParam.init('uid') != "" && getUrlParam.init('uid') != null) {
-		pagination.search(null,null,getUrlParam.init('uid'));				
+		pagination.search(null,getUrlParam.init('start'),getUrlParam.init('uid'));				
 	};
 
 });
