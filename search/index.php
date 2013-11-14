@@ -12,13 +12,13 @@ if (isset($_POST['query']) && isset($_POST['typeahead'])) {
 elseif (isset($_POST['query']) && $_POST['paging'] == false) {
 	$q = $_POST['query'];
 	$start = null;
-	$res = array('objA'=>typeahead_search($q), 'objB'=>search($q,$start), 'objD'=>row_count($q));
+	$res = array('objA'=>typeahead_search($q), 'objB'=>search($q,$start)[0], 'objD'=>search($q,$start)[1]);
 	echo json_encode($res);
 }
 elseif (isset($_POST['query']) && empty($_POST['s_date']) && $_POST['paging'] == true) {
 	$q = $_POST['query'];
 	$start = $_POST['start'];
-	$res = array('objB'=>search($q,$start), 'objD'=>row_count($q));
+	$res = array('objB'=>search($q,$start)[0], 'objD'=>search($q,$start)[1]);
 	echo json_encode($res);
 }
 elseif (isset($_POST['s_city'], $_POST['s_date'])) {
@@ -32,7 +32,8 @@ elseif (isset($_POST['s_city'], $_POST['s_date'])) {
 }
 elseif (isset($_POST['uid'])) {
 	$uid = $_POST['uid'];
-	$res = array('objB'=>showUserRoute($uid));
+	$start = $_POST['start'];
+	$res = array('objB'=>showUserRoute($uid,$start)[0],'objD'=>showUserRoute($uid,$start)[1]);
 	echo json_encode($res);
 }
 elseif (empty($_GET['q']) && $_POST['isTop'] == true) {

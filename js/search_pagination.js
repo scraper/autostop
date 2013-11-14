@@ -45,21 +45,25 @@ var pagination = {
 		var paging;
 		var request;
 
-			// if (searchQuery != "") {
 				if (searchQuery != "" && searchQuery != null && (start == "" || start == null)) {
 					request = {"query":searchQuery,"paging":false,"start":null};
-					// start = null;
-					// paging = false;
+					// console.log(request);
 					window.history.pushState("q","search","search.php?q="+encodeURI(searchQuery));
 				}
 				else if (searchQuery != "" && searchQuery != null && start != "" && start != null) {
 					request = {"query":searchQuery,"paging":true,"start":start};
-					paging = true;
+					// console.log(request);
 				}
-				else if ((start == "" || null) && (uid != null && "")) {
+				else if ((start == "" || start == null) && (uid != "" && uid != null)) {
 					request = {"uid":uid,"start":null};
+					// console.log(request);
+				}
+				else if (start != "" && start != null && uid != "" && uid != null) {
+					request = {"uid":uid,"start":start};
+					// console.log(request);
 				};
-		// request = {"query":searchQuery, "start":start};
+				console.log(request);
+			if (request != null) {
 				$.ajax({
 					url: '/search/index.php',
 					type: 'post',
@@ -92,7 +96,7 @@ var pagination = {
 						pagination.pages_count(data.objD);
 					}
 				});
-			// };
+			};
 	}
 };
 pagination.init({

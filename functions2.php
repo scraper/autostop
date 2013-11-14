@@ -307,25 +307,15 @@ function typeahead_search($query) {
 	return $result;
 }
 //get number of rows
-function row_count($query) {
+function row_count($sql) {
 	global $pdo;
-	if ($query != "" && $query != null) {
-		$pre_stmt = $pdo->prepare("
-			select routes.route_id, s_city.s_city_id, e_city.e_city_id, routes.seats, routes.price, routes.type, routes.date
-			from routes
-			join s_city on routes.s_city = s_city.s_city_pk
-			join e_city on routes.e_city = e_city.e_city_pk
-			where routes.date >= curdate() and (s_city.s_city_id like :query or e_city.e_city_id like :query);
-			");
-		$pre_stmt->execute(array(':query'=>$query. '%'));
-		$countRow = $pre_stmt->rowCount();
-
-		return $countRow;	
-	}
-	else {
-		return false;
-	};
 	
+	// error_log($sql,0);
+	$pre_stmt = $pdo->prepare($sql);
+	$pre_stmt->execute();
+	$countRow = $pre_stmt->rowCount();
+	
+	return $countRow;
 }
 //core search
 function core_search($sqlQuery,$start) {
@@ -334,70 +324,78 @@ function core_search($sqlQuery,$start) {
 			from routes
 			join s_city on routes.s_city = s_city.s_city_pk
 			join e_city on routes.e_city = e_city.e_city_pk "
-			. $sqlQuery
-			. "limit " . $start . ",10;";
+			. $sqlQuery;
 
-	$stmt = $pdo->prepare($sql);
+	$stmt = $pdo->prepare($sql . "limit " . $start . ",10;");
 	$stmt->execute();
-	$result = $stmt->fetchALL(PDO::FETCH_OBJ);
-
-	return $result;
+	$search = $stmt->fetchALL(PDO::FETCH_OBJ);
+	
+	return [$search,row_count($sql)];
 }
 
 //return the results of search query, search.php page shows, /search/index.php processes
 function search($query,$start) {
 	$sqlQuery = "where routes.date >= curdate() and (s_city.s_city_id like '" . $query . "%' or e_city.e_city_id like '" . $query . "%')";	
-	if ($start == null) {
-		$start = "0";
-		if ($query != "" && $query != null) {
+	switch ($start) {
+		case null:
+			$start = "0";
 			return core_search($sqlQuery,$start);
-		}
-		else {
-			return false;
-		};
+			break;
+		
+		default:
+			return core_search($sqlQuery,$start);
+			break;
 	}
-	elseif ($start != null) {
-		if ($query != "" && $query != null) {
-			return core_search($sqlQuery,$start);
-		}
-		else {
-			return false;
-		};
-	};
+	// if ($start == null) {
+	// 	$start = "0";
+	// 	if ($query != "" && $query != null) {
+	// 		return core_search($sqlQuery,$start);
+	// 	}
+	// 	else {
+	// 		return false;
+	// 	};
+	// }
+	// elseif ($start != null) {
+	// 	if ($query != "" && $query != null) {
+	// 		return core_search($sqlQuery,$start);
+	// 	}
+	// 	else {
+	// 		return false;
+	// 	};
+	// };
 }
 //show user routes
 function showUserRoute($uid,$start) {
-	$sqlQuery = "where user_id = (select user_pk from user_table where user_id = " . $uid . ");";
-	if ($start == null) {
-		$start = "0";
-		if ($query != "" && $query != null) {
+	$sqlQuery = "where user_id = (select user_pk from user_table where user_id = " . $uid . ")";
+	
+	switch ($start) {
+		case null:
+			$start = "0";
 			return core_search($sqlQuery,$start);
-		}
-		else {
-			return false;
-		};
-	}
-	elseif ($start != null) {
-		if ($query != "" && $query != null) {
+			break;
+		
+		default:
 			return core_search($sqlQuery,$start);
-		}
-		else {
-			return false;
-		};
+			break;
 	};
-
-	// global $pdo;
-
-	// $stmt = $pdo->prepare("
-	// 	select routes.route_id, s_city.s_city_id, e_city.e_city_id, routes.seats, routes.price, routes.type, routes.date
-	// 	from routes
-	// 	join s_city on routes.s_city = s_city.s_city_pk
-	// 	join e_city on routes.e_city = e_city.e_city_pk
-	// 	where user_id = (select user_pk from user_table where user_id = :uid);
-	// 	");
-	// $stmt->execute(array(':uid'=>$uid));
-	// $search = $stmt->fetchALL(PDO::FETCH_OBJ);
-	// return $search;
+	// if ($start == null) {
+	// 	$start = "0";
+	// 	if ($uid != "" && $uid != null) {
+			
+	// 		return core_search($sqlQuery,$start);
+	// 	}
+	// 	else {
+	// 		return false;
+	// 	};
+	// }
+	// elseif ($start != null) {
+	// 	if ($uid != "" && $uid != null) {
+	// 		return core_search($sqlQuery,$start);
+	// 	}
+	// 	else {
+	// 		return false;
+	// 	};
+	// };
 }
 
 function advanced_search($s_city,$e_city,$s_date,$e_date,$type) {
