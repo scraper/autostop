@@ -27,8 +27,15 @@ var pagination = {
 				pagesTotal=Math.floor(rows/rowsPerPage);
 			};
 			pages.html('');
-			for (i = 1; i <= pagesTotal; i++) {
-				pages.append("<li id='" + i + "'><a href='/search.php?q=" + getUrlParam.init('q') + "&start=" + (i-1)*10 +" '>" + i + "</a></li>");
+			if (getUrlParam.init('q') != "" && getUrlParam.init('q') != "") {
+				for (i = 1; i <= pagesTotal; i++) {
+					pages.append("<li id='" + i + "'><a href='/search.php?q=" + getUrlParam.init('q') + "&start=" + (i-1)*10 +" '>" + i + "</a></li>");
+				};
+			}
+			else if (getUrlParam.init('uid') != "" && getUrlParam.init('uid') != null) {
+				for (i = 1; i <= pagesTotal; i++) {
+					pages.append("<li id='" + i + "'><a href='/search.php?uid=" + getUrlParam.init('uid') + "&start=" + (i-1)*10 +" '>" + i + "</a></li>");
+				};	
 			};
 			$('#1').addClass("active");
 		}

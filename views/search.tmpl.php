@@ -18,7 +18,7 @@
 
 <div class="container-fluid">
 	<div class="row-fluid">
-		<div class="span5">
+		<div class="span4">
 			<legend>Пошук</legend>
 			<form id="form" class="" method="post" onsubmit="return search_results_show()">
 				<div class="input-append">
@@ -50,7 +50,7 @@
 			</form>
 			
 		</div>
-		<div class="span7">
+		<div class="span8">
     		<div class="container-fluid" id="notfound">
 				<legend>Результати</legend>
 				<div>
