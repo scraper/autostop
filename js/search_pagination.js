@@ -15,6 +15,14 @@ var pagination = {
 		var pagesRem;
 		var pagesTotal;
 		var rowsPerPage;
+		var urlParam;
+			
+		if (getUrlParam.init('uid') != "") {
+			urlParam = "uid";
+		}
+		else if (getUrlParam.init('q') != "") {
+			urlParam = "q";
+		};
 
 		if (rows > limit) {
 			rowsPerPage = limit;
@@ -27,17 +35,21 @@ var pagination = {
 				pagesTotal=Math.floor(rows/rowsPerPage);
 			};
 			pages.html('');
-			if (getUrlParam.init('q') != "" && getUrlParam.init('q') != "") {
-				for (i = 1; i <= pagesTotal; i++) {
-					pages.append("<li id='" + i + "'><a href='/search.php?q=" + getUrlParam.init('q') + "&start=" + (i-1)*10 +" '>" + i + "</a></li>");
-				};
-			}
-			else if (getUrlParam.init('uid') != "" && getUrlParam.init('uid') != null) {
-				for (i = 1; i <= pagesTotal; i++) {
-					pages.append("<li id='" + i + "'><a href='/search.php?uid=" + getUrlParam.init('uid') + "&start=" + (i-1)*10 +" '>" + i + "</a></li>");
-				};	
+			for (i = 1; i <= pagesTotal; i++) {
+				pages.append("<li id='" + i + "'><a href='/search.php?" + urlParam + "=" + getUrlParam.init(urlParam) + "&start=" + (i-1)*10 +" '>" + i + "</a></li>");
 			};
-			$('#1').addClass("active");
+			
+			if(getUrlParam.init('start') != "" && getUrlParam.init('start') != null && getUrlParam.init('start') != 0) {
+				$('#'+(getUrlParam.init('start')/10+1)).addClass("active");
+				pages.prepend("<li id='prev_page'><a href='/search.php?" + urlParam + "=" + getUrlParam.init(urlParam) + "&start=" + (getUrlParam.init('start')-10) +" '>Prev</a></li>");
+				pages.append("<li id='next_page'><a href='/search.php?" + urlParam + "=" + getUrlParam.init(urlParam) + "&start=" + (parseInt(getUrlParam.init('start'))+10) +" '>Next</a></li>");
+			}
+			else if (getUrlParam.init('start') == "" || getUrlParam.init('start') == null || getUrlParam.init('start') == 0){
+				$('#1').addClass("active");
+				pages.append("<li id='next_page'><a href='/search.php?" + urlParam + "=" + getUrlParam.init(urlParam) + "&start=10'>Next</a></li>");
+				$('#prev_page').remove();
+			};
+			$("li.active a").attr("href", "#");
 		}
 		else {
 			pages.hide();
