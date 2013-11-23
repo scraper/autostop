@@ -19,7 +19,7 @@ var profile = {
 	},
 	//redirect to register if there is no id in url
 	redirect: function() {
-		if (getUrlParam.init('id') == "" || getUrlParam == null) {
+		if (getUrlParam.init('id') == "" || getUrlParam.init('id') == null) {
 			window.location.href = '/register';
 		}
 	},

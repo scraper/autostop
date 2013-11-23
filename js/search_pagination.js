@@ -41,12 +41,12 @@ var pagination = {
 			
 			if(getUrlParam.init('start') != "" && getUrlParam.init('start') != null && getUrlParam.init('start') != 0) {
 				$('#'+(getUrlParam.init('start')/10+1)).addClass("active");
-				pages.prepend("<li id='prev_page'><a href='/search.php?" + urlParam + "=" + getUrlParam.init(urlParam) + "&start=" + (getUrlParam.init('start')-10) +" '>Prev</a></li>");
-				pages.append("<li id='next_page'><a href='/search.php?" + urlParam + "=" + getUrlParam.init(urlParam) + "&start=" + (parseInt(getUrlParam.init('start'))+10) +" '>Next</a></li>");
+				pages.prepend("<li id='prev_page'><a href='/search.php?" + urlParam + "=" + getUrlParam.init(urlParam) + "&start=" + (getUrlParam.init('start')-10) +" '>Назад</a></li>");
+				pages.append("<li id='next_page'><a href='/search.php?" + urlParam + "=" + getUrlParam.init(urlParam) + "&start=" + (parseInt(getUrlParam.init('start'))+10) +" '>Вперед</a></li>");
 			}
 			else if (getUrlParam.init('start') == "" || getUrlParam.init('start') == null || getUrlParam.init('start') == 0){
 				$('#1').addClass("active");
-				pages.append("<li id='next_page'><a href='/search.php?" + urlParam + "=" + getUrlParam.init(urlParam) + "&start=10'>Next</a></li>");
+				pages.append("<li id='next_page'><a href='/search.php?" + urlParam + "=" + getUrlParam.init(urlParam) + "&start=10'>Вперед</a></li>");
 				$('#prev_page').remove();
 			};
 			$("li.active a").attr("href", "#");

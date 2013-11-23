@@ -15,7 +15,7 @@ $(function() {
 				var arr = [];
 				var typeahead = true;
 				return $.ajax({
-					url: './search/index.php',
+					url: '/search/index.php',
 					type: 'post',
 					data: {query: $('#search_h').val(), typeahead: typeahead},
 					dataType: "JSON",
