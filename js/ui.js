@@ -93,8 +93,15 @@ var ui = {
 						});
 					}
 					else {
-						is_auth_user_link.text(c_value);
+						// is_auth_user_link.text(c_value);
 						FB.api('./me', function(response) {
+							if (response.name != c_value) {
+								document.cookie = "user_id=" + response.name + ";domain=.gokit.tk;path=/";
+								is_auth_user_link.text(response.name);
+							}
+							else if (response.name == c_value) {
+								is_auth_user_link.text(c_value);
+							};
 							user_profile_href.attr('href','./profile.php?id=' + response.id);
 						});
 					}
@@ -105,6 +112,7 @@ var ui = {
 				// 	user_profile_href.attr('href','./profile.php?id=' + response.id);
 				// });
 				is_auth_user.hide();
+				is_auth_user_link.show();
 
 			//set FB.id cookie value
 				var c_id = "fb_id";

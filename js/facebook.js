@@ -11,11 +11,12 @@ function doit(id,name,username) {
 	  type: 'post',
 	  data: {id: id,name:name,username:username},
 	  success: function (data) {
-		console.log(data);
+		console.log(id,name,username,"doit");
 	  }
 	});
   console.log(id,name,username);
-  window.location.reload(true);
+  // window.location.reload(true);
+  ui.isAuthenticated();
 };
 function user_init(){
   FB.login(function(response) {

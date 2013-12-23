@@ -569,6 +569,7 @@ function new_user($id,$name,$username) {
 		$stmt->execute();
 		$user_pk = $pdo->lastInsertId();
 		$pdo->commit();
+		error_log("new_user function was executed",0);
 		// header("Location: ./user.php?q=$user_pk");
 	} catch (Exception $e) {
 		throw new Exception("ID already exists", 1);

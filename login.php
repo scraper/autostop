@@ -7,7 +7,7 @@ connect();
 if (isset($_POST['id'], $_POST['name'], $_POST['username'])) {
 	new_user($_POST['id'],$_POST['name'],$_POST['username']);
 	$usr = array($_POST['id'],$_POST['name'],$_POST['username']);
-
+	
 	echo json_encode($usr);
 }
 else if (isset($_POST['id']) && empty($_POST['name']) && empty($_POST['username'])) {

@@ -53,25 +53,24 @@ var profileBackend = {
 	//if user is authorized in FB enable or disable editing data
 	ifAuthorized: function(fb_id) {
 		var user_id = getUrlParam.init('id');
-		var save_btn = this.config.save_btn;
-		var canDisable = this.config.canDisable;
+		
 		FB.getLoginStatus(function(response) {
 			if(response.status === 'connected') {	
 				FB.api('/me', function(response) {
 					//if logged in user is not the owner of the profile
 					if (response.id != user_id) {
-						canDisable.prop('disabled', true);
-						save_btn.hide();
-						$('#showUserRoutes').text('Маршрути користувача');
+						return false;
 					}
+					else if (response.id == user_id) {
+						return true;
+					};
 				});
 			}
 			else if(response.status === 'not_authorized') {
 				FB.api('/me', function(response) {
 					console.log(response.id, user_id);
 					if (response.id != user_id) {
-						canDisable.prop('disabled', true);
-						save_btn.hide();
+						return false;
 					}
 				});
 			}
@@ -79,8 +78,7 @@ var profileBackend = {
 				FB.api('/me', function(response) {
 					console.log(response.id, user_id);
 					if (response.id != user_id) {
-						canDisable.prop('disabled', true);
-						save_btn.hide();
+						return false;
 					}
 				});				
 			};
