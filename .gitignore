@@ -168,3 +168,6 @@ bootstrap/
 
 #ignore jquery ui folder
 jquery ui/
+
+#ignore test folder
+/test
