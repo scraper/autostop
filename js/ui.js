@@ -147,7 +147,7 @@ var ui = {
 						});
 					}
 					else {
-						$('#user_id').val(c_id_value);
+						// $('#user_id').val(c_id_value);
 					}
 				};
 

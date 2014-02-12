@@ -20,6 +20,7 @@
     <script type="text/javascript" src="/js/search_pagination.js"></script>
     <!-- getUrlParam script -->
     <script type="text/javascript" src="/js/getUrlParam.js"></script>
+    <script type="text/javascript" src="/js/profile_backend.js"></script>
     <!-- Google Fonts -->
  	<link href='http://fonts.googleapis.com/css?family=Lobster|Raleway|Audiowide' rel='stylesheet' type='text/css'>
     

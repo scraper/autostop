@@ -6,7 +6,7 @@ var profile = {
 		this.get_fb_id();
 		this.vehicleInfo();
 		this.initFB();
-		this.ifAuthorized();
+		this.ifUserAuthorized();
 	},
 	//prevent button from submit
 	btn: function() {
@@ -88,40 +88,44 @@ var profile = {
 		$('#picture').attr('src', pictureUrl);
 	},
 	//if user is authorized in FB enable or disable editing data
-	ifAuthorized: function(fb_id) {
-		var user_id = getUrlParam.init('id');
+	ifUserAuthorized: function() {
+		// var user_id = getUrlParam.init('id');
 		var save_btn = this.config.save_btn;
 		var canDisable = this.config.canDisable;
-		FB.getLoginStatus(function(response) {
-			if(response.status === 'connected') {	
-				FB.api('/me', function(response) {
-					//if logged in user is not the owner of the profile
-					if (response.id != user_id) {
-						canDisable.prop('disabled', true);
-						save_btn.hide();
-						$('#showUserRoutes').text('Маршрути користувача');
-					}
-				});
-			}
-			else if(response.status === 'not_authorized') {
-				FB.api('/me', function(response) {
-					console.log(response.id, user_id);
-					if (response.id != user_id) {
-						canDisable.prop('disabled', true);
-						save_btn.hide();
-					}
-				});
-			}
-			else {
-				FB.api('/me', function(response) {
-					console.log(response.id, user_id);
-					if (response.id != user_id) {
-						canDisable.prop('disabled', true);
-						save_btn.hide();
-					}
-				});				
-			};
-		});
+		
+		auth.ifAuthorized(function(model) {
+			console.log(model);
+		})
+		// FB.getLoginStatus(function(response) {
+		// 	if(response.status === 'connected') {	
+		// 		FB.api('/me', function(response) {
+		// 			//if logged in user is not the owner of the profile
+		// 			if (response.id != user_id) {
+		// 				canDisable.prop('disabled', true);
+		// 				save_btn.hide();
+		// 				$('#showUserRoutes').text('Маршрути користувача');
+		// 			}
+		// 		});
+		// 	}
+		// 	else if(response.status === 'not_authorized') {
+		// 		FB.api('/me', function(response) {
+		// 			console.log(response.id, user_id);
+		// 			if (response.id != user_id) {
+		// 				canDisable.prop('disabled', true);
+		// 				save_btn.hide();
+		// 			}
+		// 		});
+		// 	}
+		// 	else {
+		// 		FB.api('/me', function(response) {
+		// 			console.log(response.id, user_id);
+		// 			if (response.id != user_id) {
+		// 				canDisable.prop('disabled', true);
+		// 				save_btn.hide();
+		// 			}
+		// 		});				
+		// 	};
+		// });
 	},	
 	//show user detailes
 	showUserDetailes: function(fb_id) {

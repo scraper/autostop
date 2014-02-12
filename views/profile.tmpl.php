@@ -104,7 +104,6 @@
 		<a href="#" class="btn btn-info" data-dismiss="modal">OK</a>
 	</div>
 </div>
-
-<script type="text/javascript" src="./js/profile.js"></script>
-<script type="text/javascript" src="./js/validation2.js"></script>
+<script type="text/javascript" src="/js/profile.js"></script>
+<script type="text/javascript" src="/js/validation2.js"></script>
 <?php include '_partials/footer.php'; ?>

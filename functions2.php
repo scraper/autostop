@@ -366,7 +366,7 @@ function search($query,$start) {
 }
 //show user routes
 function showUserRoute($uid,$start) {
-	$sqlQuery = "where user_id = (select user_pk from user_table where user_id = " . $uid . ")";
+	$sqlQuery = "where user_id = (select user_pk from user_table where user_id = '" . $uid . "') ";
 	
 	switch ($start) {
 		case null:
