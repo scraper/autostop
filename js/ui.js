@@ -89,7 +89,7 @@ var ui = {
 						FB.api('/me', function(response) {
 							document.cookie = "user_id=" + response.name + ";domain=.gokit.tk;path=/";
 							is_auth_user_link.text(response.name);
-							user_profile_href.attr('href','./profile.php?id=' + response.id);
+							user_profile_href.attr('href','./settings.php?id=' + response.id);
 						});
 					}
 					else {
@@ -102,7 +102,7 @@ var ui = {
 							else if (response.name == c_value) {
 								is_auth_user_link.text(c_value);
 							};
-							user_profile_href.attr('href','./profile.php?id=' + response.id);
+							user_profile_href.attr('href','./settings.php?id=' + response.id);
 						});
 					}
 				};
