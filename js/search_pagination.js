@@ -67,7 +67,7 @@ var pagination = {
 				if (searchQuery != "" && searchQuery != null && (start == "" || start == null)) {
 					request = {"query":searchQuery,"paging":false,"start":null};
 					// console.log(request);
-					window.history.pushState("q","search","search.php?q="+encodeURI(searchQuery));
+					// window.history.pushState("q","search","search.php?q="+encodeURI(searchQuery));
 				}
 				else if (searchQuery != "" && searchQuery != null && start != "" && start != null) {
 					request = {"query":searchQuery,"paging":true,"start":start};

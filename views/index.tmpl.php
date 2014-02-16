@@ -1,6 +1,6 @@
 <?php include '_partials/header.php'; ?>
 
-<script type="text/javascript" src="./js/search.js"></script>
+<!-- <script type="text/javascript" src="./js/search.js"></script> -->
 <style type="text/css">
 .tr {cursor: pointer;}
 .span3:hover {

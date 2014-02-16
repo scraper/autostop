@@ -1,11 +1,20 @@
 <?php include '_partials/header.php'; ?>
+<style type="text/css">
+.tr {cursor: pointer;}
+.panel:hover {
+	-webkit-box-shadow: 0 8px 6px -6px black;
+		-moz-box-shadow: 0 8px 6px -6px black;
+			box-shadow: 0 8px 6px -6px black;
+}
+.thumbnails {cursor: default;}
+</style>
 <ul class="thumbnails">
-	<li class="span2">
+	<li class="span2 panel">
 		<div class="thumbnail">
 			<img id="picture" src="" data-src="holder.js/300x200" alt="">
 		</div>
 	</li>
-	<li class="span5">
+	<li class="span5 panel">
 		<div class="thumbnail">
 			<h4 id="profile_legend"></h4>
 			<div id="controls">
@@ -62,7 +71,7 @@
 			</div>
 		</div>
 	</li>
-	<li class="span5">
+	<li class="span5 panel">
 		<div class="thumbnail">
 			<h4>Останні маршрути:</h4>
 			<table class="table table-hover">
@@ -73,26 +82,13 @@
 			<tbody class="tbody">
 			</tbody>
 			</table>
-			<div class="text-center">
-				<!-- <button id="showUserRoutes" class="btn btn-info">Всі маршрути</button> -->
-				<a href="#" id="showUserRoutes">Всі маршрути...</a>
+			<div style="text-align:center" class="text-center">
+				<a href="" id="showUserRoutes">Всі маршрути...</a>
 			</div>
 		</div>
 	</li>
 </ul>
 
-<div id="myModal" class="modal hide fade in">
-	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-		<h3>Профіль збережено</h3>
-	</div>
-	<div class="modal-body">
-		<p>Ваші дані успішно збережені</p>
-	</div>
-	<div class="modal-footer">
-		<a href="#" class="btn btn-info" data-dismiss="modal">OK</a>
-	</div>
-</div>
 <script type="text/javascript" src="/js/top_routes.js"></script>
 <script type="text/javascript" src="/js/profile.js"></script>
 <script type="text/javascript" src="/js/validation2.js"></script>

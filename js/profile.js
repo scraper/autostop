@@ -1,19 +1,14 @@
 var profile = {
 	init: function(config) {
 		this.config = config;
-		this.btn();
+		this.showAll();
 		this.redirect();
 		this.showUserDetailes();
 		this.vehicleInfo();
 	},
-	//prevent button from submit
-	btn: function() {
-		this.config.save_btn.click(function(e) {
-			e.preventDefault();
-		});
-		this.config.showUserRoutes.click(function(e) {
-			window.location.href = '/search.php?uid=' + getUrlParam.init('id');
-		});
+	//show all routes link
+	showAll: function() {
+		this.config.showUserRoutes.attr('href','/search.php?uid='+getUrlParam.init('id'));
 	},
 	//redirect to register if there is no id in url
 	redirect: function() {
@@ -25,12 +20,6 @@ var profile = {
 	vehicleInfo: function() {
 		var vehicle_info = this.config.vehicle_info;
 		vehicle_info.hide();
-		this.config.driver_1.click(function() {
-			vehicle_info.show('slow');
-		});
-		this.config.driver_0.click(function() {
-			vehicle_info.hide('slow');
-		});
 	},
 	//build url for facebook picture of the user
 	showUserPicture: function(fb_id) {
@@ -107,7 +96,6 @@ var profile = {
 };
 
 profile.init({
-	save_btn: $('#save_btn'),
 	showUserRoutes: $('#showUserRoutes'),
 	profile_legend: $('#profile_legend'),
 	driver: $('#driver'),

@@ -36,10 +36,10 @@ var tops = {
 						s_city_id = s_city_id.substring(0, s_city_id.indexOf(','));
 						e_city_id = e_city_id.substring(0, e_city_id.indexOf(','));
 						if (value['type'] === "0") {
-							$('.tbody').append('<tr class="tr" id="' + value['route_id'] + '"><td>' + s_city_id + '</td><td>' + e_city_id + '</td><td><img title="Пасажир" src="/glyphicons_free/glyphicons/png/glyphicons_003_user.png"></td></tr>');	
+							$('.tbody').append('<tr class="tr" id="' + value['route_id'] + '"><td>' + s_city_id + '</td><td>' + e_city_id + '</td><td><span class="label label-warning">Пасажир</span></td></tr>');	
 						}
 						else if (value['type'] === "1") {
-							$('.tbody').append('<tr class="tr" id="' + value['route_id'] + '"><td>' + s_city_id + '</td><td>' + e_city_id + '</td><td><img title="Водій" src="/glyphicons_free/glyphicons/png/glyphicons_005_car.png"></td></tr>');
+							$('.tbody').append('<tr class="tr" id="' + value['route_id'] + '"><td>' + s_city_id + '</td><td>' + e_city_id + '</td><td><span class="label label-success">Водій</span></tr>');
 						};
 						//click function on the table row
 						$('#'+value['route_id']+'.tr').click(function() {

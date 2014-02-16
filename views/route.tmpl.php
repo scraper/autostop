@@ -114,7 +114,7 @@
 </div>
 
 <script type="text/javascript">
-
+console.log('TEST');
 		var directionsDisplay = new google.maps.DirectionsRenderer();
 		var directionsService = new google.maps.DirectionsService();
 		var map;
