@@ -103,7 +103,6 @@
     </div><!--/.fluid-container-->
 
 </div>
-<!-- <input id="q" type="" value="<?php echo ($q=$_GET['start']);?>"> -->
 <script type="text/javascript" src="/js/search.js"></script>
 <script type="text/javascript" src="/js/search_pagination.js"></script>
 <script src="/js/get_route.js"></script>

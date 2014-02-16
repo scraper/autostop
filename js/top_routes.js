@@ -9,12 +9,17 @@ var tops = {
 		var start = this.config.start;
 		var end = this.config.end;
 		var type = this.config.type;
-		var isTop = true;
+		var uid = getUrlParam.init('id');
+		var request;
+		if (!uid) {
+			uid = null;
+		};
 		this.config.span4_img.hide();
+		request = {isTop:1,uid:uid};
 		$.ajax({
 				url: '/search/index.php',
 				type: 'post',
-				data: {isTop: isTop},
+				data: request,
 				dataType: "JSON",
 				beforeSend: function() {
 					$('#loader').show();
@@ -23,9 +28,9 @@ var tops = {
 					$('#loader').hide();
 				},
 				success: function (data) {
-					console.log(data);
+					console.log(data,request);
 					$('.tbody').html('');
-					$.each(data.objC, function(column,value) {
+					$.each(data.objC[0], function(column,value) {
 						s_city_id = value['s_city_id'];
 						e_city_id = value['e_city_id'];
 						s_city_id = s_city_id.substring(0, s_city_id.indexOf(','));

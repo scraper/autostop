@@ -14,38 +14,44 @@
 						<tbody>
 							<tr>
 								<td>
-									<span class="profile-page" id="driver" name="isDriver"></span>
+									<span class="label label-success profile-page" id="driver" name="isDriver"></span>
 								</td>
 							</tr>
 							<tr id="vehicle_info">
 								<td>
-									<label id="label_vehicle" for="vehicle">Авто (марка, модель):</label>
-									<span class="profile-page" type="text" id="vehicle" name="vehicle"></span>
-									
-									<label id="label_v_color" for="v_color">Колір:</label>
-									<span class="profile-page" type="text" id="v_color" name="v_color"></span>
-									
-									<label id="label_climat" for="climat">Наявність клімат контролю:</label>
-									<span  class="profile-page" id="climat" name="climat"></span>
-									<p></p>
-									
-									<label id="label_experience" for="experience">Стаж водіння:</label>
-									<span class="profile-page" id="experience"></span>
+									<p>
+										<span class="label label-info">Авто (марка, модель):</span>
+										<strong><span class="profile-page" type="text" id="vehicle" name="vehicle"></span></strong>
+									</p>
+									<p>
+										<span class="label label-info">Колір:</span>
+										<strong><span class="profile-page" type="text" id="v_color" name="v_color"></span></strong>
+									</p>
+									<p>
+										<span class="label label-info">Наявність клімат контролю:</span>
+										<strong><span  class="profile-page" id="climat" name="climat"></span></strong>
+									</p>
+									<p>
+										<span class="label label-info">Стаж водіння:</span>
+										<strong><span class="profile-page" id="experience"></span></strong>
+									</p>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<label id="label_smoking" for="smoking">Куріння:</label>
-									<span class="profile-page" id="smoking" name="smoking"></span>
+									<span class="label label-info">Куріння:</span>
+									<strong><span class="profile-page" id="smoking" name="smoking"></span></strong>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<label id="label_email" for="email">E-mail:</label>
-									<span class="profile-page" type="text" id="email" name="email"></span>
-
-									<label id="label_phone" for="phone">Телефон:</label>
-									<span class="profile-page" type="text" id="phone" name="phone"></span>
+									<p>
+										<span class="label label-info">E-mail:</span>
+										<strong><span class="profile-page" type="text" id="email" name="email"></span></strong>
+									</p>
+									
+									<span class="label label-info">Телефон:</span>
+									<strong><span class="profile-page" type="text" id="phone" name="phone"></span></strong>
 								</td>
 							</tr>
 						</tbody>
@@ -59,78 +65,21 @@
 	<li class="span5">
 		<div class="thumbnail">
 			<h4>Останні маршрути:</h4>
-			<div>
-				<button id="showUserRoutes" class="btn btn-info">Всі маршрути</button>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+					</tr>
+				</thead>
+			<tbody class="tbody">
+			</tbody>
+			</table>
+			<div class="text-center">
+				<!-- <button id="showUserRoutes" class="btn btn-info">Всі маршрути</button> -->
+				<a href="#" id="showUserRoutes">Всі маршрути...</a>
 			</div>
 		</div>
 	</li>
 </ul>
-
-<div class="container-fluid">
-	<div class="row-fluid">
-<!-- 		<div class="span3">
-			<div>
-				<h4 id="profile_legend"></h4>
-				<img id="picture" src="" style="border-radius:5px">
-			</div>
-			<p></p>
-			<div>
-				<button id="showUserRoutes" class="btn btn-info">Маршрути користувача</button>
-			</div>
-		</div>	 -->	
-		<div class="span5">
-			<!-- <h4>Мої дані:</h4>			 -->
-
-<!-- 			<div id="controls">
-				<form id="form">
-					<table class="table table-hover">
-						<tbody>
-							<tr>
-								<td>
-									<span class="profile-page" id="driver" name="isDriver"></span>
-								</td>
-							</tr>
-							<tr id="vehicle_info">
-								<td>
-									<label id="label_vehicle" for="vehicle">Авто (марка, модель):</label>
-									<span class="span12 profile-page" type="text" id="vehicle" name="vehicle"></span>
-									
-									<label id="label_v_color" for="v_color">Колір:</label>
-									<span class="span12 profile-page" type="text" id="v_color" name="v_color"></span>
-									
-									<label id="label_climat" for="climat">Наявність клімат контролю:</label>
-									<span  class="profile-page" id="climat" name="climat"></span>
-									<p></p>
-									
-									<label id="label_experience" for="experience">Стаж водіння:</label>
-									<span class="span12 profile-page" id="experience"></span>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<label id="label_smoking" for="smoking">Куріння:</label>
-									<span class="profile-page" id="smoking" name="smoking"></span>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<label id="label_email" for="email">E-mail:</label>
-									<span class="span12 profile-page" type="text" id="email" name="email"></span>
-
-									<label id="label_phone" for="phone">Телефон:</label>
-									<span class="span12 profile-page" type="text" id="phone" name="phone"></span>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					
-					
-				</form>
-			</div> -->
-		</div>
-		
-	</div>
-</div>
 
 <div id="myModal" class="modal hide fade in">
 	<div class="modal-header">
@@ -144,6 +93,7 @@
 		<a href="#" class="btn btn-info" data-dismiss="modal">OK</a>
 	</div>
 </div>
+<script type="text/javascript" src="/js/top_routes.js"></script>
 <script type="text/javascript" src="/js/profile.js"></script>
 <script type="text/javascript" src="/js/validation2.js"></script>
 <?php include '_partials/footer.php'; ?>

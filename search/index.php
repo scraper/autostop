@@ -30,13 +30,13 @@ elseif (isset($_POST['s_city'], $_POST['s_date'])) {
 	$res = array('objB'=>advanced_search($s_city, $e_city, $s_date, $e_date, $type));
 	echo json_encode($res);
 }
-elseif (isset($_POST['uid'])) {
+elseif (isset($_POST['uid']) && empty($_POST['isTop'])) {
 	$uid = $_POST['uid'];
 	$start = $_POST['start'];
 	$res = array('objB'=>showUserRoute($uid,$start)[0],'objD'=>showUserRoute($uid,$start)[1]);
 	echo json_encode($res);
 }
 elseif (empty($_GET['q']) && $_POST['isTop'] == true) {
-	$top = array('objB'=>[],'objC'=>top_routes());
+	$top = array('objC'=>top_routes($_POST['uid']));
 	echo json_encode($top);
 };
