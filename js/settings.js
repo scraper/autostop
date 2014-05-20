@@ -18,10 +18,14 @@ var profile = {
 		});
 	},
 	//redirect to register if there is no id in url
-	redirect: function() {
+	redirect: function(redirectTo) {
 		if (getUrlParam.init('id') == "" || getUrlParam.init('id') == null) {
 			window.location.href = '/register';
 		}
+		else if (redirectTo != null) {
+			window.location.href = redirectTo;
+		}
+
 	},
 	//show or hide vehicle_info div
 	vehicleInfo: function() {
@@ -84,7 +88,7 @@ var profile = {
 	},
 	//build url for facebook picture of the user
 	showUserPicture: function(fb_id) {
-		var pictureUrl = "https://graph.facebook.com/" + fb_id + "/picture?width=200&height=200";
+		var pictureUrl = "https://graph.facebook.com/" + fb_id + "/picture?width=150&height=150";
 		$('#picture').attr('src', pictureUrl);
 	},
 	//if user is authorized in FB enable or disable editing data
@@ -95,7 +99,14 @@ var profile = {
 		
 		auth.ifAuthorized(function(model) {
 			console.log(model);
+			auth_status = model;
+			if (model == false) {
+				canDisable.prop('disabled',true);
+				profile.redirect('/profile.php?id=' + getUrlParam.init('id'));
+			}
 		})
+
+
 		// FB.getLoginStatus(function(response) {
 		// 	if(response.status === 'connected') {	
 		// 		FB.api('/me', function(response) {

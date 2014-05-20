@@ -1,7 +1,7 @@
 <?php
 
 //getting json result from google maps and pushing to array route info, new.php
-function get_json($origin, $destination, $seats, $price, $type, $date, $fb_id) {
+function get_json($origin, $destination, $waypoint_0, $waypoint_1, $waypoint_2, $waypoint_3, $waypoint_4, $seats, $price, $type, $date, $fb_id) {
 	if(isset($origin,$destination)) {
 		$or_city_name = explode(' ',trim($origin));
 		$origin_city_name = $or_city_name[0];
@@ -19,7 +19,7 @@ function get_json($origin, $destination, $seats, $price, $type, $date, $fb_id) {
 	$start = $output["routes"][0]["legs"][0]["start_address"];
 	$end = $output["routes"][0]["legs"][0]["end_address"];
 	global $result;
-	$result = array($start, $end, $seats, $price, $type, $date, $fb_id);
+	$result = array($start, $end, $waypoint_0, $waypoint_1, $waypoint_2, $waypoint_3, $waypoint_4, $seats, $price, $type, $date, $fb_id);
 	/*return $result;*/
 	/*print_r($result);*/
 }
@@ -49,7 +49,8 @@ function new_route() {
 			");
 			$stmt->bindParam(':start_c', $result[0], PDO::PARAM_STR);
 			$stmt->execute();
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			
 		};
 		
@@ -59,15 +60,36 @@ function new_route() {
 				");
 			$stmt->bindParam(':end_c',$result[1], PDO::PARAM_STR);
 			$stmt->execute();
-		} catch (Exception $e) {
+		} 
+		catch (Exception $e) {
 			
+		};
+		try {
+			$stmt = $pdo->prepare("
+				insert into waypoints (waypoint_id,waypoint_id,waypoint_id,waypoint_id,waypoint_id,)
+				values (:waypoint_0,:waypoint_1,:waypoint_2,:waypoint_3,:waypoint_4);
+				");
+			$stmt->bindParam(':waypoint_0',$result[2], PDO::PARAM_STR);
+			$stmt->bindParam(':waypoint_1',$result[3], PDO::PARAM_STR);
+			$stmt->bindParam(':waypoint_2',$result[4], PDO::PARAM_STR);
+			$stmt->bindParam(':waypoint_3',$result[5], PDO::PARAM_STR);
+			$stmt->bindParam(':waypoint_4',$result[6], PDO::PARAM_STR);
+			$stmt->execute();
+		}
+		catch (Exception $e) {
+
 		};
 
 
 		$stmt = $pdo->prepare("
-			insert into routes (s_city, e_city, seats, price, type, date, fb_id)
+			insert into routes (s_city, e_city, waypoint_0, waypoint_1, waypoint_2, waypoint_3, waypoint_4, seats, price, type, date, fb_id)
 			values ( 	(select s_city_pk from s_city where s_city_id like :start),
 						(select e_city_pk from e_city where e_city_id like :end),
+						(select waypoint_pk from waypoints where waypoint_0 like :waypoint_0),
+						(select waypoint_pk from waypoints where waypoint_1 like :waypoint_1),
+						(select waypoint_pk from waypoints where waypoint_2 like :waypoint_2),
+						(select waypoint_pk from waypoints where waypoint_3 like :waypoint_3),
+						(select waypoint_pk from waypoints where waypoint_4 like :waypoint_4),
         				:seats, :price, :type, :date,
         				(select user_pk from user_table where user_id = :fb_id));
 			");
@@ -76,11 +98,16 @@ function new_route() {
 
 		$stmt->bindParam(':start',$s, PDO::PARAM_STR);
 		$stmt->bindParam(':end',$e, PDO::PARAM_STR);
-		$stmt->bindParam(':seats',$result[2], PDO::PARAM_INT);
-		$stmt->bindParam(':price',$result[3], PDO::PARAM_INT);
-		$stmt->bindParam(':type',$result[4], PDO::PARAM_STR);
-		$stmt->bindParam(':date',$result[5], PDO::PARAM_STR);
-		$stmt->bindParam(':fb_id',$result[6], PDO::PARAM_STR);
+		$stmt->bindParam(':waypoint_0',$result[2], PDO::PARAM_STR);
+		$stmt->bindParam(':waypoint_1',$result[3], PDO::PARAM_STR);
+		$stmt->bindParam(':waypoint_2',$result[4], PDO::PARAM_STR);
+		$stmt->bindParam(':waypoint_3',$result[5], PDO::PARAM_STR);
+		$stmt->bindParam(':waypoint_4',$result[6], PDO::PARAM_STR);
+		$stmt->bindParam(':seats',$result[7], PDO::PARAM_INT);
+		$stmt->bindParam(':price',$result[8], PDO::PARAM_INT);
+		$stmt->bindParam(':type',$result[9], PDO::PARAM_STR);
+		$stmt->bindParam(':date',$result[10], PDO::PARAM_STR);
+		$stmt->bindParam(':fb_id',$result[11], PDO::PARAM_STR);
 		$stmt->execute();
 		$route_pk = $pdo->lastInsertId();
 		//newr_route.log - user_id, route_id
@@ -105,9 +132,14 @@ function new_route() {
 		// file_put_contents($file, $e, FILE_APPEND | LOCK_EX);
 		try {
 			$stmt = $pdo->prepare("
-			insert into routes (s_city, e_city, seats, price, type, date, user_id)
+			insert into routes (s_city, e_city, waypoint_0, waypoint_1, waypoint_2, waypoint_3, waypoint_4, seats, price, type, date, user_id)
 			values ( 	(select s_city_pk from s_city where s_city_id like :start),
 						(select e_city_pk from e_city where e_city_id like :end),
+						(select waypoint_pk from waypoints where waypoint_id like :waypoint_0),
+						(select waypoint_pk from waypoints where waypoint_id like :waypoint_1),
+						(select waypoint_pk from waypoints where waypoint_id like :waypoint_2),
+						(select waypoint_pk from waypoints where waypoint_id like :waypoint_3),
+						(select waypoint_pk from waypoints where waypoint_id like :waypoint_4),
         				:seats, :price, :type, :date, 
         				(select user_pk from user_table where user_id = :fb_id));
 			");
@@ -116,11 +148,16 @@ function new_route() {
 
 			$stmt->bindParam(':start',$s, PDO::PARAM_STR);
 			$stmt->bindParam(':end',$e, PDO::PARAM_STR);
-			$stmt->bindParam(':seats',$result[2], PDO::PARAM_INT);
-			$stmt->bindParam(':price',$result[3], PDO::PARAM_INT);
-			$stmt->bindParam(':type',$result[4], PDO::PARAM_STR);
-			$stmt->bindParam(':date',$result[5], PDO::PARAM_STR);
-			$stmt->bindParam(':fb_id',$result[6], PDO::PARAM_STR);
+			$stmt->bindParam(':waypoint_0',$result[2], PDO::PARAM_STR);
+			$stmt->bindParam(':waypoint_1',$result[3], PDO::PARAM_STR);
+			$stmt->bindParam(':waypoint_2',$result[4], PDO::PARAM_STR);
+			$stmt->bindParam(':waypoint_3',$result[5], PDO::PARAM_STR);
+			$stmt->bindParam(':waypoint_4',$result[6], PDO::PARAM_STR);
+			$stmt->bindParam(':seats',$result[7], PDO::PARAM_INT);
+			$stmt->bindParam(':price',$result[8], PDO::PARAM_INT);
+			$stmt->bindParam(':type',$result[9], PDO::PARAM_STR);
+			$stmt->bindParam(':date',$result[10], PDO::PARAM_STR);
+			$stmt->bindParam(':fb_id',$result[11], PDO::PARAM_STR);
 			$stmt->execute();
 			$route_pk = $pdo->lastInsertId();
 			//newr_route.log - user_id, route_id

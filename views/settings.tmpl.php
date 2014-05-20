@@ -10,7 +10,7 @@
 			<p></p>
 			<div>
 				<button id="showUserRoutes" class="btn btn-info">Мої маршрути</button>
-				<button id="save_btn" class="btn btn-success" onclick="saveUserDetailes()">Зберегти</button>
+				<button id="save_btn" class="btn btn-success profile-page" onclick="saveUserDetailes()">Зберегти</button>
 			</div>
 		</div>		
 		<div class="span5">

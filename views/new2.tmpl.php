@@ -29,9 +29,37 @@
                                     <button class="btn btn-info" id="idriver">Я-Водій</button>
                                     <button class="btn btn-success" id="ipassngr">Я-Пасажир</button>
                                 </div>
+                                <button class="btn" id="add_waypts" title="Додати проміжний пункт"><i class="icon-plus"></i></button>
 								<label id="a" for="start">Відправляюсь з міста:</label>
 								<input class="span12 validate" type="text" id="start" name="origin" onkeypress="calcRoute();" onchange="calcRoute();" onblur="calcRoute();" onfocus="calcRoute();"/>
-								<label id="b" for="end">Їду в місто:</label>
+                                <div class="waypoints">
+                                    <div class="span12 input-append waypoint" id="waypoint_0" style="margin-left:0">
+                                        <label id="0" for="waypoint0">Через 1:</label>
+                                        <input class="span12" type="text" id="waypoint0" name="waypoint_0" style="width:376px;" onkeypress="calcRoute();" onchange="calcRoute();" onblur="calcRoute();" onfocus="calcRoute();"/>
+                                        <button id="rem0" class="btn remove" type="button"><i class="icon-minus"></i></button>
+                                    </div>
+                                    <div class="span12 input-append waypoint" id="waypoint_1" style="margin-left:0">
+                                        <label id="1" for="waypoint1">Через 2:</label>
+                                        <input class="span12" type="text" id="waypoint1" name="waypoint_1" style="width:376px;" onkeypress="calcRoute();" onchange="calcRoute();" onblur="calcRoute();" onfocus="calcRoute();"/>
+                                        <button id="rem1" class="btn remove" type="button"><i class="icon-minus"></i></button>
+                                    </div>
+                                    <div class="span12 input-append waypoint" id="waypoint_2" style="margin-left:0">
+                                        <label id="2" for="waypoint2">Через 3:</label>
+                                        <input class="span12" type="text" id="waypoint2" name="waypoint_2" style="width:376px;" onkeypress="calcRoute();" onchange="calcRoute();" onblur="calcRoute();" onfocus="calcRoute();"/>
+                                        <button id="rem2" class="btn remove" type="button"><i class="icon-minus"></i></button>
+                                    </div>
+                                    <div class="span12 input-append waypoint" id="waypoint_3" style="margin-left:0">
+                                        <label id="3" for="waypoint3">Через 4:</label>
+                                        <input class="span12" type="text" id="waypoint3" name="waypoint_3" style="width:376px;" onkeypress="calcRoute();" onchange="calcRoute();" onblur="calcRoute();" onfocus="calcRoute();"/>
+                                        <button id="rem3" class="btn remove" type="button"><i class="icon-minus"></i></button>
+                                    </div>
+                                    <div class="span12 input-append waypoint" id="waypoint_4" style="margin-left:0">
+                                        <label id="4" for="waypoint4">Через 5:</label>
+                                        <input class="span12" type="text" id="waypoint4" name="waypoint_4" style="width:376px;" onkeypress="calcRoute();" onchange="calcRoute();" onblur="calcRoute();" onfocus="calcRoute();"/>
+                                        <button id="rem4" class="btn remove" type="button"><i class="icon-minus"></i></button>
+                                    </div>
+                                </div>
+                                <label id="b" for="end">Їду в місто:</label>
 								<input class="span12 validate" type="text" id="end" name="destination" onkeypress="calcRoute();" onchange="calcRoute();" onblur="calcRoute();" onfocus="calcRoute();"/>
 							    <label for="date">Відправлення</label>
                                 <input class="span12 validate" type="text" id="dp1" name="date" onkeypress="calcRoute();" onchange="calcRoute();" onblur="calcRoute();" onfocus="calcRoute();">

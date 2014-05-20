@@ -3,6 +3,7 @@ var ui = {
 		this.config = config;
 		this.date();
 		this.whoIam();
+		this.addWaypts();
 		// this.initFB();
 		// this.login();
 		this.get_fb_id();
@@ -19,6 +20,54 @@ var ui = {
 		this.config.date_input.attr('Value', date);
 		this.config.date_input.datepicker({
 				format: 'yyyy-mm-dd'});
+	},
+
+	addWaypts: function() {
+		var rem0 = this.config.rem0;
+		var rem1 = this.config.rem1;
+		var rem2 = this.config.rem2;
+		var rem3 = this.config.rem3;
+		var rem4 = this.config.rem4;
+		var waypoint0 = this.config.waypoint0;
+		var waypoint1 = this.config.waypoint1;
+		var waypoint2 = this.config.waypoint2;
+		var waypoint3 = this.config.waypoint3;
+		var waypoint4 = this.config.waypoint4;
+		var add_waypts = this.config.add_waypts;
+
+		$('.waypoint').hide();
+		add_waypts.click(function(e){
+			e.preventDefault();
+			var hidden = $('.waypoints').find(':hidden').not('script');
+			console.log($('div.waypoint').length,hidden.first().index());
+			hidden.first().index();
+			hidden.first().show();
+		});
+		rem0.click(function(){
+			rem0.closest('div').hide();
+			waypoint0.val(null);
+			calcRoute();
+		});
+		rem1.click(function(){
+			rem1.closest('div').hide();
+			waypoint1.val(null);
+			calcRoute();
+		});
+		rem2.click(function(){
+			rem2.closest('div').hide();
+			waypoint2.val(null);
+			calcRoute();
+		});
+		rem3.click(function(){
+			rem3.closest('div').hide();
+			waypoint3.val(null);
+			calcRoute();
+		});
+		rem4.click(function(){
+			rem4.closest('div').hide();
+			waypoint4.val(null);
+			calcRoute();
+		});
 	},
 
 	whoIam: function() {
@@ -177,5 +226,17 @@ ui.init({
 	is_smoking: $('#smoking_1'),
 	no_smoking: $('#smoking_0'),
 	email: $('#email'),
-	phone: $('#phone')
+	phone: $('#phone'),
+	add_waypts: $('#add_waypts'),
+
+	rem0: $('#rem0'),
+	rem1: $('#rem1'),
+	rem2: $('#rem2'),
+	rem3: $('#rem3'),
+	rem4: $('#rem4'),
+	waypoint0: $('#waypoint0'),
+	waypoint1: $('#waypoint1'),
+	waypoint2: $('#waypoint2'),
+	waypoint3: $('#waypoint3'),
+	waypoint4: $('#waypoint4'),
 });

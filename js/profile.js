@@ -23,7 +23,7 @@ var profile = {
 	},
 	//build url for facebook picture of the user
 	showUserPicture: function(fb_id) {
-		var pictureUrl = "https://graph.facebook.com/" + fb_id + "/picture?type=large";
+		var pictureUrl = "https://graph.facebook.com/" + fb_id + "/picture?heigth=150&width=150";
 		$('#picture').attr('src', pictureUrl);
 	},
 	//show user detailes

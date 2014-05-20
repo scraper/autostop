@@ -27,10 +27,26 @@ var directionsDisplay;
 		function calcRoute() {
 		  var start = document.getElementById("start").value;
 		  var end = document.getElementById("end").value;
+		  var waypts = [];
+
+		  for (var i=0;i<=4;i++) {
+		  	if (document.getElementById("waypoint"+i).value != "") {
+			  	waypts.push({
+			  		location:document.getElementById("waypoint"+i).value,
+			  		stopover:true
+			  	});
+			  	console.log(waypts);
+		  	}
+		  	else if (document.getElementById("waypoint"+i) == "") {
+		  		waypts.splice(i-1,1);
+		  	}
+		  };
+		  
 		  var request = {
 		    origin:start,
 		    destination:end,
-		    waypoints: [],
+		    waypoints: waypts,
+		    optimizeWaypoints: true,
 		    travelMode: google.maps.TravelMode.DRIVING
 		  };
 		  directionsService.route(request, function(result, status) {
@@ -79,7 +95,36 @@ var directionsDisplay;
 			};
 
 			autocomplete = new google.maps.places.Autocomplete(input, options);
+		
+		var input = document.getElementById("waypoint0");
+			var options = {
+				types: ['(cities)']
+			};
+			autocomplete = new google.maps.places.Autocomplete(input, options);
 
+		var input = document.getElementById("waypoint1");
+			var options = {
+				types: ['(cities)']
+			};
+			autocomplete = new google.maps.places.Autocomplete(input, options);
+
+		var input = document.getElementById("waypoint2");
+			var options = {
+				types: ['(cities)']
+			};
+			autocomplete = new google.maps.places.Autocomplete(input, options);
+
+		var input = document.getElementById("waypoint3");
+			var options = {
+				types: ['(cities)']
+			};
+			autocomplete = new google.maps.places.Autocomplete(input, options);
+
+		var input = document.getElementById("waypoint4");
+			var options = {
+				types: ['(cities)']
+			};
+			autocomplete = new google.maps.places.Autocomplete(input, options);
 		
 // build_route.onclick = calcRoute;
 // $('#start').on('change', calcRoute);

@@ -710,3 +710,321 @@ Route was added:139
 Added by user_id:100000152656098
 Route was added:140
 Added by user_id:100000152656098
+exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'test.routes' doesn't exist' in E:\Dropbox\Dev\autostop\functions2.php:124
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(124): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(9): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('pOuMjzlheXr', 'USA', '0', '1', 'ifutiz@zxnobr.c...', '75374588988', '2 \xC3\x91\xC2\x80\xC3\x90\xC2\xBE\xC3\x90\xC2\xBA\xC3...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:124
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(124): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(9): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:124
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(124): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(9): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:124
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(124): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(9): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:256
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(256): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(13): new_route_unregistered('', '', NULL, NULL, '', '', '\xD0\xBC\xD0\xB5\xD0\xBD\xD1\x88\xD0\xB5 1 \xD1\x80...')
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1366 Incorrect integer value: '' for column 'price' at row 2' in E:\Dropbox\Dev\autostop\functions2.php:124
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(124): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+Route was added:141
+Added by user_id:100000152656098
+exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'waypoint_0' in 'where clause'' in E:\Dropbox\Dev\autostop\functions2.php:140
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(140): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'waypoint_0' in 'where clause'' in E:\Dropbox\Dev\autostop\functions2.php:140
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(140): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'waypoint_0' in 'where clause'' in E:\Dropbox\Dev\autostop\functions2.php:140
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(140): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'waypoint_0' in 'where clause'' in E:\Dropbox\Dev\autostop\functions2.php:140
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(140): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1' in E:\Dropbox\Dev\autostop\functions2.php:140
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(140): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1' in E:\Dropbox\Dev\autostop\functions2.php:141
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(141): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+Route was added:142
+Added by user_id:2014-04-27
+Route was added:143
+Added by user_id:2014-05-21
+Route was added:144
+Added by user_id:
