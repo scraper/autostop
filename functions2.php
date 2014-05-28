@@ -16,6 +16,11 @@ function get_json($origin, $destination, $waypoint_0, $waypoint_1, $waypoint_2, 
 	if (empty($seats)) {
 		$seats = 0;
 	}
+	if(empty($waypoint_0)) {$waypoint_0=null;};
+	if(empty($waypoint_1)) {$waypoint_1=null;};
+	if(empty($waypoint_2)) {$waypoint_2=null;};
+	if(empty($waypoint_3)) {$waypoint_3=null;};
+	if(empty($waypoint_4)) {$waypoint_4=null;};
 	$start = $output["routes"][0]["legs"][0]["start_address"];
 	$end = $output["routes"][0]["legs"][0]["end_address"];
 	global $result;
@@ -66,20 +71,63 @@ function new_route() {
 		};
 		try {
 			$stmt = $pdo->prepare("
-				insert into waypoints (waypoint_id,waypoint_id,waypoint_id,waypoint_id,waypoint_id,)
-				values (:waypoint_0,:waypoint_1,:waypoint_2,:waypoint_3,:waypoint_4);
+				insert into waypoints (waypoint_id)
+				values (:waypoint_0);
 				");
 			$stmt->bindParam(':waypoint_0',$result[2], PDO::PARAM_STR);
-			$stmt->bindParam(':waypoint_1',$result[3], PDO::PARAM_STR);
-			$stmt->bindParam(':waypoint_2',$result[4], PDO::PARAM_STR);
-			$stmt->bindParam(':waypoint_3',$result[5], PDO::PARAM_STR);
-			$stmt->bindParam(':waypoint_4',$result[6], PDO::PARAM_STR);
 			$stmt->execute();
 		}
 		catch (Exception $e) {
 
 		};
 
+		try {
+			$stmt = $pdo->prepare("
+				insert into waypoints (waypoint_id)
+				values (:waypoint_1);
+				");
+			$stmt->bindParam(':waypoint_1',$result[3], PDO::PARAM_STR);
+			$stmt->execute();
+		}
+		catch (Exception $e) {
+
+		};
+
+		try {
+			$stmt = $pdo->prepare("
+				insert into waypoints (waypoint_id)
+				values (:waypoint_2);
+				");
+			$stmt->bindParam(':waypoint_2',$result[4], PDO::PARAM_STR);
+			$stmt->execute();
+		}
+		catch (Exception $e) {
+
+		};
+
+		try {
+			$stmt = $pdo->prepare("
+				insert into waypoints (waypoint_id)
+				values (:waypoint_3);
+				");
+			$stmt->bindParam(':waypoint_3',$result[5], PDO::PARAM_STR);
+			$stmt->execute();
+		}
+		catch (Exception $e) {
+
+		};
+		
+		try {
+			$stmt = $pdo->prepare("
+				insert into waypoints (waypoint_id)
+				values (:waypoint_4);
+				");
+			$stmt->bindParam(':waypoint_4',$result[6], PDO::PARAM_STR);
+			$stmt->execute();
+		}
+		catch (Exception $e) {
+		
+		};
 
 		$stmt = $pdo->prepare("
 			insert into routes (s_city, e_city, waypoint_0, waypoint_1, waypoint_2, waypoint_3, waypoint_4, seats, price, type, date, fb_id)
@@ -118,7 +166,7 @@ function new_route() {
 		file_put_contents($file, $route_log_id, FILE_APPEND | LOCK_EX);
 		$route_log_msg_user_id = "\r\nAdded by user_id:";
 		file_put_contents($file, $route_log_msg_user_id, FILE_APPEND | LOCK_EX);
-		file_put_contents($file, $result[6], FILE_APPEND | LOCK_EX);
+		file_put_contents($file, $result[11], FILE_APPEND | LOCK_EX);
 		$pdo->commit();
 		header("Location: /route.php?q=$route_pk");
 
@@ -168,7 +216,7 @@ function new_route() {
 			file_put_contents($file, $route_log_id, FILE_APPEND | LOCK_EX);
 			$route_log_msg_user_id = "\r\nAdded by user_id:";
 			file_put_contents($file, $route_log_msg_user_id, FILE_APPEND | LOCK_EX);
-			file_put_contents($file, $result[6], FILE_APPEND | LOCK_EX);
+			file_put_contents($file, $result[11], FILE_APPEND | LOCK_EX);
 			$pdo->commit();
 			header("Location: /route.php?q=$route_pk");
 		}

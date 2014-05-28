@@ -34,7 +34,35 @@ var ui = {
 		var waypoint3 = this.config.waypoint3;
 		var waypoint4 = this.config.waypoint4;
 		var add_waypts = this.config.add_waypts;
+		// $('#submit_btn').click(function(e){
+		// 	e.preventDefault();
+		// 	var request;
+		// 	request= {
+		// 		"origin":$('#start').val(),
+		// 		"destination":$('#end').val(),
+		// 		"fb_id":$('#route_user_id').val(),
+		// 		"waypoint_0":waypoint0.val(),
+		// 		"waypoint_1":waypoint1.val(),
+		// 		"waypoint_2":waypoint2.val(),
+		// 		"waypoint_3":waypoint3.val(),
+		// 		"waypoint_4":waypoint4.val(),
+		// 		"seats":$('#seats_i').val(),
+		// 		"price":$('#prices').val(),
+		// 		"type":$('#type').val(),
+		// 		"date":$('#dp1').val()
+		// 	};
+		// 	console.log(request);
+		// 	$.ajax({
+		// 		url:'/new.php',
+		// 		type:'post',
+		// 		data:request,
+		// 		dataType:"JSON",
+		// 		success: function(data) {
 
+		// 		}
+
+		// 	})
+		// });
 		$('.waypoint').hide();
 		add_waypts.click(function(e){
 			e.preventDefault();

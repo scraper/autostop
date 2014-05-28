@@ -1028,3 +1028,167 @@ Route was added:143
 Added by user_id:2014-05-21
 Route was added:144
 Added by user_id:
+Route was added:145
+Added by user_id:
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Луцьк, Волинська область, Україна' for key 'waypoint_id'' in E:\Dropbox\Dev\autostop\functions2.php:77
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(77): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+Route was added:146
+Added by user_id:100000152656098
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'waypoint_id'' in E:\Dropbox\Dev\autostop\functions2.php:77
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(77): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+Route was added:147
+Added by user_id:100000152656098
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'waypoint_id'' in E:\Dropbox\Dev\autostop\functions2.php:77
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(77): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+Route was added:148
+Added by user_id:100000152656098
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Луцьк, Волинська область, Україна' for key 'waypoint_id'' in E:\Dropbox\Dev\autostop\functions2.php:77
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(77): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'price' cannot be null' in E:\Dropbox\Dev\autostop\functions2.php:164
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(164): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Луцьк, Волинська область, Україна' for key 'waypoint_id'' in E:\Dropbox\Dev\autostop\functions2.php:77
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(77): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'price' cannot be null' in E:\Dropbox\Dev\autostop\functions2.php:164
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(164): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Луцьк, Волинська область, Україна' for key 'waypoint_id'' in E:\Dropbox\Dev\autostop\functions2.php:77
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(77): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'price' cannot be null' in E:\Dropbox\Dev\autostop\functions2.php:164
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(164): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'waypoint_id'' in E:\Dropbox\Dev\autostop\functions2.php:77
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(77): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:164
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(164): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'waypoint_id'' in E:\Dropbox\Dev\autostop\functions2.php:77
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(77): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:164
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(164): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'waypoint_id'' in E:\Dropbox\Dev\autostop\functions2.php:77
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(77): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:164
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(164): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'waypoint_id'' in E:\Dropbox\Dev\autostop\functions2.php:77
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(77): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:164
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(164): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'waypoint_id'' in E:\Dropbox\Dev\autostop\functions2.php:77
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(77): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1242 Subquery returns more than 1 row' in E:\Dropbox\Dev\autostop\functions2.php:164
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(164): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'waypoint_id'' in E:\Dropbox\Dev\autostop\functions2.php:77
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(77): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+Route was added:149
+Added by user_id:100000152656098
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'waypoint_id'' in E:\Dropbox\Dev\autostop\functions2.php:77
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(77): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+Route was added:150
+Added by user_id:100000152656098
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Луцьк, Волинська область, Україна' for key 'waypoint_id'' in E:\Dropbox\Dev\autostop\functions2.php:74
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(74): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+Route was added:151
+Added by user_id:100000152656098
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Луцьк, Волинська область, Україна' for key 'waypoint_id'' in E:\Dropbox\Dev\autostop\functions2.php:74
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(74): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+Route was added:152
+Added by user_id:100000152656098
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Луцьк, Волинська область, Україна' for key 'waypoint_id'' in E:\Dropbox\Dev\autostop\functions2.php:74
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(74): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+Route was added:153
+Added by user_id:100000152656098
+Route was added:154
+Added by user_id:100000152656098
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '8-89-90-90-90' for key 'waypoint_1'' in E:\Dropbox\Dev\autostop\functions2.php:204
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(204): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '8-89-90-90-90' for key 'waypoint_1'' in E:\Dropbox\Dev\autostop\functions2.php:204
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(204): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '8-89-90-90-90' for key 'waypoint_1'' in E:\Dropbox\Dev\autostop\functions2.php:204
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(204): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '8-89-90-90-90' for key 'waypoint_1'' in E:\Dropbox\Dev\autostop\functions2.php:204
+Stack trace:
+#0 E:\Dropbox\Dev\autostop\functions2.php(204): PDOStatement->execute()
+#1 E:\Dropbox\Dev\autostop\new.php(21): new_route()
+#2 {main}
+Route was added:159
+Added by user_id:100000152656098
+Route was added:160
+Added by user_id:100000152656098
