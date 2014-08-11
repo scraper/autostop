@@ -36,6 +36,10 @@
 						<td id="start"></td>
 					</tr>
 					<tr>
+						<td>Зупинки:</td>
+						<td id="waypoints"></td>
+					</tr>
+					<tr>
 						<td>До:</td>
 						<td id="end"></td>
 					</tr>
@@ -114,7 +118,6 @@
 </div>
 
 <script type="text/javascript">
-console.log('TEST');
 		var directionsDisplay = new google.maps.DirectionsRenderer();
 		var directionsService = new google.maps.DirectionsService();
 		var map;
@@ -130,21 +133,74 @@ console.log('TEST');
 		  map = new google.maps.Map(document.getElementById("map"), myOptions);
 		  directionsDisplay.setMap(map);
 		}
-
 		function calcRoute() {
-		  var start = $('#start_val').val();
-		  var end = $('#end_val').val();
-		  var request = {
-		    origin:start,
-		    destination:end,
-		    travelMode: google.maps.TravelMode.DRIVING
-		  };
-		  directionsService.route(request, function(result, status) {
-		    if (status == google.maps.DirectionsStatus.OK) {
-		      directionsDisplay.setDirections(result);
-		    }
+		  var waypts = [];
+		  var q = getUrlParam.init("q");
+		  $.ajax({
+		  	url:'/route/index.php',
+		  	type:'get',
+		  	data:{q:q},
+		  	success: function(data) {
+		  		console.log(data);
+		  		if (data.objA.waypoint_0 != "" && data.objA.waypoint_0 != null) {
+			  		waypts.push({
+			  			location:data.objA.waypoint_0,
+						stopover:true
+		  			});
+		  		};
+		  		if (data.objA.waypoint_1 != "" && data.objA.waypoint_1 != null){
+		  			waypts.push({
+		  				location:data.objA.waypoint_1,
+		  				stopover:true
+		  			});
+		  		};
+		  		if (data.objA.waypoint_2 != "" && data.objA.waypoint_2 != null){
+		  			waypts.push({
+		  				location:data.objA.waypoint_2,
+		  				stopover:true
+		  			});
+		  		};
+		  		if (data.objA.waypoint_3 != "" && data.objA.waypoint_3 != null){
+		  			waypts.push({
+		  				location:data.objA.waypoint_3,
+		  				stopover:true
+		  			});
+		  		};
+		  		if (data.objA.waypoint_4 != "" && data.objA.waypoint_4 != null){
+		  			waypts.push({
+		  				location:data.objA.waypoint_4,
+		  				stopover:true
+		  			});
+		  		};
+				var request = {
+			    	origin:data.objA.s_city_id,
+			    	destination:data.objA.e_city_id,
+			    	waypoints: waypts,
+			    	optimizeWaypoints: true,
+			    	travelMode: google.maps.TravelMode.DRIVING
+		  		};
+		  		directionsService.route(request, function(result, status) {
+		    		if (status == google.maps.DirectionsStatus.OK) {
+		      			directionsDisplay.setDirections(result);
+		    		}
+		  		});
+		  	}
 		  });
 		}
+		// function calcRoute() {
+		//   var start = $('#start_val').val();
+		//   var end = $('#end_val').val();
+		//   var request = {
+		//     origin:start,
+		//     destination:end,
+		//     travelMode: google.maps.TravelMode.DRIVING
+		//   };
+		//   directionsService.route(request, function(result, status) {
+		//     if (status == google.maps.DirectionsStatus.OK) {
+		//       directionsDisplay.setDirections(result);
+		//     }
+		//   });
+		// }
 		setTimeout(
 			function(){
 				calcRoute();

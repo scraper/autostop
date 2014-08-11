@@ -475,24 +475,6 @@ function showUserRoute($uid,$start) {
 			return core_search($sqlQuery,$start);
 			break;
 	};
-	// if ($start == null) {
-	// 	$start = "0";
-	// 	if ($uid != "" && $uid != null) {
-			
-	// 		return core_search($sqlQuery,$start);
-	// 	}
-	// 	else {
-	// 		return false;
-	// 	};
-	// }
-	// elseif ($start != null) {
-	// 	if ($uid != "" && $uid != null) {
-	// 		return core_search($sqlQuery,$start);
-	// 	}
-	// 	else {
-	// 		return false;
-	// 	};
-	// };
 }
 
 function advanced_search($s_city,$e_city,$s_date,$e_date,$type) {
@@ -540,7 +522,12 @@ function render_route($id) {
 					routes.date,
 					routes.user_id,
 					s_city.s_city_id, 
-					e_city.e_city_id, 
+					e_city.e_city_id,
+					(select waypoints.waypoint_id from waypoints where routes.waypoint_0 = waypoint_pk) waypoint_0,
+					(select waypoints.waypoint_id from waypoints where routes.waypoint_1 = waypoint_pk) waypoint_1,
+					(select waypoints.waypoint_id from waypoints where routes.waypoint_2 = waypoint_pk) waypoint_2,
+					(select waypoints.waypoint_id from waypoints where routes.waypoint_3 = waypoint_pk) waypoint_3,
+					(select waypoints.waypoint_id from waypoints where routes.waypoint_4 = waypoint_pk) waypoint_4,
 					user_table.name, 
 					user_table.vehicle, 
 					user_table.v_color,
@@ -552,6 +539,7 @@ function render_route($id) {
 				from routes
 				join s_city on routes.s_city = s_city.s_city_pk
 				join e_city on routes.e_city = e_city.e_city_pk
+
 				join user_table on routes.user_id = user_table.user_pk
 				where routes.route_id = :q;
 				');

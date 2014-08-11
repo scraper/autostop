@@ -23,8 +23,10 @@
     <script type="text/javascript" src="/js/profile_backend.js"></script>
     <!-- Google Fonts -->
  	<link href='http://fonts.googleapis.com/css?family=Lobster|Raleway|Audiowide' rel='stylesheet' type='text/css'>
-    
-	<link rel="stylesheet" type="text/css" href="/bootstrap/assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/bootstrap-3.2.0/css/bootstrap.css">
+	<!-- <link rel="stylesheet" type="text/css" href="/bootstrap/assets/css/bootstrap.css"> -->
+    <link rel="stylesheet" type="text/css" href="/floating-labels/floating-labels.css">
+    <script type="text/javascript" src="/floating-labels/floating-labels.js"></script>
 	<style type="text/css">
       body {
         padding-top: 15px;
@@ -40,8 +42,8 @@
         color: #0088cc;
       }
     </style>
-	<link rel="stylesheet" type="text/css" href="/bootstrap/assets/css/datepicker.css">
-	<link rel="stylesheet" type="text/css" href="/bootstrap/assets/css/bootstrap-responsive.css">
+	<link rel="stylesheet" type="text/css" href="/bootstrap-3.2.0/css/datepicker.css">
+<!-- 	<link rel="stylesheet" type="text/css" href="/bootstrap-3.2.0/assets/css/bootstrap-responsive.css"> -->
 
 	
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
@@ -52,21 +54,20 @@
 
 <body>
 
-<div class="container">
-	<div class="navbar">
-        <div class="navbar-inner">
+<div class="container-fluid">
+    <nav class="navbar navbar-default" role="navigation">
             <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
 
-                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
-
-                <a class="brand" style="font-family:'Lobster', cursive; color: green;" href="/">drivefull</a>
-                <div class="nav-collapse">
-                    <ul class="nav">
-                        <li class="divider-vertical"></li>
+                <a class="navbar-brand" style="font-family:'Lobster', cursive; color: green;" href="/">drivefull</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Маршрути
                             <b class="caret"></b></a>
@@ -92,16 +93,13 @@
                         </li>
                     </ul>
                     <ul class="nav pull-right">
-                        <form id="top_menu_search" class="navbar-search" action="search.php" method="get">
-                            <input id="search_h" name="q" type="text" class="search-query" placeholder="Пошук" autocomplete="off">
-                            <i id="search_ico" class="icon-search"></i>
-                            
+                        <form id="top_menu_search" class="navbar-form navbar-left" role="search" action="search.php" method="get">
+                            <div class="form-group">
+                                <input id="search_h" name="q" type="text" class="form-control" style="width:350px" placeholder="Пошук" autocomplete="off">
+                                <span id="search_ico" class="glyphicon glyphicon-search"></span>
+                            </div>
                         </form>
                     </ul>
                 </div>
             </div>
-        </div>
-    </div>
-
-<div class="container">
-    <div class="container">
+    </nav>

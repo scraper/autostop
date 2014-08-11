@@ -15,6 +15,7 @@ var route = {
 		var user_id = this.config.user_id;
 		var start = this.config.start;
 		var end = this.config.end;
+		var waypoints = this.config.waypoints;
 		var date = this.config.date;
 		var price = this.config.price;
 		var seats = this.config.seats;
@@ -48,6 +49,7 @@ var route = {
 
 					start.text(data.objA.s_city_id);
 					end.text(data.objA.e_city_id);
+					waypoints.text(data.objA.waypoint_0);
 					price.text(data.objA.price);
 					date.text(data.objA.date);
 					// type.text(data.objA.type);
@@ -121,6 +123,7 @@ route.init({
 //dom elements declaration
 start: $('#start'),
 end: $('#end'),
+waypoints: $('#waypoints'),
 date: $('#date'),
 price: $('#price'),
 seats: $('#seats'),
