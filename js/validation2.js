@@ -17,7 +17,7 @@ function validation() {
 		$('#submit_btn').popover('show');
 		$('.popover-inner').css({'width':'auto'});
 		if ($(this).val() != null && $(this).val() != "") {
-			$(elem).css({'border':'1px solid #CCC'});
+			$(elem).css({'border':'0px solid #CCC'});
 			arr.push(index);
 			
 		}

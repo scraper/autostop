@@ -4,6 +4,7 @@
     
     <script type="text/javascript" src="/bootstrap-3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/bootstrap-3.2.0/js/bootstrap-typeahead.js"></script>
+    <!-- <script type="text/javascript" src="/bootstrap-3.2.0/js/typeahead.jquery.min.js"></script -->
     <script type="text/javascript" src="/js/ui.js"></script>
 </div>
 </body>

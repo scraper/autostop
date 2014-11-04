@@ -37,10 +37,11 @@ var ui = {
 		$('.waypoint').hide();
 		add_waypts.click(function(e){
 			e.preventDefault();
-			var hidden = $('.waypoints').find(':hidden').not('script');
+			var hidden = $('.waypoints').find('div:hidden').not('script');
 			console.log($('div.waypoint').length,hidden.first().index());
 			hidden.first().index();
 			hidden.first().show();
+			calcRoute();
 		});
 		rem0.click(function(){
 			rem0.closest('div').hide();

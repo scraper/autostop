@@ -23,8 +23,9 @@
     <script type="text/javascript" src="/js/profile_backend.js"></script>
     <!-- Google Fonts -->
  	<link href='http://fonts.googleapis.com/css?family=Lobster|Raleway|Audiowide' rel='stylesheet' type='text/css'>
+    <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="/bootstrap-3.2.0/css/bootstrap.css">
-	<!-- <link rel="stylesheet" type="text/css" href="/bootstrap/assets/css/bootstrap.css"> -->
+    <!-- floating labels -->
     <link rel="stylesheet" type="text/css" href="/floating-labels/floating-labels.css">
     <script type="text/javascript" src="/floating-labels/floating-labels.js"></script>
 	<style type="text/css">
@@ -43,8 +44,6 @@
       }
     </style>
 	<link rel="stylesheet" type="text/css" href="/bootstrap-3.2.0/css/datepicker.css">
-<!-- 	<link rel="stylesheet" type="text/css" href="/bootstrap-3.2.0/assets/css/bootstrap-responsive.css"> -->
-
 	
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">

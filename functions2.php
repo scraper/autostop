@@ -160,6 +160,9 @@ function new_route() {
 		$route_pk = $pdo->lastInsertId();
 		//newr_route.log - user_id, route_id
 		$file = 'new_route.log';
+		date_default_timezone_set('Europe/Kiev');
+		$time = date('d.m.Y h:i:s H',time());
+		file_put_contents($file, $time, FILE_APPEND | LOCK_EX);
 		$route_log_msg = "\r\nRoute was added:";
 		file_put_contents($file, $route_log_msg, FILE_APPEND | LOCK_EX);
 		$route_log_id = $route_pk;
@@ -210,6 +213,9 @@ function new_route() {
 			$route_pk = $pdo->lastInsertId();
 			//newr_route.log - user_id, route_id
 			$file = 'new_route.log';
+			date_default_timezone_set('Europe/Kiev');
+			$time = date('d.m.Y h:i:s H',time());
+			file_put_contents($file, $time, FILE_APPEND | LOCK_EX);
 			$route_log_msg = "\r\nRoute was added:";
 			file_put_contents($file, $route_log_msg, FILE_APPEND | LOCK_EX);
 			$route_log_id = $route_pk;
@@ -222,6 +228,9 @@ function new_route() {
 		}
 		catch (PDOException $e) {
 			$file = 'new_route.log';
+			date_default_timezone_set('Europe/Kiev');
+			$time = date('d.m.Y h:i:s H',time());
+			file_put_contents($file, $time, FILE_APPEND | LOCK_EX);
 			$new_line = "\r\n";
 			file_put_contents($file, $new_line, FILE_APPEND | LOCK_EX);
 			file_put_contents($file, $e, FILE_APPEND | LOCK_EX);
@@ -256,6 +265,9 @@ function new_route_unregistered($vehicle, $v_color, $climat, $smoking, $email, $
 		$user_pk = $pdo->lastInsertId();
 	} catch (Exception $e) {
 		$file = 'new_route.log';
+		date_default_timezone_set('Europe/Kiev');
+		$time = date('d.m.Y h:i:s H',time());
+		file_put_contents($file, $time, FILE_APPEND | LOCK_EX);
 		$route_log_msg = "\r\nUnregistered user data was not saved because of unknown error";
 		file_put_contents($file, $route_log_msg, FILE_APPEND | LOCK_EX);
 	};
@@ -302,6 +314,9 @@ function new_route_unregistered($vehicle, $v_color, $climat, $smoking, $email, $
 		$route_pk = $pdo->lastInsertId();
 		//newr_route.log - user_id, route_id
 		$file = 'new_route.log';
+		date_default_timezone_set('Europe/Kiev');
+		$time = date('d.m.Y h:i:s H',time());
+		file_put_contents($file, $time, FILE_APPEND | LOCK_EX);
 		$route_log_msg = "\r\nRoute was added:";
 		file_put_contents($file, $route_log_msg, FILE_APPEND | LOCK_EX);
 		$route_log_id = $route_pk;
@@ -342,6 +357,9 @@ function new_route_unregistered($vehicle, $v_color, $climat, $smoking, $email, $
 			$route_pk = $pdo->lastInsertId();
 			//newr_route.log - user_id, route_id
 			$file = 'new_route.log';
+			date_default_timezone_set('Europe/Kiev');
+			$time = date('d.m.Y h:i:s H',time());
+			file_put_contents($file, $time, FILE_APPEND | LOCK_EX);
 			$route_log_msg = "\r\nRoute was added:";
 			file_put_contents($file, $route_log_msg, FILE_APPEND | LOCK_EX);
 			$route_log_id = $route_pk;
@@ -354,6 +372,9 @@ function new_route_unregistered($vehicle, $v_color, $climat, $smoking, $email, $
 		}
 		catch (PDOException $e) {
 			$file = 'new_route.log';
+			date_default_timezone_set('Europe/Kiev');
+			$time = date('d.m.Y h:i:s H',time());
+			file_put_contents($file, $time, FILE_APPEND | LOCK_EX);
 			$new_line = "\r\n";
 			file_put_contents($file, $new_line, FILE_APPEND | LOCK_EX);
 			file_put_contents($file, $e, FILE_APPEND | LOCK_EX);
